@@ -1,4 +1,4 @@
-# Render blueprint for the FastAPI backend (free tier). In Render: New > Blueprint > this repo,
+# Render blueprint for the FastAPI backend (free tier). Runs from the repo root (no rootDir): the backend imports analyzer.py, rules.py and data/ from there. In Render: New > Blueprint > this repo,
 # then set GROQ_API_KEY (from console.groq.com) in the service's Environment tab.
 services:
   - type: web

@@ -19,7 +19,8 @@ from pathlib import Path
 from playwright.async_api import async_playwright
 
 DIST = Path(__file__).resolve().parents[1] / "frontend" / "dist"
-SUBPATH = "atliq-contract-analyzer"
+# Serve under the repo name, like GitHub Pages does (e.g. /atliq-contract-analyzer-v2/).
+SUBPATH = os.environ.get("GITHUB_REPOSITORY", "SatishJ12/atliq-contract-analyzer-v2").split("/")[-1]
 PORT = 8765
 
 

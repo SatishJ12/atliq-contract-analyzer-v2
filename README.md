@@ -136,11 +136,11 @@ The original Streamlit app still works: `pip install -r requirements.txt && stre
 **Frontend → GitHub Pages.** `.github/workflows/deploy.yml` runs on every push to `main`:
 1. **test**: golden cases, API and judge tests, and a Streamlit `AppTest` render.
 2. **build**: exports the demo data from the Python pipeline, builds the React app, and runs `site/smoke_check.py` in headless Chromium (desktop and phone width) to check the Gulf Crown review, the Al Noor conflict and the judge sample render with no JS errors and no sideways scroll.
-3. **deploy**: publishes `frontend/dist` to `https://satishj12.github.io/atliq-contract-analyzer/`.
+3. **deploy**: publishes `frontend/dist` to `https://satishj12.github.io/<repo-name>/` (for this repo, `https://satishj12.github.io/atliq-contract-analyzer-v2/`).
 
 One-time setup: **Settings → Pages → Source: GitHub Actions**.
 
-**Backend → Render (free).** In Render choose **New → Blueprint**, pick this repo (it reads `render.yaml`), and set `GROQ_API_KEY` in the service's Environment tab. Render also generates `ATLIQ_ACCESS_TOKEN`: copy it from the Environment tab into the site's ⚙ settings (Access token), because the AI modes and Ask return 401 without it. Rules mode stays open. `ATLIQ_RATE_LIMIT_PER_HOUR` (default 10 AI runs per IP) and `ATLIQ_DAILY_LLM_LIMIT` (default 200, after which reviews fall back to rules) cap spend, repeat reviews of the same text are served from a cache, and `ATLIQ_CORS_ORIGINS` defaults to the GitHub Pages site. Then in GitHub add a repository variable **Settings → Secrets and variables → Actions → Variables → `ATLIQ_API_URL`** = the Render URL and re-run the workflow. Railway works the same way with start command `uvicorn backend.main:app --host 0.0.0.0 --port $PORT`.
+**Backend → Render (free).** In Render choose **New → Blueprint**, pick this repo (it reads `render.yaml`), and set `GROQ_API_KEY` in the service's Environment tab. Render also generates `ATLIQ_ACCESS_TOKEN`: copy it from the Environment tab into the site's ⚙ settings (Access token), because the AI modes and Ask return 401 without it. Rules mode stays open. `ATLIQ_RATE_LIMIT_PER_HOUR` (default 10 AI runs per IP) and `ATLIQ_DAILY_LLM_LIMIT` (default 200, after which reviews fall back to rules) cap spend, repeat reviews of the same text are served from a cache, and `ATLIQ_CORS_ORIGINS` defaults to the GitHub Pages site. Then in GitHub add a repository variable **Settings → Secrets and variables → Actions → Variables → `ATLIQ_API_URL`** = the Render URL and re-run the workflow. If you create the service by hand instead (**New → Web Service**), deploy from the repo root: leave **Root Directory** blank, set **Build Command** to `pip install -r backend/requirements.txt` and **Start Command** to `uvicorn backend.main:app --host 0.0.0.0 --port $PORT`, and add the same environment variables. The backend imports `analyzer.py`, `rules.py` and `data/` from the root, so a `backend/` root directory will not start. Railway works the same way.
 
 The API key lives only on the backend, never in the static site. The site can also be pointed at a backend from the ⚙ button in its header. Render's free tier sleeps when idle, so the first request can take up to a minute; the site shows the offline demo if the backend does not answer.
 
@@ -175,7 +175,7 @@ The API key lives only on the backend, never in the static site. The site can al
 
 ## API key and models (Groq)
 
-The AI layer runs on [Groq](https://console.groq.com) through its OpenAI-compatible chat API (`pip install groq`). Create a key under **API Keys** in the Groq console (the free tier works, and an existing key from another project can be reused) and set it as `GROQ_API_KEY`: in your shell for local runs, in Render's Environment tab for the deployed backend, or in `.streamlit/secrets.toml` for the v1 Streamlit app. The key only ever lives on the server; the frontend never sees it. Without a key everything runs in rules + register mode.
+The AI layer runs on [Groq](https://console.groq.com) through its OpenAI-compatible chat API (`pip install groq`). Create a key under **API Keys** in the Groq console (the free tier works, and an existing key from another project can be reused) and set it as `GROQ_API_KEY`: in your shell for local runs, in Render's Environment tab for the deployed backend (the v1 Streamlit app reads the same variable). The key only ever lives on the server; the frontend never sees it. Without a key everything runs in rules + register mode.
 
 | Role | Default model | Override |
 |---|---|---|
