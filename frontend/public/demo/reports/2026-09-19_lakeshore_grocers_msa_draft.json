@@ -1,0 +1,180 @@
+{
+ "filename": "2026-09-19_lakeshore_grocers_msa_draft.md",
+ "counterparty": "Lakeshore Grocers Inc",
+ "title": "Master Services Agreement",
+ "profile": {
+  "doc_type": "MSA",
+  "is_nda": false,
+  "atliq_entity": "Inc",
+  "atliq_role": "supplier",
+  "counterparty_country": "USA",
+  "governing_law": "State of Illinois"
+ },
+ "tracker": [
+  {
+   "contract_id": "C-026",
+   "counterparty": "Lakeshore Grocers Inc",
+   "doc_type": "SOW + rate card",
+   "atliq_entity": "Inc",
+   "client_country": "USA",
+   "requested_by": "Jay",
+   "received_date": "2026-09-19",
+   "status": "In review",
+   "signed_date": "",
+   "expiry_date": "",
+   "value_usd": "64000",
+   "file_location": "Jay email",
+   "restrictive_clauses": "",
+   "notes": "by 3 Oct. Jay gave sharper rate to win it - $72/hr senior DE, Dhaval ok'd on a call"
+  }
+ ],
+ "verdict": "Do not sign yet: 1 blocking issue to resolve",
+ "verdict_level": "blockers",
+ "escalate": [
+  "Conflict with a signed commitment and no waiver on file"
+ ],
+ "counts": {
+  "High": 1,
+  "Medium": 1,
+  "Low": 0,
+  "Info": 1
+ },
+ "value_usd": 64000.0,
+ "deadline": "2026-10-03",
+ "days_left": 5,
+ "findings": [
+  {
+   "category": "Prior commitment",
+   "severity": "High",
+   "title": "Rate below Crestline's MFN floor \u2014 triggers retroactive credit",
+   "explanation": "Crestline MSA cl. 6.4 (AtliQ Inc and Affiliates, until 31 Jul 2027) guarantees Crestline rates no worse than any other customer for similar services. This draft offers: Senior Data Engineer $72/hr vs Crestline $85/hr; Data Engineer $55/hr vs Crestline $62/hr; BI Developer $50/hr vs Crestline $58/hr. Crestline would be owed the difference retroactively and can audit (cl. 6.5).",
+   "suggestion": "Either hold the rate at the Crestline floor, restructure the discount (e.g. a fixed-fee milestone or volume rebate) after counsel checks it is not 'substantially similar', or price the Crestline credit into the deal.",
+   "clause_ref": "2024-08-01_crestline_retail_msa.md cl. 6.4",
+   "quote": "Supplier represents and warrants that the rates, fees and other commercial terms offered to Crestline under this Agreement are and shall remain no less favorable than those offered by Supplier or its Affiliates to any other customer for substantially similar services during the Term. If, during the Term, Supplier or any of its Affiliates offers lower rates to any other customer for substantially similar services, Supplier shall promptly notify Crestline, and such lower rates shall apply to Crestline retroactively",
+   "precedent": "Dhaval: 'We never discount, so it's harmless \u2014 fine.' (Jul 2024). The $72 Lakeshore rate was 'ok'd on a call'.",
+   "source": "register",
+   "verified": true,
+   "id": "f-4c8ff7f566",
+   "section": "commitments",
+   "critical": true
+  },
+  {
+   "category": "Insurance",
+   "severity": "Medium",
+   "title": "Insurance requirement up to $2,000,000",
+   "explanation": "Confirm AtliQ's current policies meet these limits before signing.",
+   "suggestion": "Check the policy schedule; negotiate limits to what AtliQ already holds.",
+   "clause_ref": "14.4",
+   "quote": "14.4 **Insurance.** Vendor shall maintain commercial general liability ($1,000,000) and professional liability ($2,000,000) insurance.",
+   "precedent": "",
+   "source": "rules",
+   "verified": true,
+   "id": "f-3d670c3c2a",
+   "section": "rules",
+   "critical": false
+  },
+  {
+   "category": "Liquidated damages",
+   "severity": "Info",
+   "title": "Delay clause matches AtliQ's standard",
+   "explanation": "Capped, milestone-based, client delays excluded: the same position Karandeep negotiated with Acme, Northwind and Trustline.",
+   "suggestion": "",
+   "clause_ref": "11.1",
+   "quote": "11.1 If Vendor fails to complete a milestone by the date specified in the SOW due to causes attributable to Vendor, Lakeshore may assess liquidated damages of one-half percent (0.5%) of the affected Milestone Fee per week of delay, up to a maximum of five percent (5%) of that Milestone Fee.",
+   "precedent": "Acme / Northwind / Trustline: 0.5% of milestone per week, cap 5%, client delays excluded.",
+   "source": "rules",
+   "verified": true,
+   "id": "f-aa362b8a1b",
+   "section": "rules",
+   "critical": false
+  }
+ ],
+ "required_docs": [],
+ "bundle": [
+  {
+   "id": "C-026",
+   "doc_type": "SOW + rate card",
+   "status": "In review",
+   "signed": "",
+   "notes": "by 3 Oct. Jay gave sharper rate to win it - $72/hr senior DE, Dhaval ok'd on a call"
+  }
+ ],
+ "precedents": [
+  {
+   "draft_ref": "14.2",
+   "draft_text": "14.2 **Non-Solicitation.** Neither party shall solicit the other's employees engaged in the Services during the term and for twelve (12) months thereafter.",
+   "signed_source": "2025-01-22_paytrack_technologies_msa.md",
+   "signed_ref": "13.1",
+   "signed_text": "13.1 Neither Party shall solicit for employment the other Party's employees engaged in the Services during the term and for twelve (12) months thereafter.",
+   "score": 0.68
+  },
+  {
+   "draft_ref": "14.4",
+   "draft_text": "14.4 **Insurance.** Vendor shall maintain commercial general liability ($1,000,000) and professional liability ($2,000,000) insurance.",
+   "signed_source": "2024-08-01_crestline_retail_msa.md",
+   "signed_ref": "14.1",
+   "signed_text": "14.1 Supplier shall maintain commercial general liability insurance of at least $1,000,000 per occurrence, professional liability (errors and omissions) insurance of at least $2,000,000, and workers' compensation insurance as required by law.",
+   "score": 0.67
+  },
+  {
+   "draft_ref": "5.4",
+   "draft_text": "5.4 Termination of this Agreement shall not affect any SOW then in effect, which shall continue to be governed by this Agreement until completed or terminated.",
+   "signed_source": "2025-04-18_sunrise_foods_msa.md",
+   "signed_ref": "6.4",
+   "signed_text": "6.4 Expiry or termination of this Agreement shall not affect any SOW then in force, which shall continue to be governed by this Agreement until its completion.",
+   "score": 0.62
+  },
+  {
+   "draft_ref": "5.4",
+   "draft_text": "5.4 Termination of this Agreement shall not affect any SOW then in effect, which shall continue to be governed by this Agreement until completed or terminated.",
+   "signed_source": "2024-08-01_crestline_retail_msa.md",
+   "signed_ref": "4.2",
+   "signed_text": "4.2 Work Orders in effect at expiry shall continue to be governed by this Agreement until completed or terminated.",
+   "score": 0.58
+  },
+  {
+   "draft_ref": "9.2",
+   "draft_text": "9.2 EACH PARTY'S AGGREGATE LIABILITY UNDER THIS AGREEMENT SHALL NOT EXCEED THE FEES PAID OR PAYABLE UNDER THE APPLICABLE SOW IN THE TWELVE (12) MONTHS PRECEDING THE CLAIM, EXCEPT FOR BREACH OF CONFIDENTIALITY, INDEMNIFICATION OBLIGATIONS, OR GROSS NEGLIGENCE OR WILLFUL MISCONDUCT.",
+   "signed_source": "2025-04-28_rohan_iyer_contractor_agreement.md",
+   "signed_ref": "8.1",
+   "signed_text": "8.1 Each party's aggregate liability under this Agreement shall not exceed the total fees paid or payable to the Contractor in the twelve (12) months preceding the claim, except for breach of Clause 6 or fraud.",
+   "score": 0.57
+  },
+  {
+   "draft_ref": "9.2",
+   "draft_text": "9.2 EACH PARTY'S AGGREGATE LIABILITY UNDER THIS AGREEMENT SHALL NOT EXCEED THE FEES PAID OR PAYABLE UNDER THE APPLICABLE SOW IN THE TWELVE (12) MONTHS PRECEDING THE CLAIM, EXCEPT FOR BREACH OF CONFIDENTIALITY, INDEMNIFICATION OBLIGATIONS, OR GROSS NEGLIGENCE OR WILLFUL MISCONDUCT.",
+   "signed_source": "2024-08-01_crestline_retail_msa.md",
+   "signed_ref": "12.2",
+   "signed_text": "12.2 EXCEPT FOR BREACH OF SECTION 7 OR A PARTY'S INDEMNIFICATION OBLIGATIONS, EACH PARTY'S AGGREGATE LIABILITY SHALL NOT EXCEED THE FEES PAID OR PAYABLE BY CRESTLINE UNDER THIS AGREEMENT IN THE TWELVE (12) MONTHS PRECEDING THE CLAIM.",
+   "score": 0.55
+  },
+  {
+   "draft_ref": "14.2",
+   "draft_text": "14.2 **Non-Solicitation.** Neither party shall solicit the other's employees engaged in the Services during the term and for twelve (12) months thereafter.",
+   "signed_source": "2025-04-18_sunrise_foods_msa.md",
+   "signed_ref": "15.1",
+   "signed_text": "15.1 Neither Party shall solicit the employees of the other Party engaged in the Services during the term of the relevant SOW and six (6) months thereafter.",
+   "score": 0.55
+  },
+  {
+   "draft_ref": "11.1",
+   "draft_text": "11.1 If Vendor fails to complete a milestone by the date specified in the SOW due to causes attributable to Vendor, Lakeshore may assess liquidated damages of one-half percent (0.5%) of the affected Milestone Fee per week of delay, up to a maximum of five percent (5%) of that Milestone Fee.",
+   "signed_source": "2026-08-15_trustline_nbfc_msa.md",
+   "signed_ref": "7.1",
+   "signed_text": "7.1 If the Service Provider fails to complete any Milestone by the date specified in the SOW for reasons solely attributable to the Service Provider, the Service Provider shall pay liquidated damages of 0.5% (zero point five percent) of the Milestone Fee of the delayed Milestone for each completed week of delay.",
+   "score": 0.5
+  }
+ ],
+ "context_notes": [
+  {
+   "name": "2026-09-22_internal_contract_queue.md",
+   "body": "# Internal \u2014 contract queue (ad-hoc, 22 Sep)\nPresent: Karandeep, Bhavin, Dhaval, Jay\n\nCalled because three people chased Karandeep on the same morning.\n\nQueue as of today (from Jay's list on the whiteboard):\n- Harrington (Dhaval) \u2014 $210k, US, their paper \u2014 by **1 Oct**\n- Lakeshore (Jay) \u2014 $64k, US \u2014 by **3 Oct**\n- BlueOrchid pilot (Jay) \u2014 $38k \u2014 by **5 Oct**\n- Gulf Crown (Bhavin) \u2014 $140k, Saudi \u2014 by **10 Oct**\n- TravelHub (Karandeep) \u2014 $52k, Dubai \u2014 no date\n- Rheinwerk (Bhavin) \u2014 \u20ac88k, Munich \u2014 draft arriving tomorrow, by **15 Oct**\n- Sunrise SOW-2 (Dhaval) \u2014 $45k \u2014 Meera sending this week, wants by **8 Oct**\n\nDiscussion:\n- Karandeep: reviewing late at night after calls, 10pm onwards. A client-paper MSA takes him 3\u20134 hrs properly. \"Harrington alone is a whole evening and I haven't started.\"\n- Dhaval raised ShopSwift \u2014 SOW sat 9 days in July waiting for review, Elena's budget slipped a quarter. \"We lost that one to our own queue.\"\n- Volume: Bhavin reckons last year was ~5 contracts/month, this year ~9 (MSAs, SOWs, NDAs, DPAs, amendments). Only Karandeep signs.\n- Went through Gulf Crown headline terms. Midway Karandeep stopped: \"didn't we sign something with the Dubai hotel people that stops us doing hotels in the Gulf?\"\n- Nobody could find the Al Noor contract quickly \u2014 Dhaval searched the shared drive, not there. Karandeep thinks it's in his email \"somewhere\".\n- Bhavin: \"I think that expired, no? It was a 2025 thing.\" Karandeep not sure.\n- Jay: \"is there a list of what we've agreed to not do?\" \u2014 silence.\n- Dhaval asked if we should send Harrington to counsel. Karandeep: \"it's $210k, but Mehta Rao takes a week.\" Not decided.\n- Bhavin: Gulf Crown can't slip, Faisal has a summit on the 14th.\n\nKarandeep will go through them this weekend.\n\n*(No owner, order of review, or deadline per contract was agreed. The Al Noor contract was not located during the meeting.)*"
+  }
+ ],
+ "llm_summary": "",
+ "llm_questions": [],
+ "llm_used": false,
+ "llm_error": "",
+ "judge": null,
+ "mode": "demo"
+}

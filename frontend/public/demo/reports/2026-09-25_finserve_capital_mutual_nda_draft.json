@@ -1,0 +1,188 @@
+{
+ "filename": "2026-09-25_finserve_capital_mutual_nda_draft.md",
+ "counterparty": "FinServe Capital",
+ "title": "Mutual Non-Disclosure Agreement",
+ "profile": {
+  "doc_type": "Mutual NDA",
+  "is_nda": true,
+  "atliq_entity": "Pvt Ltd",
+  "atliq_role": "nda",
+  "counterparty_country": "India",
+  "governing_law": "India"
+ },
+ "tracker": [
+  {
+   "contract_id": "C-036",
+   "counterparty": "FinServe Capital",
+   "doc_type": "Mutual NDA",
+   "atliq_entity": "Pvt Ltd",
+   "client_country": "India",
+   "requested_by": "Karandeep",
+   "received_date": "2026-09-25",
+   "status": "In review",
+   "signed_date": "",
+   "expiry_date": "",
+   "value_usd": "",
+   "file_location": "Karandeep email",
+   "restrictive_clauses": "",
+   "notes": "Arjun: 'our standard mutual NDA' - needed before 1 Oct data walkthrough. K: will sign tonight"
+  }
+ ],
+ "verdict": "Do not sign yet: 2 blocking issues to resolve",
+ "verdict_level": "blockers",
+ "escalate": [],
+ "counts": {
+  "High": 2,
+  "Medium": 0,
+  "Low": 2,
+  "Info": 0
+ },
+ "value_usd": 0.0,
+ "deadline": "2026-10-01",
+ "days_left": 3,
+ "findings": [
+  {
+   "category": "NDA",
+   "severity": "High",
+   "title": "'Mutual' NDA that only binds AtliQ",
+   "explanation": "The title says mutual, but AtliQ is defined as the 'Recipient' and Confidential Information is only what the other side discloses. AtliQ's own architecture and pricing shared in the walkthrough would be unprotected.",
+   "suggestion": "Rewrite with reciprocal definitions (Disclosing Party / Receiving Party apply to both).",
+   "clause_ref": "Parties / 1.2",
+   "quote": "**ATLIQ TECHNOLOGIES PRIVATE LIMITED**, a company incorporated under the Companies Act, 2013 (CIN U72900MH2019PTC321456; GSTIN 27AAKCA4821F1Z3), having its registered office at 4th Floor, Baner Business Bay, Pune 411045, Maharashtra, India (the\u2026",
+   "precedent": "GlobalMart (Mar 2026): they sent one-way, K: 'We only sign mutual \u2014 we'll be sharing our architecture too.' They agreed.",
+   "source": "rules",
+   "verified": true,
+   "id": "f-cb48ba8085",
+   "section": "rules",
+   "critical": false
+  },
+  {
+   "category": "Restrictive covenant",
+   "severity": "High",
+   "title": "Non-compete hidden inside an NDA",
+   "explanation": "This clause stops AtliQ serving the counterparty's competitors after the NDA ends. That is a business restriction, not confidentiality, and it would join the commitment register.",
+   "suggestion": "Delete. Confidentiality obligations already protect their information.",
+   "clause_ref": "8.1",
+   "quote": "8.1 In order to protect the Confidential Information, the Recipient shall not, during the term of this Agreement and for a period of twelve (12) months after its termination, provide services similar to those contemplated by the Proposed Transaction to any Competitor.",
+   "precedent": "",
+   "source": "rules",
+   "verified": true,
+   "id": "f-1ea15446fa",
+   "section": "rules",
+   "critical": false
+  },
+  {
+   "category": "NDA",
+   "severity": "Low",
+   "title": "6-hour breach notification",
+   "explanation": "Very short notification window for a services vendor.",
+   "suggestion": "Ask for 'without undue delay and in any event within 72 hours'.",
+   "clause_ref": "6.2",
+   "quote": "6.2 The Recipient shall comply with the Digital Personal Data Protection Act, 2023 in respect of any personal data forming part of the Confidential Information, and shall notify the Company of any personal data breach within six (6) hours.",
+   "precedent": "",
+   "source": "rules",
+   "verified": true,
+   "id": "f-973c8413a9",
+   "section": "rules",
+   "critical": false
+  },
+  {
+   "category": "NDA",
+   "severity": "Low",
+   "title": "Confidentiality lasts forever",
+   "explanation": "Perpetual obligations are hard to administer; 3-5 years (trade secrets longer) is AtliQ's usual term.",
+   "suggestion": "Limit to 3-5 years from disclosure, trade secrets for as long as they remain secret.",
+   "clause_ref": "7.2",
+   "quote": "7.2 The obligations of the Recipient under this Agreement shall survive termination and shall continue in perpetuity.",
+   "precedent": "",
+   "source": "rules",
+   "verified": true,
+   "id": "f-df2021ae3e",
+   "section": "rules",
+   "critical": false
+  }
+ ],
+ "required_docs": [],
+ "bundle": [
+  {
+   "id": "C-036",
+   "doc_type": "Mutual NDA",
+   "status": "In review",
+   "signed": "",
+   "notes": "Arjun: 'our standard mutual NDA' - needed before 1 Oct data walkthrough. K: will sign tonight"
+  }
+ ],
+ "precedents": [
+  {
+   "draft_ref": "1.1",
+   "draft_text": "1.1 \"**Affiliate**\" means any entity that controls, is controlled by or is under common control with a Party.",
+   "signed_source": "2024-08-01_crestline_retail_msa.md",
+   "signed_ref": "1.1",
+   "signed_text": "1.1 \"**Affiliate**\" means any entity that directly or indirectly controls, is controlled by, or is under common control with a Party, where \"control\" means ownership of more than fifty percent (50%) of the voting interests of the entity or the power to direct its management.",
+   "score": 0.59
+  },
+  {
+   "draft_ref": "11.4",
+   "draft_text": "11.4 This Agreement shall be governed by the laws of India, and the courts at Mumbai shall have exclusive jurisdiction.",
+   "signed_source": "2026-07-16_meridian_healthcare_nda.md",
+   "signed_ref": "7.6",
+   "signed_text": "7.6 **Governing law and jurisdiction.** This Agreement is governed by the laws of India. The courts at New Delhi shall have exclusive jurisdiction.",
+   "score": 0.52
+  },
+  {
+   "draft_ref": "",
+   "draft_text": "**FINSERVE CAPITAL PRIVATE LIMITED**, a company incorporated under the Companies Act, 2013, having its registered office at 11th Floor, One BKC Tower, G Block, Bandra Kurla Complex, Bandra (East), Mumbai 400051, Maharashtra, India (together with its Affiliates, the \"**Company**\"); and",
+   "signed_source": "2026-08-15_trustline_nbfc_msa.md",
+   "signed_ref": "",
+   "signed_text": "**ATLIQ TECHNOLOGIES PRIVATE LIMITED**, a company incorporated under the Companies Act, 2013 (CIN U72900MH2019PTC321456; GSTIN 27AAKCA4821F1Z3), having its registered office at 4th Floor, Baner Business Bay, Pune 411045, Maharashtra, India (the \"**Service Provider**\").",
+   "score": 0.51
+  },
+  {
+   "draft_ref": "",
+   "draft_text": "**FINSERVE CAPITAL PRIVATE LIMITED**, a company incorporated under the Companies Act, 2013, having its registered office at 11th Floor, One BKC Tower, G Block, Bandra Kurla Complex, Bandra (East), Mumbai 400051, Maharashtra, India (together with its Affiliates, the \"**Company**\"); and",
+   "signed_source": "2025-04-28_rohan_iyer_contractor_agreement.md",
+   "signed_ref": "",
+   "signed_text": "**ATLIQ TECHNOLOGIES PRIVATE LIMITED**, a company incorporated under the Companies Act, 2013 (CIN U72900MH2019PTC321456; GSTIN 27AAKCA4821F1Z3), having its registered office at 4th Floor, Baner Business Bay, Pune 411045, Maharashtra, India (\"**AtliQ**\"); and",
+   "score": 0.51
+  },
+  {
+   "draft_ref": "1.1",
+   "draft_text": "1.1 \"**Affiliate**\" means any entity that controls, is controlled by or is under common control with a Party.",
+   "signed_source": "2025-09-01_cloudspan_strategic_partnership_agreement.md",
+   "signed_ref": "1.1",
+   "signed_text": "1.1 \"**Affiliate**\" means, in relation to a Party, any entity that directly or indirectly controls, is controlled by, or is under common control with that Party, where \"control\" means ownership of more than fifty per cent (50%) of the voting securities or the power to direct management.",
+   "score": 0.51
+  },
+  {
+   "draft_ref": "11.4",
+   "draft_text": "11.4 This Agreement shall be governed by the laws of India, and the courts at Mumbai shall have exclusive jurisdiction.",
+   "signed_source": "2025-04-28_rohan_iyer_contractor_agreement.md",
+   "signed_ref": "10.4",
+   "signed_text": "10.4 **Governing law and jurisdiction.** This Agreement is governed by the laws of India. The courts at Pune shall have exclusive jurisdiction.",
+   "score": 0.51
+  },
+  {
+   "draft_ref": "6.2",
+   "draft_text": "6.2 The Recipient shall comply with the Digital Personal Data Protection Act, 2023 in respect of any personal data forming part of the Confidential Information, and shall notify the Company of any personal data breach within six (6) hours.",
+   "signed_source": "2026-07-16_meridian_healthcare_nda.md",
+   "signed_ref": "3.1",
+   "signed_text": "3.1 The Recipient shall:\n(a) hold the Confidential Information in strict confidence and use it only for the Purpose;\n(b) disclose it only to its employees who need to know it for the Purpose and who are bound by written confidentiality obligations;\n(c) not copy, reverse engineer or extract the Confidential Information except as required for the Purpose;\n(d) comply with the Digital Personal Data Protection Act, 2023 in relation to any personal data, including health data, forming part of the Conf",
+   "score": 0.46
+  },
+  {
+   "draft_ref": "11.3",
+   "draft_text": "11.3 The Recipient may not assign this Agreement. The Company may assign it to any Affiliate.",
+   "signed_source": "2025-04-28_rohan_iyer_contractor_agreement.md",
+   "signed_ref": "10.2",
+   "signed_text": "10.2 **Assignment.** The Contractor may not assign this Agreement. AtliQ may assign it to an Affiliate on notice.",
+   "score": 0.45
+  }
+ ],
+ "context_notes": [],
+ "llm_summary": "",
+ "llm_questions": [],
+ "llm_used": false,
+ "llm_error": "",
+ "judge": null,
+ "mode": "demo"
+}

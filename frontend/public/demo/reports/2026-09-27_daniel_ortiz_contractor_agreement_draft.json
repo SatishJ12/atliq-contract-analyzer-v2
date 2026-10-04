@@ -1,0 +1,195 @@
+{
+ "filename": "2026-09-27_daniel_ortiz_contractor_agreement_draft.md",
+ "counterparty": "Daniel Ortiz",
+ "title": "Independent Contractor Agreement",
+ "profile": {
+  "doc_type": "Contractor agreement",
+  "is_nda": false,
+  "atliq_entity": "Inc",
+  "atliq_role": "buyer",
+  "counterparty_country": "USA",
+  "governing_law": "State of Texas"
+ },
+ "tracker": [
+  {
+   "contract_id": "C-047",
+   "counterparty": "Daniel Ortiz",
+   "doc_type": "Contractor Agreement",
+   "atliq_entity": "Inc",
+   "client_country": "USA",
+   "requested_by": "Dhaval",
+   "received_date": "2026-09-27",
+   "status": "Draft",
+   "signed_date": "",
+   "expiry_date": "",
+   "value_usd": "",
+   "file_location": "Dhaval email",
+   "restrictive_clauses": "",
+   "notes": "US freelancer for Harrington. Dhaval: 'US-based, so the offshore thing is solved'. US contractor template"
+  },
+  {
+   "contract_id": "C-048",
+   "counterparty": "Daniel Ortiz",
+   "doc_type": "NDA",
+   "atliq_entity": "Inc",
+   "client_country": "USA",
+   "requested_by": "Dhaval",
+   "received_date": "2026-09-27",
+   "status": "Draft",
+   "signed_date": "",
+   "expiry_date": "",
+   "value_usd": "",
+   "file_location": "Dhaval email",
+   "restrictive_clauses": "",
+   "notes": ""
+  }
+ ],
+ "verdict": "Do not sign yet: 2 blocking issues to resolve",
+ "verdict_level": "blockers",
+ "escalate": [
+  "HIPAA / GDPR document gap",
+  "Possible exposure of personal or patient data (breach-notification risk)"
+ ],
+ "counts": {
+  "High": 2,
+  "Medium": 0,
+  "Low": 0,
+  "Info": 0
+ },
+ "value_usd": 0.0,
+ "deadline": null,
+ "days_left": null,
+ "findings": [
+  {
+   "category": "Completeness",
+   "severity": "High",
+   "title": "Missing subcontractor BAA \u2014 contractor will work on Harrington health data",
+   "explanation": "The engagement covers Harrington's EHR/patient systems. Being US-based solves the offshore restriction but not HIPAA: a subcontractor BAA with the same restrictions as the client BAA must be signed before access.",
+   "suggestion": "Add a subcontractor BAA to this contractor's paperwork (alongside the contractor agreement and NDA) before any access to PHI.",
+   "clause_ref": "Schedule / Project",
+   "quote": "| Services | Data engineering: build and test ingestion pipelines from Harrington's electronic health record, patient accounting and scheduling systems into the cloud data platform; data quality checks; support for dashboard and readmission-model data preparation |",
+   "precedent": "Dhaval: 'US-based, so the offshore thing is solved.' (Harrington huddle) \u2014 offshore yes, HIPAA no.",
+   "source": "rules",
+   "verified": true,
+   "id": "f-ea3e34d006",
+   "section": "completeness",
+   "critical": true
+  },
+  {
+   "category": "Data protection",
+   "severity": "High",
+   "title": "Patient data may already be in Pune, before any BAA is signed",
+   "explanation": "The team notes say a sample extract with what looks like real patient data was forwarded to engineers in Pune. The client's BAA forbids PHI outside the US, and no BAA is signed yet.",
+   "suggestion": "Stop use of the extract, confirm with the client whether it was PHI, delete offshore copies and record it; assess breach-notification duties with US counsel (Calloway Stern).",
+   "clause_ref": "2026-09-27_harrington_huddle.md",
+   "quote": "Pranav: scoping is going well. Kevin Brooks (their data eng manager) emailed a \"sample extract\" on 12 Sep so we could size the pipeline. Pranav opened it here and forwarded to Sneha and Vikram in Pune to start profiling. \"It's real data I think \u2014 names, DOBs, some diagnosis codes.\"",
+   "precedent": "",
+   "source": "notes",
+   "verified": true,
+   "id": "f-557268eff7",
+   "section": "rules",
+   "critical": true
+  }
+ ],
+ "required_docs": [
+  {
+   "document": "Subcontractor BAA between AtliQ and this contractor (flows down Harrington's BAA)",
+   "status": "Missing",
+   "detail": "none in tracker"
+  }
+ ],
+ "bundle": [
+  {
+   "id": "C-047",
+   "doc_type": "Contractor Agreement",
+   "status": "Draft",
+   "signed": "",
+   "notes": "US freelancer for Harrington. Dhaval: 'US-based, so the offshore thing is solved'. US contractor template"
+  },
+  {
+   "id": "C-048",
+   "doc_type": "NDA",
+   "status": "Draft",
+   "signed": "",
+   "notes": ""
+  }
+ ],
+ "precedents": [
+  {
+   "draft_ref": "9.2",
+   "draft_text": "9.2 Each Party's aggregate liability under this Agreement shall not exceed the total fees paid or payable to the Contractor under this Agreement in the twelve (12) months preceding the claim, except for breach of Section 7 or a Party's fraud or willful misconduct.",
+   "signed_source": "2025-04-28_rohan_iyer_contractor_agreement.md",
+   "signed_ref": "8.1",
+   "signed_text": "8.1 Each party's aggregate liability under this Agreement shall not exceed the total fees paid or payable to the Contractor in the twelve (12) months preceding the claim, except for breach of Clause 6 or fraud.",
+   "score": 0.76
+  },
+  {
+   "draft_ref": "10.1",
+   "draft_text": "10.1 **Governing Law; Venue.** This Agreement is governed by the laws of the State of Texas, without regard to its conflict of laws principles. The Parties submit to the exclusive jurisdiction of the state and federal courts located in Travis County, Texas.",
+   "signed_source": "2026-08-20_harrington_health_mutual_nda.md",
+   "signed_ref": "8.1",
+   "signed_text": "8.1 **Governing Law; Venue.** This Agreement is governed by the laws of the State of Texas, without regard to its conflict of laws principles. Any action arising out of this Agreement shall be brought in the state or federal courts located in Harris County, Texas.",
+   "score": 0.75
+  },
+  {
+   "draft_ref": "9.2",
+   "draft_text": "9.2 Each Party's aggregate liability under this Agreement shall not exceed the total fees paid or payable to the Contractor under this Agreement in the twelve (12) months preceding the claim, except for breach of Section 7 or a Party's fraud or willful misconduct.",
+   "signed_source": "2024-08-01_crestline_retail_msa.md",
+   "signed_ref": "12.2",
+   "signed_text": "12.2 EXCEPT FOR BREACH OF SECTION 7 OR A PARTY'S INDEMNIFICATION OBLIGATIONS, EACH PARTY'S AGGREGATE LIABILITY SHALL NOT EXCEED THE FEES PAID OR PAYABLE BY CRESTLINE UNDER THIS AGREEMENT IN THE TWELVE (12) MONTHS PRECEDING THE CLAIM.",
+   "score": 0.58
+  },
+  {
+   "draft_ref": "9.1",
+   "draft_text": "9.1 The Contractor warrants that the Work Product will be original to the Contractor (except for Contractor Tools and open-source components disclosed to the Company) and will not knowingly infringe any third party's intellectual property rights.",
+   "signed_source": "2025-04-28_rohan_iyer_contractor_agreement.md",
+   "signed_ref": "7.2",
+   "signed_text": "7.2 The Contractor warrants that the Work Product will not, to his knowledge, infringe the intellectual property rights of any third party.",
+   "score": 0.57
+  },
+  {
+   "draft_ref": "3.3",
+   "draft_text": "3.3 If the Company disputes any portion of an invoice in good faith, it shall notify the Contractor within ten (10) days of receipt and pay the undisputed portion on time.",
+   "signed_source": "2025-03-15_al_noor_hospitality_msa.md",
+   "signed_ref": "5.5",
+   "signed_text": "5.5 The Client may dispute any invoice in good faith by written notice within ten (10) Business Days of receipt, and shall pay the undisputed portion by the due date.",
+   "score": 0.55
+  },
+  {
+   "draft_ref": "10.2",
+   "draft_text": "10.2 **Assignment.** The Contractor may not assign or subcontract this Agreement without the Company's prior written consent. The Company may assign this Agreement to an Affiliate or successor on written notice.",
+   "signed_source": "2025-04-28_rohan_iyer_contractor_agreement.md",
+   "signed_ref": "10.2",
+   "signed_text": "10.2 **Assignment.** The Contractor may not assign this Agreement. AtliQ may assign it to an Affiliate on notice.",
+   "score": 0.53
+  },
+  {
+   "draft_ref": "8.1",
+   "draft_text": "8.1 During the term and for six (6) months after it, neither Party shall knowingly solicit for employment any employee of the other Party with whom it worked in connection with the Services. General advertisements not targeted at such persons are not a breach. Nothing in this Agreement restricts the",
+   "signed_source": "2025-03-15_al_noor_hospitality_msa.md",
+   "signed_ref": "12.5",
+   "signed_text": "12.5 During the Term and for twelve (12) months thereafter, neither Party shall solicit for employment any employee of the other Party who was directly involved in the Services, save through general advertisements not targeted at such employees.",
+   "score": 0.51
+  },
+  {
+   "draft_ref": "10.1",
+   "draft_text": "10.1 **Governing Law; Venue.** This Agreement is governed by the laws of the State of Texas, without regard to its conflict of laws principles. The Parties submit to the exclusive jurisdiction of the state and federal courts located in Travis County, Texas.",
+   "signed_source": "2024-08-01_crestline_retail_msa.md",
+   "signed_ref": "16.1",
+   "signed_text": "16.1 This Agreement shall be governed by the laws of the State of Ohio, without regard to its conflict-of-laws principles.",
+   "score": 0.49
+  }
+ ],
+ "context_notes": [
+  {
+   "name": "2026-09-27_harrington_huddle.md",
+   "body": "# Harrington \u2014 quick huddle (Sun 27 Sep, call)\nPresent: Karandeep, Dhaval, Pranav\n\n- Harrington now = 3 docs: NDA (signed Aug), MSA (their paper, in review), BAA (arrived 16 Sep \u2014 Rebecca wants it signed together with the MSA). Dhaval: \"one more doc for Harrington.\"\n- Pranav: scoping is going well. Kevin Brooks (their data eng manager) emailed a \"sample extract\" on 12 Sep so we could size the pipeline. Pranav opened it here and forwarded to Sneha and Vikram in Pune to start profiling. \"It's real data I think \u2014 names, DOBs, some diagnosis codes.\"\n- Dhaval: the BAA says nobody outside the US touches patient data, so he's bringing in Daniel Ortiz, freelance data engineer in Austin. Contractor agreement + NDA drafted on our US template. \"US-based, so the offshore thing is solved.\"\n- Karandeep: \"Our cyber policy is $1M btw, Harrington BAA wants 5.\"\n- Pranav asked if the CareBridge setup (the intercompany thing) covers this too \u2014 Karandeep: \"should do, same kind of work.\" Nobody checked.\n- Dhaval: Rebecca needs MSA + BAA by 1 Oct.\n\nLet's talk Monday.\n\n*(No decisions were made. As of 2026-09-28 no Business Associate Agreement had been signed with Harrington; the sample extract remained with the two Pune engineers; no subcontractor BAA had been drafted for Daniel Ortiz; the insurance gap was not raised with Harrington.)*"
+  }
+ ],
+ "llm_summary": "",
+ "llm_questions": [],
+ "llm_used": false,
+ "llm_error": "",
+ "judge": null,
+ "mode": "demo"
+}

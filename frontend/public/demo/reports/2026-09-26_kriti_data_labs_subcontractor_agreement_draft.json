@@ -1,0 +1,371 @@
+{
+ "filename": "2026-09-26_kriti_data_labs_subcontractor_agreement_draft.md",
+ "counterparty": "Kriti Data Labs",
+ "title": "Subcontractor Services Agreement",
+ "profile": {
+  "doc_type": "Subcontractor agreement",
+  "is_nda": false,
+  "atliq_entity": "Pvt Ltd",
+  "atliq_role": "buyer",
+  "counterparty_country": "India",
+  "governing_law": "India"
+ },
+ "tracker": [
+  {
+   "contract_id": "C-037",
+   "counterparty": "Kriti Data Labs",
+   "doc_type": "Subcontractor Agreement",
+   "atliq_entity": "Pvt Ltd",
+   "client_country": "India",
+   "requested_by": "Pranav",
+   "received_date": "2026-09-26",
+   "status": "Draft",
+   "signed_date": "",
+   "expiry_date": "",
+   "value_usd": "10100",
+   "file_location": "Pranav email",
+   "restrictive_clauses": "",
+   "notes": "Kriti wants to start 5 Oct. built from our vendor template (Jay made it from the Harrington draft). Kriti pushing back on 120-day pay-when-paid - 'we're 12 people'"
+  }
+ ],
+ "verdict": "Do not sign yet: 7 blocking issues to resolve",
+ "verdict_level": "blockers",
+ "escalate": [
+  "Possible exposure of personal or patient data (breach-notification risk)"
+ ],
+ "counts": {
+  "High": 7,
+  "Medium": 2,
+  "Low": 1,
+  "Info": 0
+ },
+ "value_usd": 10100.0,
+ "deadline": null,
+ "days_left": null,
+ "findings": [
+  {
+   "category": "Liquidated damages",
+   "severity": "High",
+   "title": "Fairness: Liquidated damages: no cap, charged per day, calculated on the total contract value, not the delayed milestone, no exclusion for delay the client causes, on top of actual damages (not a sole remedy)",
+   "explanation": "The vendor would owe delay damages with no cap, charged per day, calculated on the total contract value, not the delayed milestone, no exclusion for delay the client causes, on top of actual damages (not a sole remedy). This is the same clause Karandeep rejects when AtliQ is the supplier. Uncapped per-day LDs on the full value can exceed the fee itself within weeks.",
+   "suggestion": "Counter with AtliQ's standard: 0.5% of the affected milestone fee per complete week of delay attributable to the supplier, capped at 5% of that milestone fee, no LDs for client-caused or force-majeure delay, LDs as sole remedy for delay.",
+   "clause_ref": "11.2",
+   "quote": "11.2 **Liquidated Damages.** If Vendor fails to achieve any Delivery Date, Vendor shall pay AtliQ, as liquidated damages, an amount equal to two percent (2%) of the Total Fees for each calendar day from the Delivery Date until the date the applicable Deliverable is accepted.",
+   "precedent": "Brightwater: uncapped 1%/day LD + no client-delay carve-out \u2192 $9k settlement + $14.2k legal fees. Acme, Northwind, Trustline all accepted 0.5%/week of milestone, cap 5%. Al Noor's 10% total cap was a one-off strategic exception.",
+   "source": "rules",
+   "verified": true,
+   "id": "f-3a75adb90c",
+   "section": "rules",
+   "critical": false
+  },
+  {
+   "category": "Liability",
+   "severity": "High",
+   "title": "Fairness: Only AtliQ's liability is capped",
+   "explanation": "The cap protects AtliQ only; the other side's exposure is open-ended.",
+   "suggestion": "Make the cap mutual: each party's aggregate liability limited to fees paid/payable in the prior 12 months.",
+   "clause_ref": "10.2",
+   "quote": "10.2 **Cap on AtliQ Liability.** ATLIQ'S AGGREGATE LIABILITY ARISING OUT OF OR RELATING TO THIS AGREEMENT SHALL NOT EXCEED THE FEES ACTUALLY PAID BY ATLIQ TO VENDOR UNDER THIS AGREEMENT.",
+   "precedent": "",
+   "source": "rules",
+   "verified": true,
+   "id": "f-20bb28f914",
+   "section": "rules",
+   "critical": false
+  },
+  {
+   "category": "Liability",
+   "severity": "High",
+   "title": "Fairness: Unlimited liability for one side",
+   "explanation": "The clause removes any cap on the vendor's liability. Checklist: 'liability \u2192 1x fees. NOT unlimited'.",
+   "suggestion": "Mutual cap at 1x fees paid/payable in the prior 12 months, with standard carve-outs (fraud, wilful misconduct, confidentiality) and a separate, insured super-cap for data breach.",
+   "clause_ref": "10.3",
+   "quote": "10.3 **Vendor Liability.** NOTHING IN THIS AGREEMENT SHALL LIMIT OR EXCLUDE VENDOR'S LIABILITY FOR ANY LOSSES, WHETHER DIRECT OR INDIRECT, ARISING OUT OF OR RELATING TO THIS AGREEMENT, INCLUDING VENDOR'S INDEMNIFICATION OBLIGATIONS.",
+   "precedent": "Kessler Mobility (\u20ac120k): K walked away over unlimited liability \u2014 'one bad incident \u2026 and the company is gone'.",
+   "source": "rules",
+   "verified": true,
+   "id": "f-533a3df48b",
+   "section": "rules",
+   "critical": false
+  },
+  {
+   "category": "Indemnity",
+   "severity": "High",
+   "title": "Fairness: Indemnity covers the other side's own negligence",
+   "explanation": "Checklist: 'indemnity \u2192 mutual. we don't cover their mistakes'. This indemnity applies even where the client's own negligence caused the loss.",
+   "suggestion": "Mutual indemnity: each party covers losses to the extent caused by its own breach, negligence or wilful misconduct.",
+   "clause_ref": "9.1",
+   "quote": "9.1 **By Vendor.** Vendor shall defend, indemnify and hold harmless AtliQ, its Affiliates, and their respective directors, officers, employees, agents, successors and assigns (the \"**AtliQ Indemnitees**\") from and against any and all Losses arising out of or relating to (a) the Services or Deliverables, (b) any breach of this Agreement by Vendor, (c) any claim by the End Client relating to the Services or\u2026",
+   "precedent": "PayTrack (Jan 2025): K rejected 'including \u2026 negligence of PayTrack'; PayTrack accepted mutual indemnity.",
+   "source": "rules",
+   "verified": true,
+   "id": "f-8b03388589",
+   "section": "rules",
+   "critical": false
+  },
+  {
+   "category": "Payment",
+   "severity": "High",
+   "title": "Fairness: pay-when-paid, up to 120 days",
+   "explanation": "The vendor is only paid after the end client pays AtliQ, so it carries AtliQ's credit risk. Karandeep's own position as a supplier is '30 days, 45 max'.",
+   "suggestion": "Pay within 30 days of a valid invoice, independent of the end client's payment.",
+   "clause_ref": "4.3",
+   "quote": "4.3 **Payment Terms.** AtliQ's obligation to pay any invoice is conditional upon AtliQ's receipt of payment from the End Client for the corresponding services. AtliQ shall pay each properly submitted, undisputed invoice within fifteen (15) days after AtliQ receives the corresponding payment from the End Client, and in any event not later than one hundred and twenty (120) days after AtliQ's receipt of the invoice.",
+   "precedent": "PixelCraft (Oct 2025): K moved a 6-person agency to 30-day payment \u2014 'I don't want our paper to be the thing I hate receiving.'",
+   "source": "rules",
+   "verified": true,
+   "id": "f-d46b7f9e21",
+   "section": "rules",
+   "critical": false
+  },
+  {
+   "category": "Termination",
+   "severity": "Medium",
+   "title": "Fairness: Termination for convenience without paying for work done",
+   "explanation": "Checklist: 'termination \u2192 they pay for work done'. Work in progress would go unpaid.",
+   "suggestion": "Pay for all services performed up to termination plus non-cancellable costs; give at least 30 days' notice.",
+   "clause_ref": "5.3",
+   "quote": "5.3 **Termination for Convenience.** AtliQ may terminate this Agreement, in whole or in part, for any reason or no reason, upon seven (7) days' written notice to Vendor. Upon such termination, AtliQ's sole obligation shall be to pay Fees for Deliverables accepted by AtliQ prior to the effective date of termination; AtliQ shall have no obligation to pay for work in progress, unaccepted Deliverables, demobilization\u2026",
+   "precedent": "",
+   "source": "rules",
+   "verified": true,
+   "id": "f-5eecdb0861",
+   "section": "rules",
+   "critical": false
+  }
+ ],
+ "required_docs": [],
+ "bundle": [
+  {
+   "id": "C-037",
+   "doc_type": "Subcontractor Agreement",
+   "status": "Draft",
+   "signed": "",
+   "notes": "Kriti wants to start 5 Oct. built from our vendor template (Jay made it from the Harrington draft). Kriti pushing back on 120-day pay-when-paid - 'we're 12 people'"
+  }
+ ],
+ "precedents": [
+  {
+   "draft_ref": "",
+   "draft_text": "This Subcontractor Services Agreement (together with the Engagement Schedule and any amendments hereto, this \"**Agreement**\") is entered into as of the date of the last signature below (the \"**Effective Date**\") by and between **AtliQ Technologies Pvt Ltd**, a private limited company incorporated un",
+   "signed_source": "2025-01-22_paytrack_technologies_msa.md",
+   "signed_ref": "",
+   "signed_text": "**ATLIQ TECHNOLOGIES PRIVATE LIMITED**, a company incorporated under the Companies Act, 2013 (CIN U72900MH2019PTC321456; GSTIN 27AAKCA4821F1Z3), having its registered office at 4th Floor, Baner Business Bay, Pune 411045, Maharashtra, India (\"**AtliQ**\" or \"**Vendor**\").",
+   "score": 0.75
+  },
+  {
+   "draft_ref": "",
+   "draft_text": "This Subcontractor Services Agreement (together with the Engagement Schedule and any amendments hereto, this \"**Agreement**\") is entered into as of the date of the last signature below (the \"**Effective Date**\") by and between **AtliQ Technologies Pvt Ltd**, a private limited company incorporated un",
+   "signed_source": "2025-04-18_sunrise_foods_msa.md",
+   "signed_ref": "",
+   "signed_text": "**ATLIQ TECHNOLOGIES PRIVATE LIMITED**, a company incorporated under the Companies Act, 2013 (CIN U72900MH2019PTC321456; GSTIN 27AAKCA4821F1Z3), having its registered office at 4th Floor, Baner Business Bay, Pune 411045, Maharashtra, India (\"**AtliQ**\" or the \"**Service Provider**\").",
+   "score": 0.69
+  },
+  {
+   "draft_ref": "6.3",
+   "draft_text": "6.3 The foregoing obligations shall not apply to information that (a) is or becomes publicly available through no fault of Vendor; (b) was rightfully known without restriction prior to disclosure; (c) is rightfully received from a third party without restriction; or (d) is independently developed wi",
+   "signed_source": "2024-08-01_crestline_retail_msa.md",
+   "signed_ref": "7.2",
+   "signed_text": "7.2 The obligations in Section 7.1 do not apply to information that is or becomes publicly available without breach, was known to the recipient prior to disclosure, is independently developed, or is rightfully received from a third party.",
+   "score": 0.56
+  },
+  {
+   "draft_ref": "11.3",
+   "draft_text": "11.3 **Cumulative Remedies.** Liquidated damages under this Article are in addition to and not in lieu of AtliQ's right to recover its actual damages, to terminate this Agreement for cause, and to exercise any other right or remedy available at law or in equity. AtliQ may deduct liquidated damages f",
+   "signed_source": "2025-11-28_brightwater_insurance_msa.md",
+   "signed_ref": "9.2",
+   "signed_text": "9.2 Liquidated damages under clause 9.1 shall be payable in addition to any other right or remedy available to the Customer under this Agreement or at law, and the Customer may deduct such liquidated damages from any sums due to the Supplier.",
+   "score": 0.5
+  },
+  {
+   "draft_ref": "13.2",
+   "draft_text": "13.2 **Assignment.** Vendor may not assign this Agreement without AtliQ's prior written consent. AtliQ may assign this Agreement to any Affiliate or successor without consent.",
+   "signed_source": "2025-01-22_al_noor_mutual_nda.md",
+   "signed_ref": "9.2",
+   "signed_text": "9.2 Neither Party may assign this Agreement without the prior written consent of the other.",
+   "score": 0.47
+  },
+  {
+   "draft_ref": "13.2",
+   "draft_text": "13.2 **Assignment.** Vendor may not assign this Agreement without AtliQ's prior written consent. AtliQ may assign this Agreement to any Affiliate or successor without consent.",
+   "signed_source": "2025-09-01_cloudspan_strategic_partnership_agreement.md",
+   "signed_ref": "16.3",
+   "signed_text": "16.3 **Assignment.** Neither Party may assign this Agreement without the prior written consent of the other, except to an Affiliate or successor in a merger or sale of substantially all assets, on written notice.",
+   "score": 0.43
+  },
+  {
+   "draft_ref": "12.3",
+   "draft_text": "12.3 **Jurisdiction.** Subject to Section 12.2, the courts at Pune, Maharashtra shall have exclusive jurisdiction over any dispute arising out of or relating to this Agreement.",
+   "signed_source": "2025-04-18_sunrise_foods_msa.md",
+   "signed_ref": "17.3",
+   "signed_text": "17.3 The courts at Pune shall have exclusive jurisdiction, subject to Clause 17.2.",
+   "score": 0.4
+  },
+  {
+   "draft_ref": "2.4",
+   "draft_text": "2.4 **Subcontracting.** Vendor shall not subcontract any portion of the Services without AtliQ's prior written consent. Vendor shall remain fully responsible for any subcontractor's performance.",
+   "signed_source": "2025-04-28_rohan_iyer_contractor_agreement.md",
+   "signed_ref": "1.2",
+   "signed_text": "1.2 The Contractor shall perform the Services personally and shall not subcontract any part of them without AtliQ's prior written consent.",
+   "score": 0.38
+  }
+ ],
+ "context_notes": [],
+ "llm_summary": "On top of the unfair terms the rules already caught, this subcontract leaves AtliQ exposed on its own client deal: Kriti keeps the IP in the labels AtliQ must hand to Rheinwerk, and German personal data would sit on Kriti's platform with no DPA. Fix those two before the 5 Oct start.",
+ "llm_questions": [
+  "Does the Rheinwerk contract require AtliQ to assign or only license the labelled datasets?",
+  "Can Kriti work only inside AtliQ-provisioned workspaces, or do they need their own platform?"
+ ],
+ "llm_used": true,
+ "llm_error": "",
+ "judge": {
+  "extractor_model": "claude-haiku-4-5",
+  "judge_model": "claude-sonnet-4-6",
+  "summary": "On top of the unfair terms the rules already caught, this subcontract leaves AtliQ exposed on its own client deal: Kriti keeps the IP in the labels AtliQ must hand to Rheinwerk, and German personal data would sit on Kriti's platform with no DPA. Fix those two before the 5 Oct start.",
+  "questions": [
+   "Does the Rheinwerk contract require AtliQ to assign or only license the labelled datasets?",
+   "Can Kriti work only inside AtliQ-provisioned workspaces, or do they need their own platform?"
+  ],
+  "error": "",
+  "stats": {
+   "confirm": 2,
+   "escalate": 2,
+   "dismiss": 2,
+   "not_reviewed": 0,
+   "needs_human_review": 4,
+   "total": 6
+  },
+  "findings": [
+   {
+    "id": "j-a9cf0e44a3",
+    "category": "IP",
+    "title": "Vendor keeps ownership of the annotation outputs",
+    "clause_ref": "7.2",
+    "quote": "Vendor shall retain all right, title and interest in and to its tools, labelling platform, scripts, ontologies, annotation guidelines developed by Vendor, and annotation outputs, including all intellectual property rights therein",
+    "explanation": "AtliQ only gets a licence to the labels it pays for.",
+    "suggestion": "Assign the annotation outputs and Deliverables to AtliQ on payment.",
+    "stage1_severity": "Medium",
+    "judge_verdict": "escalate",
+    "final_severity": "High",
+    "judge_reasoning": "AtliQ has to deliver these datasets to Rheinwerk, whose paper expects AtliQ to transfer the results. A licence limited to 'the End Client project' cannot be passed on as ownership, so AtliQ would breach its client contract.",
+    "precedent": "",
+    "verified": true,
+    "needs_human_review": true,
+    "review_reasons": [
+     "Judge escalated the Stage 1 call"
+    ],
+    "stage1_id": "s1-1",
+    "counts_toward_verdict": true,
+    "critical": false
+   },
+   {
+    "id": "j-b48fa65809",
+    "category": "Data protection",
+    "title": "End Client personal data processed on the vendor's own platform",
+    "clause_ref": "Engagement Schedule",
+    "quote": "Vendor Personnel shall access data via AtliQ-provisioned cloud workspaces and Vendor's own labelling platform.",
+    "explanation": "Technician names and shift data from a German client would sit on a platform AtliQ does not control.",
+    "suggestion": "Restrict work to AtliQ workspaces or sign a sub-processor DPA mirroring the Rheinwerk terms.",
+    "stage1_severity": "Medium",
+    "judge_verdict": "escalate",
+    "final_severity": "High",
+    "judge_reasoning": "Technician names and shift IDs are personal data under GDPR. Kriti becomes a sub-processor and Rheinwerk's DPA annex is already missing, so there is no flow-down at all.",
+    "precedent": "",
+    "verified": true,
+    "needs_human_review": true,
+    "review_reasons": [
+     "Judge escalated the Stage 1 call"
+    ],
+    "stage1_id": "s1-2",
+    "counts_toward_verdict": true,
+    "critical": true
+   },
+   {
+    "id": "j-925cda8ebd",
+    "category": "Fairness",
+    "title": "Fees are fixed for the whole term",
+    "clause_ref": "4.1",
+    "quote": "Fees are firm and fixed and shall not be increased during the term of this Agreement.",
+    "explanation": "The vendor cannot raise prices during the engagement.",
+    "suggestion": "Allow a change order for scope growth.",
+    "stage1_severity": "Medium",
+    "judge_verdict": "dismiss",
+    "final_severity": "Low",
+    "judge_reasoning": "A fixed price for a 12-week, fully specified batch job is normal, and clause 2.5 already allows change orders.",
+    "precedent": "",
+    "verified": true,
+    "needs_human_review": true,
+    "review_reasons": [
+     "Judge dismissed the Stage 1 call"
+    ],
+    "stage1_id": "s1-4",
+    "counts_toward_verdict": false,
+    "critical": false
+   },
+   {
+    "id": "j-5b0043f83d",
+    "category": "Fairness",
+    "title": "Only AtliQ can assign without consent",
+    "clause_ref": "13.2",
+    "quote": "AtliQ may assign this Agreement to any Affiliate or successor without consent.",
+    "explanation": "Assignment rights are one-sided.",
+    "suggestion": "Make assignment to affiliates mutual.",
+    "stage1_severity": "Low",
+    "judge_verdict": "dismiss",
+    "final_severity": "Low",
+    "judge_reasoning": "One-sided but harmless for a small vendor engagement; not worth negotiating capital on.",
+    "precedent": "",
+    "verified": true,
+    "needs_human_review": true,
+    "review_reasons": [
+     "Judge dismissed the Stage 1 call"
+    ],
+    "stage1_id": "s1-5",
+    "counts_toward_verdict": false,
+    "critical": false
+   },
+   {
+    "id": "j-70401ba07b",
+    "category": "Fairness",
+    "title": "Endless re-testing, then a full refund",
+    "clause_ref": "3.2",
+    "quote": "AtliQ may repeat the acceptance process until the Deliverable conforms, or may, at its option, reject the Deliverable and receive a refund of all Fees paid in respect thereof.",
+    "explanation": "AtliQ can keep rejecting work, then claw back everything paid for it.",
+    "suggestion": "Two correction rounds, then a refund limited to the non-conforming batch.",
+    "stage1_severity": "Medium",
+    "judge_verdict": "confirm",
+    "final_severity": "Medium",
+    "judge_reasoning": "AtliQ would reject this if a client sent it. Two rounds then a batch-level refund is fair and still protects AtliQ.",
+    "precedent": "",
+    "verified": true,
+    "needs_human_review": false,
+    "review_reasons": [],
+    "stage1_id": "s1-3",
+    "counts_toward_verdict": true,
+    "critical": false
+   },
+   {
+    "id": "j-f0054c764b",
+    "category": "Fairness",
+    "title": "'Highest standards of the industry'",
+    "clause_ref": "2.2",
+    "quote": "in accordance with the highest standards of the industry",
+    "explanation": "A higher bar than AtliQ accepts for itself (reasonable skill and care).",
+    "suggestion": "Use 'good industry practice'.",
+    "stage1_severity": "Low",
+    "judge_verdict": "confirm",
+    "final_severity": "Low",
+    "judge_reasoning": "Unfair wording but low practical risk because the Engagement Schedule sets a measurable 97% accuracy bar.",
+    "precedent": "",
+    "verified": true,
+    "needs_human_review": false,
+    "review_reasons": [],
+    "stage1_id": "s1-6",
+    "counts_toward_verdict": true,
+    "critical": false
+   }
+  ],
+  "sample": true
+ },
+ "mode": "demo"
+}

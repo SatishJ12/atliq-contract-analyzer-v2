@@ -1,0 +1,10 @@
+{
+ "ok": true,
+ "llm_available": false,
+ "modes": [
+  "demo"
+ ],
+ "extractor_model": "claude-haiku-4-5",
+ "judge_model": "claude-sonnet-4-6",
+ "dataset_today": "2026-09-28"
+}

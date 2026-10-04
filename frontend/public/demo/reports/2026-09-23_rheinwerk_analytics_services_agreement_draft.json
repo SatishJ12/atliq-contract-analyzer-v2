@@ -1,0 +1,232 @@
+{
+ "filename": "2026-09-23_rheinwerk_analytics_services_agreement_draft.md",
+ "counterparty": "Rheinwerk Analytics GmbH",
+ "title": "Services Agreement",
+ "profile": {
+  "doc_type": "Services agreement",
+  "is_nda": false,
+  "atliq_entity": "Pvt Ltd",
+  "atliq_role": "supplier",
+  "counterparty_country": "Germany",
+  "governing_law": "Federal Republic of Germany"
+ },
+ "tracker": [
+  {
+   "contract_id": "C-028",
+   "counterparty": "Rheinwerk Analytics GmbH",
+   "doc_type": "MSA + SOW",
+   "atliq_entity": "Pvt Ltd",
+   "client_country": "Germany",
+   "requested_by": "Bhavin",
+   "received_date": "2026-09-23",
+   "status": "In review",
+   "signed_date": "",
+   "expiry_date": "",
+   "value_usd": "96000",
+   "file_location": "Bhavin email",
+   "restrictive_clauses": "",
+   "notes": "EUR 88k. by 15 Oct. Pranav: PipeKit can be reused 'like we did for Northwind'"
+  }
+ ],
+ "verdict": "Do not sign yet: 3 blocking issues to resolve",
+ "verdict_level": "blockers",
+ "escalate": [
+  "Conflict with a signed commitment and no waiver on file",
+  "HIPAA / GDPR document gap"
+ ],
+ "counts": {
+  "High": 3,
+  "Medium": 1,
+  "Low": 1,
+  "Info": 1
+ },
+ "value_usd": 96000.0,
+ "deadline": "2026-10-15",
+ "days_left": 17,
+ "findings": [
+  {
+   "category": "Prior commitment",
+   "severity": "High",
+   "title": "PipeKit reuse: AtliQ assigned PipeKit IP to Northwind \u2014 'sole owner' warranty may be untrue",
+   "explanation": "Northwind MSA cl. 9.2 vested all IP in the deliverables, 'including any \u2026 tools, frameworks, libraries and pre-existing materials incorporated', in Northwind. The Northwind pipeline incorporated PipeKit (SOW-1 S1.2). This draft has AtliQ warrant it is the sole owner of PipeKit and indemnify against breach. Evidence: 6.1 Supplier shall deliver the services using its proprietary data-pipeline accelerator \"**PipeKit**\", comprising reusable ingestion connectors, transformation templates, data quality rule libraries and orchestration modules. PipeKit shall be incorporated into the Work Results to reduce implementation time and cost. / 6.2 Supplier hereby grants Client a perpetual, irrevocable, non-exclusive, worldwide, royalty-free right to use, reproduce, modify and operate PipeKit as incorporated in the Work Results, for the purposes of operating, maintaining and further developing the Platform, including for the benefit of Client's customers. Client may sub-license this right to its affiliated companies and to service providers acting on its behalf.",
+   "suggestion": "Before signing: get counsel's view on what Northwind now owns; ask Northwind for a licence-back or confirmation; meanwhile soften the warranty to 'owns or is entitled to license' and cap the related indemnity.",
+   "clause_ref": "2025-06-20_northwind_logistics_msa.md cl. 9.2",
+   "quote": "All Intellectual Property Rights in the Deliverables, including any software, tools, frameworks, libraries and pre-existing materials incorporated into the Deliverables, shall vest in the Client absolutely upon payment of the Charges for the relevant Milestone.",
+   "precedent": "Pranav: 'PipeKit can be reused like we did for Northwind' (tracker C-028). K: 'I skimmed the IP and boilerplate' on Northwind.",
+   "source": "register",
+   "verified": true,
+   "id": "f-a066f02394",
+   "section": "commitments",
+   "critical": true
+  },
+  {
+   "category": "Completeness",
+   "severity": "High",
+   "title": "Annex 1 is referenced but not attached",
+   "explanation": "The contract incorporates a document that is not in this draft, so you would be agreeing to terms you have not seen.",
+   "suggestion": "Ask for Annex 1 before signing and review it with the main agreement.",
+   "clause_ref": "Annex 1",
+   "quote": "1.3 \"**Milestone**\" means a defined stage of the project as set out in Annex 1.",
+   "precedent": "",
+   "source": "rules",
+   "verified": true,
+   "id": "f-c97c1ae62f",
+   "section": "completeness",
+   "critical": true
+  },
+  {
+   "category": "Completeness",
+   "severity": "High",
+   "title": "Annex 3 is referenced but not attached",
+   "explanation": "The contract incorporates a document that is not in this draft, so you would be agreeing to terms you have not seen.",
+   "suggestion": "Ask for Annex 3 before signing and review it with the main agreement.",
+   "clause_ref": "Annex 3",
+   "quote": "15.5 The following Annexes form part of this Agreement: Annex 1 (Statement of Work), Annex 2 (Milestones and Remuneration), Annex 3 (Data Processing Agreement incl. SCCs).",
+   "precedent": "",
+   "source": "rules",
+   "verified": true,
+   "id": "f-b5eb02932b",
+   "section": "completeness",
+   "critical": true
+  },
+  {
+   "category": "Governing law",
+   "severity": "Medium",
+   "title": "Foreign governing law: Federal Republic of Germany",
+   "explanation": "Governing law is Federal Republic of Germany. Karandeep's checklist: 'gov law \u2192 ours (India for Pvt Ltd, US for Inc)'. AtliQ has no presence there and would have to litigate abroad.",
+   "suggestion": "Ask for Indian law with Mumbai/Pune arbitration (Pvt Ltd) or a US state (Inc); fall back to a neutral seat such as SIAC/LCIA arbitration.",
+   "clause_ref": "Governing law",
+   "quote": "governed by the laws of Federal Republic of Germany",
+   "precedent": "",
+   "source": "rules",
+   "verified": true,
+   "id": "f-3fecd04667",
+   "section": "rules",
+   "critical": false
+  },
+  {
+   "category": "Liability",
+   "severity": "Low",
+   "title": "Uncapped only for intent / gross negligence / injury (standard carve-out)",
+   "explanation": "Looks alarming but is the normal German-law carve-out; the general cap still applies to ordinary negligence.",
+   "suggestion": "Acceptable; confirm a general cap (e.g. 1x fees) applies to everything else.",
+   "clause_ref": "9.1",
+   "quote": "9.1 The Parties shall be liable without limitation for damage caused intentionally or by gross negligence, for injury to life, body or health, and under the Product Liability Act (Produkthaftungsgesetz).",
+   "precedent": "",
+   "source": "rules",
+   "verified": true,
+   "id": "f-518824990a",
+   "section": "rules",
+   "critical": false
+  },
+  {
+   "category": "Liquidated damages",
+   "severity": "Info",
+   "title": "Delay clause matches AtliQ's standard",
+   "explanation": "Capped, milestone-based, client delays excluded: the same position Karandeep negotiated with Acme, Northwind and Trustline.",
+   "suggestion": "",
+   "clause_ref": "8.2",
+   "quote": "8.2 If Supplier is in default with a Milestone for reasons for which it is responsible, Client may claim a contractual penalty (Vertragsstrafe) of 0.5% of the Milestone Fee of the affected Milestone for each full week of delay, up to a maximum of 5% of that Milestone Fee.",
+   "precedent": "Acme / Northwind / Trustline: 0.5% of milestone per week, cap 5%, client delays excluded.",
+   "source": "rules",
+   "verified": true,
+   "id": "f-e2296769aa",
+   "section": "rules",
+   "critical": false
+  }
+ ],
+ "required_docs": [
+  {
+   "document": "GDPR Art. 28 Data Processing Agreement + SCCs for transfer to India",
+   "status": "Missing",
+   "detail": "referenced but not attached; none in tracker"
+  }
+ ],
+ "bundle": [
+  {
+   "id": "C-028",
+   "doc_type": "MSA + SOW",
+   "status": "In review",
+   "signed": "",
+   "notes": "EUR 88k. by 15 Oct. Pranav: PipeKit can be reused 'like we did for Northwind'"
+  }
+ ],
+ "precedents": [
+  {
+   "draft_ref": "6.1",
+   "draft_text": "6.1 Supplier shall deliver the services using its proprietary data-pipeline accelerator \"**PipeKit**\", comprising reusable ingestion connectors, transformation templates, data quality rule libraries and orchestration modules. PipeKit shall be incorporated into the Work Results to reduce implementati",
+   "signed_source": "2025-06-20_northwind_logistics_msa.md",
+   "signed_ref": "",
+   "signed_text": "**S1.2 Approach.** The Supplier will build the pipeline using its proprietary pipeline accelerator, **PipeKit**, which provides pre-built ingestion connectors, orchestration templates, data-quality checks and monitoring components. PipeKit will be configured and extended for the Client and incorporated into the delivered pipeline as its ingestion and orchestration layer.",
+   "score": 0.49
+  },
+  {
+   "draft_ref": "10.2",
+   "draft_text": "10.2 The indemnified Party shall notify the indemnifying Party without delay of any claim, shall not acknowledge any claim without consent, and shall leave the conduct of the defence to the indemnifying Party.",
+   "signed_source": "2025-03-15_al_noor_hospitality_msa.md",
+   "signed_ref": "15.3",
+   "signed_text": "15.3 The indemnified Party shall promptly notify the indemnifying Party, allow it conduct of the defence, and provide reasonable assistance.",
+   "score": 0.49
+  },
+  {
+   "draft_ref": "10.2",
+   "draft_text": "10.2 The indemnified Party shall notify the indemnifying Party without delay of any claim, shall not acknowledge any claim without consent, and shall leave the conduct of the defence to the indemnifying Party.",
+   "signed_source": "2025-01-22_paytrack_technologies_msa.md",
+   "signed_ref": "10.3",
+   "signed_text": "10.3 The Indemnified Party shall give prompt written notice of any claim, permit the Indemnifying Party to control the defence and settlement, and provide reasonable cooperation at the Indemnifying Party's cost.",
+   "score": 0.45
+  },
+  {
+   "draft_ref": "6.5",
+   "draft_text": "6.5 Except for PipeKit, Client shall acquire the exclusive, perpetual, transferable and unrestricted right of use in all Work Results created specifically for Client, upon full payment of the relevant Milestone Fee.",
+   "signed_source": "2025-03-15_al_noor_hospitality_msa.md",
+   "signed_ref": "9.1",
+   "signed_text": "9.1 Upon payment in full of the relevant Fees, all intellectual property rights in the Deliverables created specifically for the Client shall vest in the Client.",
+   "score": 0.39
+  },
+  {
+   "draft_ref": "6.3",
+   "draft_text": "6.3 Supplier warrants that it is the sole owner of all intellectual property rights in PipeKit, that it is entitled to grant the rights set out in \u00a7 6.2, and that PipeKit and its use under this Agreement do not infringe any rights of third parties.",
+   "signed_source": "2025-06-20_northwind_logistics_msa.md",
+   "signed_ref": "10.2",
+   "signed_text": "10.2 The Supplier warrants that the Deliverables, and the Client's use of them, will not infringe the Intellectual Property Rights of any third party.",
+   "score": 0.36
+  },
+  {
+   "draft_ref": "15.2",
+   "draft_text": "15.2 Should any provision of this Agreement be or become invalid, the validity of the remaining provisions shall not be affected. The Parties shall replace the invalid provision with a valid provision that comes closest to the economic purpose of the invalid provision.",
+   "signed_source": "2025-03-15_al_noor_hospitality_msa.md",
+   "signed_ref": "22.3",
+   "signed_text": "22.3 If any provision is held invalid, the remainder shall continue in effect, and the invalid provision shall be deemed modified to the minimum extent necessary to make it enforceable.",
+   "score": 0.35
+  },
+  {
+   "draft_ref": "6.2",
+   "draft_text": "6.2 Supplier hereby grants Client a perpetual, irrevocable, non-exclusive, worldwide, royalty-free right to use, reproduce, modify and operate PipeKit as incorporated in the Work Results, for the purposes of operating, maintaining and further developing the Platform, including for the benefit of Cli",
+   "signed_source": "2025-04-28_rohan_iyer_contractor_agreement.md",
+   "signed_ref": "5.3",
+   "signed_text": "5.3 The Contractor grants AtliQ a non-exclusive, perpetual, irrevocable, royalty-free, worldwide licence to use, copy, modify and deploy the Work Product for the purposes of AtliQ's business, including for delivery to AtliQ's clients.",
+   "score": 0.34
+  },
+  {
+   "draft_ref": "6.5",
+   "draft_text": "6.5 Except for PipeKit, Client shall acquire the exclusive, perpetual, transferable and unrestricted right of use in all Work Results created specifically for Client, upon full payment of the relevant Milestone Fee.",
+   "signed_source": "2025-03-10_acme_retail_group_msa.md",
+   "signed_ref": "9.1",
+   "signed_text": "9.1 Upon receipt of full payment, all intellectual property rights in the Deliverables created specifically for the Client shall vest in the Client.",
+   "score": 0.3
+  }
+ ],
+ "context_notes": [
+  {
+   "name": "2026-09-22_internal_contract_queue.md",
+   "body": "# Internal \u2014 contract queue (ad-hoc, 22 Sep)\nPresent: Karandeep, Bhavin, Dhaval, Jay\n\nCalled because three people chased Karandeep on the same morning.\n\nQueue as of today (from Jay's list on the whiteboard):\n- Harrington (Dhaval) \u2014 $210k, US, their paper \u2014 by **1 Oct**\n- Lakeshore (Jay) \u2014 $64k, US \u2014 by **3 Oct**\n- BlueOrchid pilot (Jay) \u2014 $38k \u2014 by **5 Oct**\n- Gulf Crown (Bhavin) \u2014 $140k, Saudi \u2014 by **10 Oct**\n- TravelHub (Karandeep) \u2014 $52k, Dubai \u2014 no date\n- Rheinwerk (Bhavin) \u2014 \u20ac88k, Munich \u2014 draft arriving tomorrow, by **15 Oct**\n- Sunrise SOW-2 (Dhaval) \u2014 $45k \u2014 Meera sending this week, wants by **8 Oct**\n\nDiscussion:\n- Karandeep: reviewing late at night after calls, 10pm onwards. A client-paper MSA takes him 3\u20134 hrs properly. \"Harrington alone is a whole evening and I haven't started.\"\n- Dhaval raised ShopSwift \u2014 SOW sat 9 days in July waiting for review, Elena's budget slipped a quarter. \"We lost that one to our own queue.\"\n- Volume: Bhavin reckons last year was ~5 contracts/month, this year ~9 (MSAs, SOWs, NDAs, DPAs, amendments). Only Karandeep signs.\n- Went through Gulf Crown headline terms. Midway Karandeep stopped: \"didn't we sign something with the Dubai hotel people that stops us doing hotels in the Gulf?\"\n- Nobody could find the Al Noor contract quickly \u2014 Dhaval searched the shared drive, not there. Karandeep thinks it's in his email \"somewhere\".\n- Bhavin: \"I think that expired, no? It was a 2025 thing.\" Karandeep not sure.\n- Jay: \"is there a list of what we've agreed to not do?\" \u2014 silence.\n- Dhaval asked if we should send Harrington to counsel. Karandeep: \"it's $210k, but Mehta Rao takes a week.\" Not decided.\n- Bhavin: Gulf Crown can't slip, Faisal has a summit on the 14th.\n\nKarandeep will go through them this weekend.\n\n*(No owner, order of review, or deadline per contract was agreed. The Al Noor contract was not located during the meeting.)*"
+  }
+ ],
+ "llm_summary": "",
+ "llm_questions": [],
+ "llm_used": false,
+ "llm_error": "",
+ "judge": null,
+ "mode": "demo"
+}

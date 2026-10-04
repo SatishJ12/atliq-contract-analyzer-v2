@@ -1,0 +1,122 @@
+[
+ {
+  "filename": "2026-09-10_harrington_health_msa_draft.md",
+  "label": "Harrington Health MSA",
+  "deadline": "2026-10-01",
+  "high": 11,
+  "verdict_level": "blockers",
+  "has_judge_sample": false
+ },
+ {
+  "filename": "2026-09-15_travelhub_services_agreement_draft.md",
+  "label": "Travelhub Services Agreement",
+  "deadline": null,
+  "high": 3,
+  "verdict_level": "blockers",
+  "has_judge_sample": false
+ },
+ {
+  "filename": "2026-09-16_harrington_health_baa_draft.md",
+  "label": "Harrington Health BAA",
+  "deadline": "2026-10-01",
+  "high": 6,
+  "verdict_level": "blockers",
+  "has_judge_sample": false
+ },
+ {
+  "filename": "2026-09-18_gulf_crown_hotels_msa_draft.md",
+  "label": "Gulf Crown Hotels MSA",
+  "deadline": "2026-10-10",
+  "high": 2,
+  "verdict_level": "blockers",
+  "has_judge_sample": true
+ },
+ {
+  "filename": "2026-09-19_lakeshore_grocers_msa_draft.md",
+  "label": "Lakeshore Grocers MSA",
+  "deadline": "2026-10-03",
+  "high": 1,
+  "verdict_level": "blockers",
+  "has_judge_sample": false
+ },
+ {
+  "filename": "2026-09-21_blueorchid_hotels_pilot_agreement_draft.md",
+  "label": "Blueorchid Hotels Pilot Agreement",
+  "deadline": "2026-10-05",
+  "high": 1,
+  "verdict_level": "blockers",
+  "has_judge_sample": false
+ },
+ {
+  "filename": "2026-09-23_rheinwerk_analytics_services_agreement_draft.md",
+  "label": "Rheinwerk Analytics Services Agreement",
+  "deadline": "2026-10-15",
+  "high": 3,
+  "verdict_level": "blockers",
+  "has_judge_sample": false
+ },
+ {
+  "filename": "2026-09-24_datavane_strategic_partnership_agreement_draft.md",
+  "label": "Datavane Strategic Partnership Agreement",
+  "deadline": "2026-10-15",
+  "high": 4,
+  "verdict_level": "blockers",
+  "has_judge_sample": false
+ },
+ {
+  "filename": "2026-09-24_sunrise_foods_sow2_draft.md",
+  "label": "Sunrise Foods SOW-2",
+  "deadline": "2026-10-08",
+  "high": 0,
+  "verdict_level": "clear",
+  "has_judge_sample": false
+ },
+ {
+  "filename": "2026-09-25_finserve_capital_mutual_nda_draft.md",
+  "label": "Finserve Capital Mutual NDA",
+  "deadline": "2026-10-01",
+  "high": 2,
+  "verdict_level": "blockers",
+  "has_judge_sample": false
+ },
+ {
+  "filename": "2026-09-26_kriti_data_labs_subcontractor_agreement_draft.md",
+  "label": "Kriti Data Labs Subcontractor Agreement",
+  "deadline": null,
+  "high": 5,
+  "verdict_level": "blockers",
+  "has_judge_sample": true
+ },
+ {
+  "filename": "2026-09-27_daniel_ortiz_contractor_agreement_draft.md",
+  "label": "Daniel Ortiz Contractor Agreement",
+  "deadline": null,
+  "high": 2,
+  "verdict_level": "blockers",
+  "has_judge_sample": false
+ },
+ {
+  "filename": "2026-09-27_daniel_ortiz_nda_draft.md",
+  "label": "Daniel Ortiz NDA",
+  "deadline": null,
+  "high": 0,
+  "verdict_level": "clear",
+  "has_judge_sample": false
+ },
+ {
+  "filename": "2026-09-27_loopmart_mutual_nda_draft.md",
+  "label": "Loopmart Mutual NDA",
+  "deadline": null,
+  "high": 0,
+  "verdict_level": "clear",
+  "has_judge_sample": false
+ },
+ {
+  "filename": "2026-09-27_marcus_reed_contractor_agreement_draft.md",
+  "label": "Marcus Reed Contractor Agreement",
+  "deadline": "2026-10-01",
+  "high": 4,
+  "verdict_level": "blockers",
+  "has_judge_sample": false
+ }
+]

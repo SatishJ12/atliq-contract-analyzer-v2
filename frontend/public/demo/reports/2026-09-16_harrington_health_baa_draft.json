@@ -1,0 +1,319 @@
+{
+ "filename": "2026-09-16_harrington_health_baa_draft.md",
+ "counterparty": "Harrington Health Systems Inc",
+ "title": "Exhibit D \u2014 Business Associate Agreement",
+ "profile": {
+  "doc_type": "HIPAA BAA",
+  "is_nda": false,
+  "atliq_entity": "Inc",
+  "atliq_role": "supplier",
+  "counterparty_country": "USA",
+  "governing_law": "State of Texas and applicable federal law"
+ },
+ "tracker": [
+  {
+   "contract_id": "C-023",
+   "counterparty": "Harrington Health Systems Inc",
+   "doc_type": "MSA",
+   "atliq_entity": "Inc",
+   "client_country": "USA",
+   "requested_by": "Dhaval",
+   "received_date": "2026-09-10",
+   "status": "In review",
+   "signed_date": "",
+   "expiry_date": "",
+   "value_usd": "210000",
+   "file_location": "Karandeep email",
+   "restrictive_clauses": "",
+   "notes": "need by 1 Oct (Rebecca). their lawyers say template is non-negotiable. $210k"
+  },
+  {
+   "contract_id": "C-045",
+   "counterparty": "Harrington Health Systems Inc",
+   "doc_type": "Mutual NDA",
+   "atliq_entity": "Inc",
+   "client_country": "USA",
+   "requested_by": "Dhaval",
+   "received_date": "2026-08-19",
+   "status": "Signed",
+   "signed_date": "2026-08-20",
+   "expiry_date": "",
+   "value_usd": "",
+   "file_location": "Dhaval email",
+   "restrictive_clauses": "",
+   "notes": ""
+  },
+  {
+   "contract_id": "C-046",
+   "counterparty": "Harrington Health Systems Inc",
+   "doc_type": "BAA",
+   "atliq_entity": "Inc",
+   "client_country": "USA",
+   "requested_by": "Dhaval",
+   "received_date": "2026-09-16",
+   "status": "In review",
+   "signed_date": "",
+   "expiry_date": "",
+   "value_usd": "",
+   "file_location": "Dhaval email",
+   "restrictive_clauses": "",
+   "notes": "Rebecca: must be signed together with the MSA. BAA wants $5M cyber insurance - ours is $1M (K)"
+  }
+ ],
+ "verdict": "Do not sign yet: 6 blocking issues to resolve",
+ "verdict_level": "blockers",
+ "escalate": [
+  "Deal value $210,000 \u2265 $150k with unresolved High findings",
+  "Conflict with a signed commitment and no waiver on file",
+  "HIPAA / GDPR document gap",
+  "Possible exposure of personal or patient data (breach-notification risk)",
+  "Counterparty says template is non-negotiable and High findings remain"
+ ],
+ "counts": {
+  "High": 6,
+  "Medium": 1,
+  "Low": 0,
+  "Info": 0
+ },
+ "value_usd": 210000.0,
+ "deadline": "2026-10-01",
+ "days_left": 3,
+ "findings": [
+  {
+   "category": "Prior commitment",
+   "severity": "High",
+   "title": "Existing intercompany BAA does not cover this engagement",
+   "explanation": "The AtliQ Inc \u2194 Pvt Ltd subcontractor BAA (C-044) is scoped to the CareBridge engagement only. If anyone outside AtliQ Inc (Pune team, freelancers) will touch PHI or de-identified data for this client, a new per-engagement subcontractor BAA is needed first.",
+   "suggestion": "Draft a per-engagement subcontractor BAA (Pune and every freelancer) flowing down the client BAA's restrictions before any data moves.",
+   "clause_ref": "2025-10-06_atliq_intercompany_subcontractor_baa.md cl. 1.2, 1.3, 2.1, Schedule 1",
+   "quote": "This Agreement applies to the Engagement Services. Any services Subcontractor performs for Business Associate other than the Engagement Services are governed by the Intercompany Agreement.",
+   "precedent": "Pranav: 'does the CareBridge setup cover this too?' K: 'should do'. Nobody checked (Harrington huddle, 27 Sep).",
+   "source": "register",
+   "verified": true,
+   "id": "f-e7ebc9b123",
+   "section": "commitments",
+   "critical": true
+  },
+  {
+   "category": "Insurance",
+   "severity": "High",
+   "title": "Requires $5,000,000 cyber cover; AtliQ holds $1M",
+   "explanation": "Karandeep (Harrington huddle, 27 Sep): 'Our cyber policy is $1M btw'. Signing would put AtliQ in breach on day one.",
+   "suggestion": "Either negotiate the limit to $1M-2M, or get a quote to raise cover before signing (cost goes into the deal price).",
+   "clause_ref": "8.3",
+   "quote": "8.3 **Insurance.** Business Associate shall maintain, throughout the term of this BAA and for three (3) years thereafter, cyber liability and network security and privacy insurance with limits of not less than Five Million U.S. Dollars ($5,000,000) per claim and in the aggregate, covering notification costs, regulatory defense and penalties, and third-party claims arising from Privacy Events, and shall name Covered\u2026",
+   "precedent": "",
+   "source": "rules",
+   "verified": true,
+   "id": "f-cd2395c407",
+   "section": "rules",
+   "critical": false
+  },
+  {
+   "category": "Completeness",
+   "severity": "High",
+   "title": "No subcontractor BAA for people who will touch the data",
+   "explanation": "HIPAA requires the same restrictions to flow down to every subcontractor (Pune team via an intercompany BAA, each freelancer via a subcontractor BAA) before data changes hands.",
+   "suggestion": "Draft per-engagement subcontractor BAAs (intercompany + each freelancer) mirroring the client BAA, signed before access.",
+   "clause_ref": "Tracker / C-044",
+   "quote": "",
+   "precedent": "CareBridge (2025) did this right: NDA + MSA + BAA + intercompany subcontractor BAA.",
+   "source": "rules",
+   "verified": true,
+   "id": "f-b505e07c9f",
+   "section": "completeness",
+   "critical": true
+  },
+  {
+   "category": "Completeness",
+   "severity": "High",
+   "title": "PHI must stay in the US \u2014 check who already has the data",
+   "explanation": "This draft forbids PHI outside the US. The Pune team cannot work on identifiable data for this client.",
+   "suggestion": "Confirm no PHI has left the US; delete any copies offshore; staff PHI work with named US personnel only.",
+   "clause_ref": "Offshore restriction",
+   "quote": "** Business Associate shall not, and shall ensure that no Subcontractor shall, access, view, create, receive, maintain, transmit, store or process PHI from or at any location outside the United States, whether directly or by remote access",
+   "precedent": "",
+   "source": "rules",
+   "verified": true,
+   "id": "f-8427e21e7f",
+   "section": "completeness",
+   "critical": true
+  },
+  {
+   "category": "Completeness",
+   "severity": "High",
+   "title": "Exhibit B is referenced but not attached",
+   "explanation": "The contract incorporates a document that is not in this draft, so you would be agreeing to terms you have not seen.",
+   "suggestion": "Ask for Exhibit B before signing and review it with the main agreement.",
+   "clause_ref": "Exhibit B",
+   "quote": "9.3 Covered Entity shall provide PHI to Business Associate only through the secure transfer methods or Client-controlled environments specified in Exhibit B to the Master Services Agreement.",
+   "precedent": "",
+   "source": "rules",
+   "verified": true,
+   "id": "f-4426e0ac37",
+   "section": "completeness",
+   "critical": false
+  },
+  {
+   "category": "Data protection",
+   "severity": "High",
+   "title": "Patient data may already be in Pune, before any BAA is signed",
+   "explanation": "The team notes say a sample extract with what looks like real patient data was forwarded to engineers in Pune. The client's BAA forbids PHI outside the US, and no BAA is signed yet.",
+   "suggestion": "Stop use of the extract, confirm with the client whether it was PHI, delete offshore copies and record it; assess breach-notification duties with US counsel (Calloway Stern).",
+   "clause_ref": "2026-09-27_harrington_huddle.md",
+   "quote": "Pranav: scoping is going well. Kevin Brooks (their data eng manager) emailed a \"sample extract\" on 12 Sep so we could size the pipeline. Pranav opened it here and forwarded to Sneha and Vikram in Pune to start profiling. \"It's real data I think \u2014 names, DOBs, some diagnosis codes.\"",
+   "precedent": "",
+   "source": "notes",
+   "verified": true,
+   "id": "f-557268eff7",
+   "section": "rules",
+   "critical": true
+  },
+  {
+   "category": "Indemnity",
+   "severity": "Medium",
+   "title": "Broad one-way indemnity",
+   "explanation": "One party indemnifies for anything 'arising out of or relating to' the services, while the other side's indemnity (if any) is narrow.",
+   "suggestion": "Narrow to third-party claims caused by the indemnifying party's breach, negligence or IP infringement, and make it mutual.",
+   "clause_ref": "8.1",
+   "quote": "8.1 **Indemnification.** Business Associate shall defend, indemnify and hold harmless Covered Entity, its Affiliates and their respective trustees, officers, employees and agents from and against any and all Losses arising out of or relating to (a) any Privacy Event involving Business Associate or any Subcontractor; (b) any breach of this BAA by Business Associate or any Subcontractor; or (c) any violation of HIPAA\u2026",
+   "precedent": "",
+   "source": "rules",
+   "verified": true,
+   "id": "f-88d839bfe6",
+   "section": "rules",
+   "critical": false
+  }
+ ],
+ "required_docs": [
+  {
+   "document": "NDA",
+   "status": "Present",
+   "detail": "C-045 (Signed)"
+  },
+  {
+   "document": "Services agreement / MSA",
+   "status": "Present",
+   "detail": "C-023 (In review)"
+  },
+  {
+   "document": "HIPAA BAA (signed together with the MSA)",
+   "status": "Present",
+   "detail": "C-046 (In review)"
+  },
+  {
+   "document": "Subcontractor BAA for every party touching PHI (Pune team, freelancers)",
+   "status": "Missing",
+   "detail": "Existing intercompany BAA C-044 covers CareBridge only"
+  }
+ ],
+ "bundle": [
+  {
+   "id": "C-023",
+   "doc_type": "MSA",
+   "status": "In review",
+   "signed": "",
+   "notes": "need by 1 Oct (Rebecca). their lawyers say template is non-negotiable. $210k"
+  },
+  {
+   "id": "C-045",
+   "doc_type": "Mutual NDA",
+   "status": "Signed",
+   "signed": "2026-08-20",
+   "notes": ""
+  },
+  {
+   "id": "C-046",
+   "doc_type": "BAA",
+   "status": "In review",
+   "signed": "",
+   "notes": "Rebecca: must be signed together with the MSA. BAA wants $5M cyber insurance - ours is $1M (K)"
+  }
+ ],
+ "precedents": [
+  {
+   "draft_ref": "",
+   "draft_text": "This Business Associate Agreement (this \"**BAA**\") is entered into as of the Effective Date of the Master Services Agreement (as defined below) by and between **Harrington Health Systems, Inc.**, a Texas nonprofit corporation with its principal place of business at 6400 Fannin Street, Suite 1800, Ho",
+   "signed_source": "2026-08-20_harrington_health_mutual_nda.md",
+   "signed_ref": "",
+   "signed_text": "This Mutual Nondisclosure Agreement (this \"**Agreement**\") is entered into as of August 20, 2026 (the \"**Effective Date**\") by and between **Harrington Health Systems, Inc.**, a Texas nonprofit corporation with its principal place of business at 6400 Fannin Street, Suite 1800, Houston, Texas 77030 (\"**Harrington**\"), and **AtliQ Inc**, a Delaware corporation with its principal place of business at 101 College Road East, Suite 210, Princeton, New Jersey 08540 (\"**AtliQ**\"). Harrington and AtliQ a",
+   "score": 0.77
+  },
+  {
+   "draft_ref": "12.3",
+   "draft_text": "12.3 **No Third-Party Beneficiaries.** Nothing in this BAA confers any rights upon any person other than the Parties and their respective successors and permitted assigns.",
+   "signed_source": "2025-10-06_carebridge_clinics_baa.md",
+   "signed_ref": "11.3",
+   "signed_text": "11.3 **No Third-Party Beneficiaries.** Nothing in this BAA confers any rights on any person other than the Parties.",
+   "score": 0.7
+  },
+  {
+   "draft_ref": "9.1",
+   "draft_text": "9.1 Covered Entity shall notify Business Associate of (a) any limitation in its notice of privacy practices under 45 C.F.R. \u00a7 164.520; (b) any change in, or revocation of, an Individual's authorization to use or disclose PHI; and (c) any restriction on the use or disclosure of PHI agreed to by Cover",
+   "signed_source": "2025-10-06_carebridge_clinics_baa.md",
+   "signed_ref": "8.3",
+   "signed_text": "8.3 **Covered Entity Responsibilities.** Covered Entity shall (a) notify Business Associate of any limitation in its notice of privacy practices, any change in or revocation of an Individual's permission, and any restriction agreed under 45 C.F.R. \u00a7 164.522, to the extent it affects Business Associate's use or disclosure of PHI; (b) disclose to Business Associate only the minimum PHI necessary for the Services; and (c) not request Business Associate to use or disclose PHI in any manner not permi",
+   "score": 0.69
+  },
+  {
+   "draft_ref": "2.3",
+   "draft_text": "2.3 Business Associate shall not (a) sell PHI; (b) use or disclose PHI for marketing or fundraising; (c) perform Data Aggregation services except as expressly authorized in writing by Covered Entity; or (d) use or disclose PHI in any manner that would violate Subpart E of 45 C.F.R. Part 164 if done ",
+   "signed_source": "2025-10-06_carebridge_clinics_baa.md",
+   "signed_ref": "2.7",
+   "signed_text": "2.7 **Prohibited Uses.** Business Associate shall not use or disclose PHI in any manner that would violate Subpart E of 45 C.F.R. Part 164 if done by Covered Entity.",
+   "score": 0.59
+  },
+  {
+   "draft_ref": "",
+   "draft_text": "This Business Associate Agreement (this \"**BAA**\") is entered into as of the Effective Date of the Master Services Agreement (as defined below) by and between **Harrington Health Systems, Inc.**, a Texas nonprofit corporation with its principal place of business at 6400 Fannin Street, Suite 1800, Ho",
+   "signed_source": "2025-10-06_carebridge_clinics_baa.md",
+   "signed_ref": "",
+   "signed_text": "This Business Associate Agreement (this \"**BAA**\") is entered into as of October 6, 2025 (the \"**BAA Effective Date**\") by and between **CareBridge Clinics, Inc.**, an Arizona corporation with its principal place of business at 2200 North Central Avenue, Suite 900, Phoenix, Arizona 85004 (\"**Covered Entity**\"), and **AtliQ Inc**, a Delaware corporation with its principal place of business at 101 College Road East, Suite 210, Princeton, New Jersey 08540 (\"**Business Associate**\"). Covered Entity ",
+   "score": 0.57
+  },
+  {
+   "draft_ref": "2.3",
+   "draft_text": "2.3 Business Associate shall not (a) sell PHI; (b) use or disclose PHI for marketing or fundraising; (c) perform Data Aggregation services except as expressly authorized in writing by Covered Entity; or (d) use or disclose PHI in any manner that would violate Subpart E of 45 C.F.R. Part 164 if done ",
+   "signed_source": "2025-10-06_carebridge_clinics_baa.md",
+   "signed_ref": "2.6",
+   "signed_text": "2.6 **No Sale; No Marketing.** Business Associate shall not sell PHI or use or disclose PHI for marketing purposes.",
+   "score": 0.48
+  },
+  {
+   "draft_ref": "5.4",
+   "draft_text": "5.4 **Cooperation.** Business Associate shall cooperate fully in Covered Entity's investigation of any Privacy Event and shall not notify any Individual, regulator or media outlet of a Privacy Event without Covered Entity's prior written consent, except as Required By Law.",
+   "signed_source": "2025-10-06_atliq_intercompany_subcontractor_baa.md",
+   "signed_ref": "5.2",
+   "signed_text": "5.2 Subcontractor shall cooperate with Business Associate and the Covered Entity in any investigation and mitigation.",
+   "score": 0.43
+  },
+  {
+   "draft_ref": "5.1",
+   "draft_text": "5.1 **Notice.** Business Associate shall notify Covered Entity's Privacy Officer by telephone and in writing of any Privacy Event within twenty-four (24) hours of discovery. A Privacy Event shall be deemed discovered on the first day on which it is known, or by exercising reasonable diligence would ",
+   "signed_source": "2025-10-06_carebridge_clinics_baa.md",
+   "signed_ref": "5.1",
+   "signed_text": "5.1 **Breaches and Non-Permitted Uses.** Business Associate shall report to Covered Entity any use or disclosure of PHI not provided for by this BAA, including any Breach of Unsecured PHI, without unreasonable delay and in no case later than five (5) business days after discovery. A Breach shall be treated as discovered as of the first day on which it is known, or by exercising reasonable diligence would have been known, to Business Associate.",
+   "score": 0.39
+  }
+ ],
+ "context_notes": [
+  {
+   "name": "2026-09-22_internal_contract_queue.md",
+   "body": "# Internal \u2014 contract queue (ad-hoc, 22 Sep)\nPresent: Karandeep, Bhavin, Dhaval, Jay\n\nCalled because three people chased Karandeep on the same morning.\n\nQueue as of today (from Jay's list on the whiteboard):\n- Harrington (Dhaval) \u2014 $210k, US, their paper \u2014 by **1 Oct**\n- Lakeshore (Jay) \u2014 $64k, US \u2014 by **3 Oct**\n- BlueOrchid pilot (Jay) \u2014 $38k \u2014 by **5 Oct**\n- Gulf Crown (Bhavin) \u2014 $140k, Saudi \u2014 by **10 Oct**\n- TravelHub (Karandeep) \u2014 $52k, Dubai \u2014 no date\n- Rheinwerk (Bhavin) \u2014 \u20ac88k, Munich \u2014 draft arriving tomorrow, by **15 Oct**\n- Sunrise SOW-2 (Dhaval) \u2014 $45k \u2014 Meera sending this week, wants by **8 Oct**\n\nDiscussion:\n- Karandeep: reviewing late at night after calls, 10pm onwards. A client-paper MSA takes him 3\u20134 hrs properly. \"Harrington alone is a whole evening and I haven't started.\"\n- Dhaval raised ShopSwift \u2014 SOW sat 9 days in July waiting for review, Elena's budget slipped a quarter. \"We lost that one to our own queue.\"\n- Volume: Bhavin reckons last year was ~5 contracts/month, this year ~9 (MSAs, SOWs, NDAs, DPAs, amendments). Only Karandeep signs.\n- Went through Gulf Crown headline terms. Midway Karandeep stopped: \"didn't we sign something with the Dubai hotel people that stops us doing hotels in the Gulf?\"\n- Nobody could find the Al Noor contract quickly \u2014 Dhaval searched the shared drive, not there. Karandeep thinks it's in his email \"somewhere\".\n- Bhavin: \"I think that expired, no? It was a 2025 thing.\" Karandeep not sure.\n- Jay: \"is there a list of what we've agreed to not do?\" \u2014 silence.\n- Dhaval asked if we should send Harrington to counsel. Karandeep: \"it's $210k, but Mehta Rao takes a week.\" Not decided.\n- Bhavin: Gulf Crown can't slip, Faisal has a summit on the 14th.\n\nKarandeep will go through them this weekend.\n\n*(No owner, order of review, or deadline per contract was agreed. The Al Noor contract was not located during the meeting.)*"
+  },
+  {
+   "name": "2026-09-27_harrington_huddle.md",
+   "body": "# Harrington \u2014 quick huddle (Sun 27 Sep, call)\nPresent: Karandeep, Dhaval, Pranav\n\n- Harrington now = 3 docs: NDA (signed Aug), MSA (their paper, in review), BAA (arrived 16 Sep \u2014 Rebecca wants it signed together with the MSA). Dhaval: \"one more doc for Harrington.\"\n- Pranav: scoping is going well. Kevin Brooks (their data eng manager) emailed a \"sample extract\" on 12 Sep so we could size the pipeline. Pranav opened it here and forwarded to Sneha and Vikram in Pune to start profiling. \"It's real data I think \u2014 names, DOBs, some diagnosis codes.\"\n- Dhaval: the BAA says nobody outside the US touches patient data, so he's bringing in Daniel Ortiz, freelance data engineer in Austin. Contractor agreement + NDA drafted on our US template. \"US-based, so the offshore thing is solved.\"\n- Karandeep: \"Our cyber policy is $1M btw, Harrington BAA wants 5.\"\n- Pranav asked if the CareBridge setup (the intercompany thing) covers this too \u2014 Karandeep: \"should do, same kind of work.\" Nobody checked.\n- Dhaval: Rebecca needs MSA + BAA by 1 Oct.\n\nLet's talk Monday.\n\n*(No decisions were made. As of 2026-09-28 no Business Associate Agreement had been signed with Harrington; the sample extract remained with the two Pune engineers; no subcontractor BAA had been drafted for Daniel Ortiz; the insurance gap was not raised with Harrington.)*"
+  },
+  {
+   "name": "negotiation_notes.md",
+   "body": "**Harrington Health (US) \u2014 NDA, Aug 2026 \u2014 AtliQ Inc**\n- Dhaval needed it signed so scoping could start. K signed next day (20 Aug). Nothing discussed.\n\n---\n\n*Jay's note: didn't get to Sunrise, DataNest, Orbit, Seaside or the older NDAs. A lot of the \"why\" is only in K's head.*"
+  }
+ ],
+ "llm_summary": "",
+ "llm_questions": [],
+ "llm_used": false,
+ "llm_error": "",
+ "judge": null,
+ "mode": "demo"
+}

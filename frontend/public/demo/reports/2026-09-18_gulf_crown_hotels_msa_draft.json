@@ -1,0 +1,372 @@
+{
+ "filename": "2026-09-18_gulf_crown_hotels_msa_draft.md",
+ "counterparty": "Gulf Crown Hotels & Resorts",
+ "title": "Master Services Agreement",
+ "profile": {
+  "doc_type": "MSA",
+  "is_nda": false,
+  "atliq_entity": "Pvt Ltd",
+  "atliq_role": "supplier",
+  "counterparty_country": "Saudi Arabia",
+  "governing_law": "Kingdom of Saudi Arabia"
+ },
+ "tracker": [
+  {
+   "contract_id": "C-025",
+   "counterparty": "Gulf Crown Hotels & Resorts",
+   "doc_type": "MSA",
+   "atliq_entity": "Pvt Ltd",
+   "client_country": "Saudi Arabia",
+   "requested_by": "Bhavin",
+   "received_date": "2026-09-18",
+   "status": "In review",
+   "signed_date": "",
+   "expiry_date": "",
+   "value_usd": "140000",
+   "file_location": "Bhavin email",
+   "restrictive_clauses": "",
+   "notes": "sign by 10 Oct!! Faisal has a summit on the 14th. biggest deal of the year (Bhavin)"
+  }
+ ],
+ "verdict": "Do not sign yet: 4 blocking issues to resolve",
+ "verdict_level": "blockers",
+ "escalate": [
+  "Conflict with a signed commitment and no waiver on file"
+ ],
+ "counts": {
+  "High": 4,
+  "Medium": 5,
+  "Low": 0,
+  "Info": 0
+ },
+ "value_usd": 140000.0,
+ "deadline": "2026-10-10",
+ "days_left": 12,
+ "findings": [
+  {
+   "category": "Prior commitment",
+   "severity": "High",
+   "title": "Conflicts with Al Noor GCC non-compete (in force until 14 Sep 2029): Saudi Arabia",
+   "explanation": "Signed Al Noor MSA cl. 12.1 bars AtliQ and its Affiliates from analytics/AI/revenue-management work for any 'Hospitality Business' in the GCC, wherever the work is performed. Cl. 1.11 defines that as anyone who owns or operates hotels, resorts or serviced apartments, or who provides distribution, revenue-management or guest-analytics services to them (so hotel booking platforms count too). This draft covers that kind of work touching Saudi Arabia. The Feb 2026 waiver covered the Seaside Hotels (Muscat) SOW only and does not help here. Evidence in this draft: 1.1 **Gulf Crown Hotels & Resorts Co.**, a closed joint stock company incorporated under the laws of the Kingdom of Saudi Arabia, holding Commercial Registration No. 1010584431, with its head office at King Fahd Road, Al Olaya District, P.O. Box 88214, Riyadh 11662, Kingdom of Saudi Arabia (the \"**Company**\"); and / 2.1 WHEREAS the Company owns and operates a portfolio of hotels and resorts within the Kingdom of Saudi Arabia and wishes to modernise its commercial and guest-facing operations in line with its Digital Transformation Programme; / 3.6 \"**Business Day**\" means any day other than a Friday, Saturday or official public holiday in the Kingdom of Saudi Arabia.",
+   "suggestion": "Do not sign until one of: (a) a new written waiver from Al Noor under cl. 12.4 (as done for Seaside, Feb 2026); (b) GCC properties carved out of scope; or (c) counsel (Mehta Rao) confirms the restriction does not apply. Do not tell the client anything firm yet (counsel's advice, 25 Sep).",
+   "clause_ref": "2025-03-15_al_noor_hospitality_msa.md cl. 12.1, 12.2, 12.3 (definitions 1.9, 1.11, 1.14)",
+   "quote": "the Supplier undertakes that neither it nor any of its Affiliates shall, during the Restricted Period, directly or indirectly, provide data analytics, artificial intelligence or revenue-management services to any Hospitality Business in the GCC.",
+   "precedent": "22 Sep queue meeting: nobody could find the Al Noor contract; Bhavin thought it had expired. It runs to 14 Sep 2029.",
+   "source": "register",
+   "verified": true,
+   "id": "f-d14102812e",
+   "section": "commitments",
+   "critical": true
+  },
+  {
+   "category": "Liquidated damages",
+   "severity": "High",
+   "title": "Liquidated damages: calculated on the total contract value, not the delayed milestone, no exclusion for delay the client causes",
+   "explanation": "AtliQ would owe delay damages with calculated on the total contract value, not the delayed milestone, no exclusion for delay the client causes. Checklist: 'LDs \u2192 cap it. never open ended'. ",
+   "suggestion": "Counter with AtliQ's standard: 0.5% of the affected milestone fee per complete week of delay attributable to the supplier, capped at 5% of that milestone fee, no LDs for client-caused or force-majeure delay, LDs as sole remedy for delay.",
+   "clause_ref": "12.2",
+   "quote": "12.2 Should the Service Provider fail to achieve any Milestone by its scheduled completion date, the Service Provider shall pay to the Company, by way of liquidated damages and not as a penalty, an amount equal to one percent (1%) of the Contract Value for each week or part thereof of delay.",
+   "precedent": "Brightwater: uncapped 1%/day LD + no client-delay carve-out \u2192 $9k settlement + $14.2k legal fees. Acme, Northwind, Trustline all accepted 0.5%/week of milestone, cap 5%. Al Noor's 10% total cap was a one-off strategic exception.",
+   "source": "rules",
+   "verified": true,
+   "id": "f-760506148b",
+   "section": "rules",
+   "critical": false
+  },
+  {
+   "category": "Governing law",
+   "severity": "Medium",
+   "title": "Foreign governing law: Kingdom of Saudi Arabia",
+   "explanation": "Governing law is Kingdom of Saudi Arabia. Karandeep's checklist: 'gov law \u2192 ours (India for Pvt Ltd, US for Inc)'. AtliQ has no presence there and would have to litigate abroad.",
+   "suggestion": "Ask for Indian law with Mumbai/Pune arbitration (Pvt Ltd) or a US state (Inc); fall back to a neutral seat such as SIAC/LCIA arbitration.",
+   "clause_ref": "Governing law",
+   "quote": "governed by the laws of Kingdom of Saudi Arabia",
+   "precedent": "Al Noor: DIFC law was accepted as the client's 'group standard'. Onshore Saudi/UAE law is a different, less predictable forum.",
+   "source": "rules",
+   "verified": true,
+   "id": "f-70db004930",
+   "section": "rules",
+   "critical": false
+  },
+  {
+   "category": "Payment",
+   "severity": "Medium",
+   "title": "Payment term 60 days",
+   "explanation": "Payment in 60 days; checklist says '30 days, 45 max'.",
+   "suggestion": "Ask for 30 days (accept up to 45).",
+   "clause_ref": "5.3",
+   "quote": "5.3 The Company shall pay each undisputed invoice within sixty (60) days from the date of receipt of a valid invoice.",
+   "precedent": "Trustline: 90 days negotiated down to 45.",
+   "source": "rules",
+   "verified": true,
+   "id": "f-a66b395865",
+   "section": "rules",
+   "critical": false
+  }
+ ],
+ "required_docs": [],
+ "bundle": [
+  {
+   "id": "C-025",
+   "doc_type": "MSA",
+   "status": "In review",
+   "signed": "",
+   "notes": "sign by 10 Oct!! Faisal has a summit on the 14th. biggest deal of the year (Bhavin)"
+  }
+ ],
+ "precedents": [
+  {
+   "draft_ref": "8.2",
+   "draft_text": "8.2 The Service Provider shall retain ownership of its pre-existing tools, methodologies and know-how (\"**Background IP**\"). To the extent any Background IP is incorporated into the Deliverables, the Service Provider grants the Company a non-exclusive, perpetual, royalty-free licence to use such Bac",
+   "signed_source": "2025-03-15_al_noor_hospitality_msa.md",
+   "signed_ref": "9.2",
+   "signed_text": "9.2 The Supplier retains ownership of its pre-existing tools, libraries, methodologies and know-how (\"**Supplier Background IP**\"). To the extent any Supplier Background IP is incorporated into a Deliverable, the Supplier grants the Client a perpetual, non-exclusive, royalty-free licence to use it as part of that Deliverable.",
+   "score": 0.58
+  },
+  {
+   "draft_ref": "5.4",
+   "draft_text": "5.4 All fees are exclusive of Value Added Tax. Where the Company is required by law to withhold any tax from payments, the Company shall deduct such tax and provide the Service Provider with the relevant withholding certificate.",
+   "signed_source": "2025-03-15_al_noor_hospitality_msa.md",
+   "signed_ref": "5.3",
+   "signed_text": "5.3 All Fees are exclusive of VAT and any other applicable taxes. Where the Client is required by law to withhold tax, it shall provide the Supplier with the relevant withholding certificate.",
+   "score": 0.55
+  },
+  {
+   "draft_ref": "15.2",
+   "draft_text": "15.2 **Assignment.** The Service Provider shall not assign or subcontract any of its obligations without the prior written consent of the Company.",
+   "signed_source": "2026-08-15_trustline_nbfc_msa.md",
+   "signed_ref": "16.1",
+   "signed_text": "16.1 Neither Party shall assign or subcontract this Agreement without prior written consent of the other.",
+   "score": 0.53
+  },
+  {
+   "draft_ref": "7.1",
+   "draft_text": "7.1 Each Party shall keep confidential all Confidential Information of the other Party and shall not disclose it to any third party without prior written consent, save to its employees, advisers and subcontractors who need to know it for the purposes of this Agreement and who are bound by obligation",
+   "signed_source": "2025-03-15_al_noor_hospitality_msa.md",
+   "signed_ref": "8.2",
+   "signed_text": "8.2 Each Party shall keep the other's Confidential Information confidential, use it only for the purposes of this Agreement, and disclose it only to its employees and advisers who need to know it and are bound by equivalent obligations.",
+   "score": 0.51
+  },
+  {
+   "draft_ref": "8.2",
+   "draft_text": "8.2 The Service Provider shall retain ownership of its pre-existing tools, methodologies and know-how (\"**Background IP**\"). To the extent any Background IP is incorporated into the Deliverables, the Service Provider grants the Company a non-exclusive, perpetual, royalty-free licence to use such Bac",
+   "signed_source": "2025-03-10_acme_retail_group_msa.md",
+   "signed_ref": "9.2",
+   "signed_text": "9.2 The Service Provider shall retain all rights in its pre-existing intellectual property, tools, templates and know-how, and grants the Client a non-exclusive, perpetual, royalty-free licence to use any such pre-existing materials incorporated into the Deliverables for the Client's internal business purposes.",
+   "score": 0.51
+  },
+  {
+   "draft_ref": "11.1",
+   "draft_text": "11.1 The Service Provider shall indemnify the Company against all losses, claims and expenses arising from any claim by a third party that the Deliverables infringe the intellectual property rights of such third party.",
+   "signed_source": "2025-06-20_northwind_logistics_msa.md",
+   "signed_ref": "13.1",
+   "signed_text": "13.1 The Supplier shall indemnify the Client against all losses arising from any claim that the Deliverables infringe any third party's Intellectual Property Rights.",
+   "score": 0.5
+  },
+  {
+   "draft_ref": "15.2",
+   "draft_text": "15.2 **Assignment.** The Service Provider shall not assign or subcontract any of its obligations without the prior written consent of the Company.",
+   "signed_source": "2025-06-20_northwind_logistics_msa.md",
+   "signed_ref": "16.1",
+   "signed_text": "16.1 The Supplier shall not assign or subcontract any of its rights or obligations without the Client's prior written consent.",
+   "score": 0.5
+  },
+  {
+   "draft_ref": "13.3",
+   "draft_text": "13.3 The Service Provider shall implement appropriate technical and organisational measures to protect Guest Data and shall notify the Company of any personal data breach within seventy-two (72) hours of becoming aware of it.",
+   "signed_source": "2025-03-15_al_noor_hospitality_msa.md",
+   "signed_ref": "16.2",
+   "signed_text": "16.2 The Supplier shall process Guest Data only on the documented instructions of the Client, implement appropriate technical and organisational measures, and notify the Client without undue delay (and in any event within forty-eight (48) hours) of any personal data breach.",
+   "score": 0.44
+  }
+ ],
+ "context_notes": [
+  {
+   "name": "2026-09-22_internal_contract_queue.md",
+   "body": "# Internal \u2014 contract queue (ad-hoc, 22 Sep)\nPresent: Karandeep, Bhavin, Dhaval, Jay\n\nCalled because three people chased Karandeep on the same morning.\n\nQueue as of today (from Jay's list on the whiteboard):\n- Harrington (Dhaval) \u2014 $210k, US, their paper \u2014 by **1 Oct**\n- Lakeshore (Jay) \u2014 $64k, US \u2014 by **3 Oct**\n- BlueOrchid pilot (Jay) \u2014 $38k \u2014 by **5 Oct**\n- Gulf Crown (Bhavin) \u2014 $140k, Saudi \u2014 by **10 Oct**\n- TravelHub (Karandeep) \u2014 $52k, Dubai \u2014 no date\n- Rheinwerk (Bhavin) \u2014 \u20ac88k, Munich \u2014 draft arriving tomorrow, by **15 Oct**\n- Sunrise SOW-2 (Dhaval) \u2014 $45k \u2014 Meera sending this week, wants by **8 Oct**\n\nDiscussion:\n- Karandeep: reviewing late at night after calls, 10pm onwards. A client-paper MSA takes him 3\u20134 hrs properly. \"Harrington alone is a whole evening and I haven't started.\"\n- Dhaval raised ShopSwift \u2014 SOW sat 9 days in July waiting for review, Elena's budget slipped a quarter. \"We lost that one to our own queue.\"\n- Volume: Bhavin reckons last year was ~5 contracts/month, this year ~9 (MSAs, SOWs, NDAs, DPAs, amendments). Only Karandeep signs.\n- Went through Gulf Crown headline terms. Midway Karandeep stopped: \"didn't we sign something with the Dubai hotel people that stops us doing hotels in the Gulf?\"\n- Nobody could find the Al Noor contract quickly \u2014 Dhaval searched the shared drive, not there. Karandeep thinks it's in his email \"somewhere\".\n- Bhavin: \"I think that expired, no? It was a 2025 thing.\" Karandeep not sure.\n- Jay: \"is there a list of what we've agreed to not do?\" \u2014 silence.\n- Dhaval asked if we should send Harrington to counsel. Karandeep: \"it's $210k, but Mehta Rao takes a week.\" Not decided.\n- Bhavin: Gulf Crown can't slip, Faisal has a summit on the 14th.\n\nKarandeep will go through them this weekend.\n\n*(No owner, order of review, or deadline per contract was agreed. The Al Noor contract was not located during the meeting.)*"
+  },
+  {
+   "name": "2026-09-25_call_with_counsel_gulf_crown.md",
+   "body": "# call w/ Priya Menon (Mehta Rao) \u2014 Gulf Crown / Al Noor \u2014 25/9\nmy notes, rough\n\n- walked her thru Gulf Crown \u2014 KSA hotels, rev mgmt + guest analytics\n- told her abt Al Noor non-compete (from memory \u2014 GCC? 18 months after?). she asked for the actual doc. found it in email after 20 min, sent while on call\n- she wants EVERY signed contract w/ restrictive covenants, exclusivity, MFN \u2014 \"I can't advise on one in isolation\"\n- me: I don't have a list. would have to open each one\n- she: then that's the first job\n- also asked: which entity signed Al Noor? and does their affiliate definition catch AtliQ Inc? \u2014 didn't know offhand. said I'd check\n- asked about Oman waiver \u2014 does it help? she said \"depends what it says, send it\"\n- fee: \u20b91,20,000 for Gulf Crown + Al Noor review\n- turnaround 5\u20137 working days FROM when she has all docs\n- 2 Oct holiday. if I send everything by Thu 1st \u2192 9 Oct best case, 13 Oct worst. Faisal wants signed 10th\n- she said don't tell client anything firm till she's read it\n\nTODO: dig out contracts \u2014 which ones though??\n\n*(Engagement letter not yet signed as of 2026-09-28. Only the Al Noor agreement was sent to counsel during the call.)*"
+  }
+ ],
+ "llm_summary": "The headline risk is not in this contract's wording: signing it puts AtliQ in breach of the Al Noor GCC non-compete, and clause 9.1(d) would make that a false warranty from day one. Beyond that, data-protection liability is uncapped and guest data must stay in Saudi Arabia, which clashes with a Pune delivery team.",
+ "llm_questions": [
+  "Has Al Noor been asked for a waiver for Saudi Arabia, or is this deal off the table until Sep 2029?",
+  "Will any Gulf Crown guest data be viewed from Pune, and does Gulf Crown know that?",
+  "Who will review the Arabic version before signing?"
+ ],
+ "llm_used": true,
+ "llm_error": "",
+ "judge": {
+  "extractor_model": "claude-haiku-4-5",
+  "judge_model": "claude-sonnet-4-6",
+  "summary": "The headline risk is not in this contract's wording: signing it puts AtliQ in breach of the Al Noor GCC non-compete, and clause 9.1(d) would make that a false warranty from day one. Beyond that, data-protection liability is uncapped and guest data must stay in Saudi Arabia, which clashes with a Pune delivery team.",
+  "questions": [
+   "Has Al Noor been asked for a waiver for Saudi Arabia, or is this deal off the table until Sep 2029?",
+   "Will any Gulf Crown guest data be viewed from Pune, and does Gulf Crown know that?",
+   "Who will review the Arabic version before signing?"
+  ],
+  "error": "",
+  "stats": {
+   "confirm": 4,
+   "escalate": 1,
+   "dismiss": 2,
+   "not_reviewed": 0,
+   "needs_human_review": 4,
+   "total": 7
+  },
+  "findings": [
+   {
+    "id": "j-8568a85909",
+    "category": "Restrictive covenant",
+    "title": "AtliQ warrants it has no conflicting restrictions",
+    "clause_ref": "9.1(d)",
+    "quote": "it is not bound by any agreement or restriction which would prevent or restrict it from performing the Services for the Company.",
+    "explanation": "AtliQ promises it is free of any restriction that would stop it doing this work.",
+    "suggestion": "Check existing commitments before giving this warranty, or qualify it with a disclosure schedule.",
+    "stage1_severity": "Medium",
+    "judge_verdict": "escalate",
+    "final_severity": "High",
+    "judge_reasoning": "With the Al Noor non-compete in force until Sep 2029, AtliQ would be in breach of this warranty the moment it signs. This turns a commitment conflict into a direct claim by Gulf Crown as well.",
+    "precedent": "",
+    "verified": true,
+    "needs_human_review": true,
+    "review_reasons": [
+     "Judge escalated the Stage 1 call"
+    ],
+    "stage1_id": "s1-1",
+    "counts_toward_verdict": true,
+    "critical": false
+   },
+   {
+    "id": "j-594bc15423",
+    "category": "Data protection",
+    "title": "Guest data must stay in Saudi Arabia",
+    "clause_ref": "13.2",
+    "quote": "Guest Data shall be hosted within the Kingdom of Saudi Arabia unless the Company provides prior written approval for any transfer outside the Kingdom.",
+    "explanation": "Engineers in Pune viewing production data could count as a transfer outside the Kingdom.",
+    "suggestion": "Get written approval for remote access from India, or commit to a KSA-hosted environment with masked data offshore.",
+    "stage1_severity": "High",
+    "judge_verdict": "confirm",
+    "final_severity": "Medium",
+    "judge_reasoning": "A real delivery constraint, but it is solvable with written approval or a KSA-hosted workspace, so it is a negotiation point rather than a blocker.",
+    "precedent": "",
+    "verified": true,
+    "needs_human_review": true,
+    "review_reasons": [
+     "Judge changed severity High \u2192 Medium"
+    ],
+    "stage1_id": "s1-3",
+    "counts_toward_verdict": true,
+    "critical": false
+   },
+   {
+    "id": "j-42efa3728a",
+    "category": "IP",
+    "title": "Deliverables only transfer on payment in full",
+    "clause_ref": "8.1",
+    "quote": "All Deliverables specifically created for the Company under this Agreement shall, upon payment in full, become the property of the Company.",
+    "explanation": "Ownership passes to the client only after full payment.",
+    "suggestion": "Keep as is.",
+    "stage1_severity": "Medium",
+    "judge_verdict": "dismiss",
+    "final_severity": "Low",
+    "judge_reasoning": "This protects AtliQ: the client does not own anything until it has paid. Keep it.",
+    "precedent": "",
+    "verified": true,
+    "needs_human_review": true,
+    "review_reasons": [
+     "Judge dismissed the Stage 1 call"
+    ],
+    "stage1_id": "s1-6",
+    "counts_toward_verdict": false,
+    "critical": false
+   },
+   {
+    "id": "j-fd737487ae",
+    "category": "NDA",
+    "title": "Confidentiality survives five years",
+    "clause_ref": "7.3",
+    "quote": "The obligations in this Clause 7 shall survive for a period of five (5) years following the expiry or termination of this Agreement.",
+    "explanation": "Confidentiality lasts five years after the contract ends.",
+    "suggestion": "None needed.",
+    "stage1_severity": "Low",
+    "judge_verdict": "dismiss",
+    "final_severity": "Low",
+    "judge_reasoning": "Five years is market standard and mutual.",
+    "precedent": "",
+    "verified": true,
+    "needs_human_review": true,
+    "review_reasons": [
+     "Judge dismissed the Stage 1 call"
+    ],
+    "stage1_id": "s1-7",
+    "counts_toward_verdict": false,
+    "critical": false
+   },
+   {
+    "id": "j-61aaf012c0",
+    "category": "Liability",
+    "title": "Uncapped liability for data protection and confidentiality breaches",
+    "clause_ref": "10.2",
+    "quote": "Save in respect of liability arising from fraud, wilful misconduct, breach of Clause 7 (Confidentiality) or Clause 13 (Data Protection), each Party's aggregate liability under this Agreement shall not exceed the Contract Value.",
+    "explanation": "A guest-data incident across nine hotels sits outside the USD 140,000 cap, so exposure is unlimited.",
+    "suggestion": "Add a super-cap for data protection breaches, e.g. 2x the Contract Value.",
+    "stage1_severity": "High",
+    "judge_verdict": "confirm",
+    "final_severity": "High",
+    "judge_reasoning": "Correct. Guest data for 2,500+ rooms sits outside the cap; the playbook says never accept unlimited liability.",
+    "precedent": "PayTrack (Jan 2025): Karandeep held the liability cap at 1x fees.",
+    "verified": true,
+    "needs_human_review": false,
+    "review_reasons": [],
+    "stage1_id": "s1-2",
+    "counts_toward_verdict": true,
+    "critical": false
+   },
+   {
+    "id": "j-34c6b24b3f",
+    "category": "Other",
+    "title": "Arabic text prevails over English",
+    "clause_ref": "15.3",
+    "quote": "In the event of any inconsistency, the Arabic text shall prevail.",
+    "explanation": "Nobody at AtliQ reads Arabic, so the binding version is one AtliQ has not reviewed.",
+    "suggestion": "Ask for English to prevail, or get the Arabic version checked by counsel before signing.",
+    "stage1_severity": "Medium",
+    "judge_verdict": "confirm",
+    "final_severity": "Medium",
+    "judge_reasoning": "Standard in KSA government-linked paper, but AtliQ should not sign a binding text it cannot read.",
+    "precedent": "",
+    "verified": true,
+    "needs_human_review": false,
+    "review_reasons": [],
+    "stage1_id": "s1-4",
+    "counts_toward_verdict": true,
+    "critical": false
+   },
+   {
+    "id": "j-05ec8013e3",
+    "category": "Termination",
+    "title": "Termination for convenience pays only for accepted work",
+    "clause_ref": "6.3",
+    "quote": "the Company shall pay for all Services performed and accepted up to the date of termination.",
+    "explanation": "Work in progress on a milestone that is not yet accepted would go unpaid.",
+    "suggestion": "Pay for work performed up to termination, accepted or not, plus reasonable demobilisation costs.",
+    "stage1_severity": "Medium",
+    "judge_verdict": "confirm",
+    "final_severity": "Medium",
+    "judge_reasoning": "With milestones up to 10 weeks long, up to USD 42,000 of work could go unpaid on a convenience exit.",
+    "precedent": "",
+    "verified": true,
+    "needs_human_review": false,
+    "review_reasons": [],
+    "stage1_id": "s1-5",
+    "counts_toward_verdict": true,
+    "critical": false
+   }
+  ],
+  "sample": true
+ },
+ "mode": "demo"
+}

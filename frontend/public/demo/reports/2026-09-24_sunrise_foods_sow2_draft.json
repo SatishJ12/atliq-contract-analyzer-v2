@@ -1,0 +1,139 @@
+{
+ "filename": "2026-09-24_sunrise_foods_sow2_draft.md",
+ "counterparty": "Sunrise Foods",
+ "title": "STATEMENT OF WORK No. 2",
+ "profile": {
+  "doc_type": "SOW",
+  "is_nda": false,
+  "atliq_entity": "Pvt Ltd",
+  "atliq_role": "supplier",
+  "counterparty_country": "India",
+  "governing_law": ""
+ },
+ "tracker": [
+  {
+   "contract_id": "C-008",
+   "counterparty": "Sunrise Foods",
+   "doc_type": "MSA",
+   "atliq_entity": "Pvt Ltd",
+   "client_country": "India",
+   "requested_by": "Dhaval",
+   "received_date": "2025-04-02",
+   "status": "Signed",
+   "signed_date": "2025-04-18",
+   "expiry_date": "2028-04-17",
+   "value_usd": "33000",
+   "file_location": "Dhaval laptop",
+   "restrictive_clauses": "",
+   "notes": ""
+  },
+  {
+   "contract_id": "C-029",
+   "counterparty": "Sunrise Foods",
+   "doc_type": "SOW-2",
+   "atliq_entity": "Pvt Ltd",
+   "client_country": "India",
+   "requested_by": "Dhaval",
+   "received_date": "2026-09-24",
+   "status": "",
+   "signed_date": "",
+   "expiry_date": "",
+   "value_usd": "45000",
+   "file_location": "Dhaval email",
+   "restrictive_clauses": "",
+   "notes": "by 8 Oct. v2 portal + dashboard. Dhaval: 'same as last time, should be quick'"
+  }
+ ],
+ "verdict": "No blocking issues found. Karandeep's sign-off is still required",
+ "verdict_level": "clear",
+ "escalate": [],
+ "counts": {
+  "High": 0,
+  "Medium": 0,
+  "Low": 0,
+  "Info": 1
+ },
+ "value_usd": 45000.0,
+ "deadline": "2026-10-08",
+ "days_left": 10,
+ "findings": [
+  {
+   "category": "Liquidated damages",
+   "severity": "Info",
+   "title": "Delay clause matches AtliQ's standard",
+   "explanation": "Capped, milestone-based, client delays excluded: the same position Karandeep negotiated with Acme, Northwind and Trustline.",
+   "suggestion": "",
+   "clause_ref": "8.1",
+   "quote": "8.1 If AtliQ fails to achieve a Milestone by its Target Date for reasons attributable to AtliQ, the Client shall be entitled to a service credit equal to 0.5% (half a percent) of the Milestone Fee of the delayed Milestone for each complete week of delay.",
+   "precedent": "Acme / Northwind / Trustline: 0.5% of milestone per week, cap 5%, client delays excluded.",
+   "source": "rules",
+   "verified": true,
+   "id": "f-91b7b4fc66",
+   "section": "rules",
+   "critical": false
+  }
+ ],
+ "required_docs": [],
+ "bundle": [
+  {
+   "id": "C-008",
+   "doc_type": "MSA",
+   "status": "Signed",
+   "signed": "2025-04-18",
+   "notes": ""
+  },
+  {
+   "id": "C-029",
+   "doc_type": "SOW-2",
+   "status": "(blank)",
+   "signed": "",
+   "notes": "by 8 Oct. v2 portal + dashboard. Dhaval: 'same as last time, should be quick'"
+  }
+ ],
+ "precedents": [
+  {
+   "draft_ref": "8.2",
+   "draft_text": "8.2 The total service credit for any Milestone shall not exceed 5% of that Milestone Fee.",
+   "signed_source": "2025-06-20_northwind_logistics_msa.md",
+   "signed_ref": "11.2",
+   "signed_text": "11.2 The total liquidated damages for any Milestone shall not exceed 5% of that Milestone Fee.",
+   "score": 0.47
+  },
+  {
+   "draft_ref": "8.2",
+   "draft_text": "8.2 The total service credit for any Milestone shall not exceed 5% of that Milestone Fee.",
+   "signed_source": "2026-08-15_trustline_nbfc_msa.md",
+   "signed_ref": "7.2",
+   "signed_text": "7.2 The aggregate liquidated damages for any Milestone shall not exceed 5% (five percent) of the Milestone Fee of that Milestone.",
+   "score": 0.39
+  },
+  {
+   "draft_ref": "",
+   "draft_text": "All other terms, including confidentiality, intellectual property, warranties, limitation of liability, data protection, governing law (laws of India) and dispute resolution (arbitration seated in Pune), are as set out in the MSA.",
+   "signed_source": "2026-08-15_trustline_nbfc_msa.md",
+   "signed_ref": "15.1",
+   "signed_text": "15.1 This Agreement shall be governed by and construed in accordance with the laws of India.",
+   "score": 0.31
+  },
+  {
+   "draft_ref": "",
+   "draft_text": "All other terms, including confidentiality, intellectual property, warranties, limitation of liability, data protection, governing law (laws of India) and dispute resolution (arbitration seated in Pune), are as set out in the MSA.",
+   "signed_source": "2025-03-10_acme_retail_group_msa.md",
+   "signed_ref": "16.1",
+   "signed_text": "16.1 This Agreement shall be governed by and construed in accordance with the laws of India.",
+   "score": 0.31
+  }
+ ],
+ "context_notes": [
+  {
+   "name": "2026-09-22_internal_contract_queue.md",
+   "body": "# Internal \u2014 contract queue (ad-hoc, 22 Sep)\nPresent: Karandeep, Bhavin, Dhaval, Jay\n\nCalled because three people chased Karandeep on the same morning.\n\nQueue as of today (from Jay's list on the whiteboard):\n- Harrington (Dhaval) \u2014 $210k, US, their paper \u2014 by **1 Oct**\n- Lakeshore (Jay) \u2014 $64k, US \u2014 by **3 Oct**\n- BlueOrchid pilot (Jay) \u2014 $38k \u2014 by **5 Oct**\n- Gulf Crown (Bhavin) \u2014 $140k, Saudi \u2014 by **10 Oct**\n- TravelHub (Karandeep) \u2014 $52k, Dubai \u2014 no date\n- Rheinwerk (Bhavin) \u2014 \u20ac88k, Munich \u2014 draft arriving tomorrow, by **15 Oct**\n- Sunrise SOW-2 (Dhaval) \u2014 $45k \u2014 Meera sending this week, wants by **8 Oct**\n\nDiscussion:\n- Karandeep: reviewing late at night after calls, 10pm onwards. A client-paper MSA takes him 3\u20134 hrs properly. \"Harrington alone is a whole evening and I haven't started.\"\n- Dhaval raised ShopSwift \u2014 SOW sat 9 days in July waiting for review, Elena's budget slipped a quarter. \"We lost that one to our own queue.\"\n- Volume: Bhavin reckons last year was ~5 contracts/month, this year ~9 (MSAs, SOWs, NDAs, DPAs, amendments). Only Karandeep signs.\n- Went through Gulf Crown headline terms. Midway Karandeep stopped: \"didn't we sign something with the Dubai hotel people that stops us doing hotels in the Gulf?\"\n- Nobody could find the Al Noor contract quickly \u2014 Dhaval searched the shared drive, not there. Karandeep thinks it's in his email \"somewhere\".\n- Bhavin: \"I think that expired, no? It was a 2025 thing.\" Karandeep not sure.\n- Jay: \"is there a list of what we've agreed to not do?\" \u2014 silence.\n- Dhaval asked if we should send Harrington to counsel. Karandeep: \"it's $210k, but Mehta Rao takes a week.\" Not decided.\n- Bhavin: Gulf Crown can't slip, Faisal has a summit on the 14th.\n\nKarandeep will go through them this weekend.\n\n*(No owner, order of review, or deadline per contract was agreed. The Al Noor contract was not located during the meeting.)*"
+  }
+ ],
+ "llm_summary": "",
+ "llm_questions": [],
+ "llm_used": false,
+ "llm_error": "",
+ "judge": null,
+ "mode": "demo"
+}

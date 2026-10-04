@@ -1,0 +1,9 @@
+# API server (FastAPI). The Streamlit app keeps using ../requirements.txt.
+fastapi>=0.115
+uvicorn[standard]>=0.30
+python-multipart>=0.0.9
+groq>=0.30
+pandas>=2.0
+scikit-learn>=1.4
+pdfplumber>=0.11
+python-docx>=1.1

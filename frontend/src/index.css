@@ -1,0 +1,53 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme inline {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-border: var(--border);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-accent: var(--accent);
+  --radius-lg: 0.75rem;
+  --radius-md: 0.5rem;
+}
+
+:root {
+  --background: #f6f7fb;
+  --foreground: #0f172a;
+  --card: #ffffff;
+  --muted: #f1f5f9;
+  --muted-foreground: #64748b;
+  --border: #e2e8f0;
+  --primary: #4f46e5;
+  --primary-foreground: #ffffff;
+  --accent: #eef2ff;
+}
+
+.dark {
+  --background: #0b1020;
+  --foreground: #e2e8f0;
+  --card: #121a2e;
+  --muted: #1a2338;
+  --muted-foreground: #94a3b8;
+  --border: #243049;
+  --primary: #818cf8;
+  --primary-foreground: #0b1020;
+  --accent: #1e2547;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  overflow-wrap: anywhere;
+}
+
+[data-state="open"] > .chevron { transform: rotate(180deg); }

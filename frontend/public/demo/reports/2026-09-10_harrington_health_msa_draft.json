@@ -1,0 +1,439 @@
+{
+ "filename": "2026-09-10_harrington_health_msa_draft.md",
+ "counterparty": "Harrington Health Systems Inc",
+ "title": "Master Professional Services Agreement",
+ "profile": {
+  "doc_type": "MSA",
+  "is_nda": false,
+  "atliq_entity": "Inc",
+  "atliq_role": "supplier",
+  "counterparty_country": "USA",
+  "governing_law": "State of Texas"
+ },
+ "tracker": [
+  {
+   "contract_id": "C-023",
+   "counterparty": "Harrington Health Systems Inc",
+   "doc_type": "MSA",
+   "atliq_entity": "Inc",
+   "client_country": "USA",
+   "requested_by": "Dhaval",
+   "received_date": "2026-09-10",
+   "status": "In review",
+   "signed_date": "",
+   "expiry_date": "",
+   "value_usd": "210000",
+   "file_location": "Karandeep email",
+   "restrictive_clauses": "",
+   "notes": "need by 1 Oct (Rebecca). their lawyers say template is non-negotiable. $210k"
+  },
+  {
+   "contract_id": "C-045",
+   "counterparty": "Harrington Health Systems Inc",
+   "doc_type": "Mutual NDA",
+   "atliq_entity": "Inc",
+   "client_country": "USA",
+   "requested_by": "Dhaval",
+   "received_date": "2026-08-19",
+   "status": "Signed",
+   "signed_date": "2026-08-20",
+   "expiry_date": "",
+   "value_usd": "",
+   "file_location": "Dhaval email",
+   "restrictive_clauses": "",
+   "notes": ""
+  },
+  {
+   "contract_id": "C-046",
+   "counterparty": "Harrington Health Systems Inc",
+   "doc_type": "BAA",
+   "atliq_entity": "Inc",
+   "client_country": "USA",
+   "requested_by": "Dhaval",
+   "received_date": "2026-09-16",
+   "status": "In review",
+   "signed_date": "",
+   "expiry_date": "",
+   "value_usd": "",
+   "file_location": "Dhaval email",
+   "restrictive_clauses": "",
+   "notes": "Rebecca: must be signed together with the MSA. BAA wants $5M cyber insurance - ours is $1M (K)"
+  }
+ ],
+ "verdict": "Do not sign yet: 11 blocking issues to resolve",
+ "verdict_level": "blockers",
+ "escalate": [
+  "Deal value $210,000 \u2265 $150k with unresolved High findings",
+  "Conflict with a signed commitment and no waiver on file",
+  "HIPAA / GDPR document gap",
+  "Possible exposure of personal or patient data (breach-notification risk)",
+  "Counterparty says template is non-negotiable and High findings remain"
+ ],
+ "counts": {
+  "High": 11,
+  "Medium": 2,
+  "Low": 2,
+  "Info": 0
+ },
+ "value_usd": 210000.0,
+ "deadline": "2026-10-01",
+ "days_left": 3,
+ "findings": [
+  {
+   "category": "Prior commitment",
+   "severity": "High",
+   "title": "Existing intercompany BAA does not cover this engagement",
+   "explanation": "The AtliQ Inc \u2194 Pvt Ltd subcontractor BAA (C-044) is scoped to the CareBridge engagement only. If anyone outside AtliQ Inc (Pune team, freelancers) will touch PHI or de-identified data for this client, a new per-engagement subcontractor BAA is needed first.",
+   "suggestion": "Draft a per-engagement subcontractor BAA (Pune and every freelancer) flowing down the client BAA's restrictions before any data moves.",
+   "clause_ref": "2025-10-06_atliq_intercompany_subcontractor_baa.md cl. 1.2, 1.3, 2.1, Schedule 1",
+   "quote": "This Agreement applies to the Engagement Services. Any services Subcontractor performs for Business Associate other than the Engagement Services are governed by the Intercompany Agreement.",
+   "precedent": "Pranav: 'does the CareBridge setup cover this too?' K: 'should do'. Nobody checked (Harrington huddle, 27 Sep).",
+   "source": "register",
+   "verified": true,
+   "id": "f-e7ebc9b123",
+   "section": "commitments",
+   "critical": true
+  },
+  {
+   "category": "Liquidated damages",
+   "severity": "High",
+   "title": "Liquidated damages: no cap, charged per day, calculated on the total contract value, not the delayed milestone, no exclusion for delay the client causes, on top of actual damages (not a sole remedy)",
+   "explanation": "AtliQ would owe delay damages with no cap, charged per day, calculated on the total contract value, not the delayed milestone, no exclusion for delay the client causes, on top of actual damages (not a sole remedy). Checklist: 'LDs \u2192 cap it. never open ended'. Uncapped per-day LDs on the full value can exceed the fee itself within weeks.",
+   "suggestion": "Counter with AtliQ's standard: 0.5% of the affected milestone fee per complete week of delay attributable to the supplier, capped at 5% of that milestone fee, no LDs for client-caused or force-majeure delay, LDs as sole remedy for delay.",
+   "clause_ref": "11.2",
+   "quote": "11.2 **Liquidated Damages.** The Parties acknowledge that Client's damages from delay would be difficult to ascertain. Accordingly, if Contractor fails to achieve any Delivery Date, Contractor shall pay Client, as liquidated damages, an amount equal to two percent (2%) of the Total Contract Value for each calendar day from the Delivery Date until the date the applicable Deliverable is accepted.",
+   "precedent": "Brightwater: uncapped 1%/day LD + no client-delay carve-out \u2192 $9k settlement + $14.2k legal fees. Acme, Northwind, Trustline all accepted 0.5%/week of milestone, cap 5%. Al Noor's 10% total cap was a one-off strategic exception.",
+   "source": "rules",
+   "verified": true,
+   "id": "f-7c107807a9",
+   "section": "rules",
+   "critical": false
+  },
+  {
+   "category": "Liability",
+   "severity": "High",
+   "title": "Only Client's liability is capped",
+   "explanation": "The cap protects Client only; the other side's exposure is open-ended.",
+   "suggestion": "Make the cap mutual: each party's aggregate liability limited to fees paid/payable in the prior 12 months.",
+   "clause_ref": "10.2",
+   "quote": "10.2 **Cap on Client Liability.** CLIENT'S AGGREGATE LIABILITY ARISING OUT OF OR RELATING TO THIS AGREEMENT SHALL NOT EXCEED THE FEES ACTUALLY PAID BY CLIENT TO CONTRACTOR UNDER THIS AGREEMENT.",
+   "precedent": "",
+   "source": "rules",
+   "verified": true,
+   "id": "f-f729814eb9",
+   "section": "rules",
+   "critical": false
+  },
+  {
+   "category": "Liability",
+   "severity": "High",
+   "title": "Unlimited liability for one side",
+   "explanation": "The clause removes any cap on AtliQ's liability. Checklist: 'liability \u2192 1x fees. NOT unlimited'.",
+   "suggestion": "Mutual cap at 1x fees paid/payable in the prior 12 months, with standard carve-outs (fraud, wilful misconduct, confidentiality) and a separate, insured super-cap for data breach.",
+   "clause_ref": "10.3",
+   "quote": "10.3 **Contractor Liability.** NOTHING IN THIS AGREEMENT SHALL LIMIT OR EXCLUDE CONTRACTOR'S LIABILITY FOR ANY LOSSES, WHETHER DIRECT OR INDIRECT, ARISING OUT OF OR RELATING TO THIS AGREEMENT, INCLUDING CONTRACTOR'S INDEMNIFICATION OBLIGATIONS, BREACH OF THE BAA, OR ANY DATA SECURITY INCIDENT.",
+   "precedent": "Kessler Mobility (\u20ac120k): K walked away over unlimited liability \u2014 'one bad incident \u2026 and the company is gone'.",
+   "source": "rules",
+   "verified": true,
+   "id": "f-18362274d4",
+   "section": "rules",
+   "critical": false
+  },
+  {
+   "category": "Indemnity",
+   "severity": "High",
+   "title": "Indemnity covers the other side's own negligence",
+   "explanation": "Checklist: 'indemnity \u2192 mutual. we don't cover their mistakes'. This indemnity applies even where the client's own negligence caused the loss.",
+   "suggestion": "Mutual indemnity: each party covers losses to the extent caused by its own breach, negligence or wilful misconduct.",
+   "clause_ref": "9.1",
+   "quote": "9.1 **By Contractor.** Contractor shall defend, indemnify and hold harmless Client, its Affiliates, and their respective trustees, directors, officers, employees, medical staff, agents, successors and assigns (the \"**Client Indemnitees**\") from and against any and all Losses arising out of or relating to (a) the Services or Deliverables, (b) any breach of this Agreement or the BAA by Contractor, (c) any claim that\u2026",
+   "precedent": "PayTrack (Jan 2025): K rejected 'including \u2026 negligence of PayTrack'; PayTrack accepted mutual indemnity.",
+   "source": "rules",
+   "verified": true,
+   "id": "f-17da60a9d4",
+   "section": "rules",
+   "critical": false
+  },
+  {
+   "category": "IP",
+   "severity": "High",
+   "title": "AtliQ's pre-existing tools would be assigned to the client",
+   "explanation": "Checklist: 'IP \u2192 client owns what we build for them, we keep our own stuff'. This clause transfers AtliQ's background IP (accelerators, libraries) incorporated in the deliverables.",
+   "suggestion": "Client owns deliverables created specifically for it; AtliQ keeps pre-existing materials and grants a perpetual, non-exclusive, royalty-free licence to use them as part of the deliverables.",
+   "clause_ref": "7.2",
+   "quote": "7.2 **Assignment.** To the extent any Deliverable, or any Pre-Existing Materials incorporated into or necessary for the use of any Deliverable, does not qualify as a work made for hire, Contractor hereby irrevocably assigns, transfers and conveys to Client all right, title and interest therein, including all intellectual property rights, without further consideration.",
+   "precedent": "Northwind (2025): the same clause assigned PipeKit to Northwind \u2014 it is now unclear AtliQ still owns it.",
+   "source": "rules",
+   "verified": true,
+   "id": "f-958ea2f5e0",
+   "section": "rules",
+   "critical": false
+  },
+  {
+   "category": "Completeness",
+   "severity": "High",
+   "title": "HIPAA BAA not signed",
+   "explanation": "This deal involves PHI. No signed BAA with this client exists in the tracker; the MSA alone does not authorise AtliQ to receive PHI.",
+   "suggestion": "Sign the BAA together with the MSA, and stop any PHI transfer until it is signed.",
+   "clause_ref": "Tracker",
+   "quote": "",
+   "precedent": "",
+   "source": "rules",
+   "verified": true,
+   "id": "f-6c23f072ad",
+   "section": "completeness",
+   "critical": true
+  },
+  {
+   "category": "Completeness",
+   "severity": "High",
+   "title": "No subcontractor BAA for people who will touch the data",
+   "explanation": "HIPAA requires the same restrictions to flow down to every subcontractor (Pune team via an intercompany BAA, each freelancer via a subcontractor BAA) before data changes hands.",
+   "suggestion": "Draft per-engagement subcontractor BAAs (intercompany + each freelancer) mirroring the client BAA, signed before access.",
+   "clause_ref": "Tracker / C-044",
+   "quote": "",
+   "precedent": "CareBridge (2025) did this right: NDA + MSA + BAA + intercompany subcontractor BAA.",
+   "source": "rules",
+   "verified": true,
+   "id": "f-b505e07c9f",
+   "section": "completeness",
+   "critical": true
+  },
+  {
+   "category": "Completeness",
+   "severity": "High",
+   "title": "PHI must stay in the US \u2014 check who already has the data",
+   "explanation": "This draft forbids PHI outside the US. The Pune team cannot work on identifiable data for this client.",
+   "suggestion": "Confirm no PHI has left the US; delete any copies offshore; staff PHI work with named US personnel only.",
+   "clause_ref": "Offshore restriction",
+   "quote": "** No PHI shall be accessed, stored or processed outside the United States without Client's prior written consent",
+   "precedent": "",
+   "source": "rules",
+   "verified": true,
+   "id": "f-8427e21e7f",
+   "section": "completeness",
+   "critical": true
+  },
+  {
+   "category": "Completeness",
+   "severity": "High",
+   "title": "Exhibit D is referenced but not attached",
+   "explanation": "The contract incorporates a document that is not in this draft, so you would be agreeing to terms you have not seen.",
+   "suggestion": "Ask for Exhibit D before signing and review it with the main agreement.",
+   "clause_ref": "Exhibit D",
+   "quote": "Exhibit D \u2014 Business Associate Agreement",
+   "precedent": "",
+   "source": "rules",
+   "verified": true,
+   "id": "f-f949f19612",
+   "section": "completeness",
+   "critical": false
+  },
+  {
+   "category": "Data protection",
+   "severity": "High",
+   "title": "Patient data may already be in Pune, before any BAA is signed",
+   "explanation": "The team notes say a sample extract with what looks like real patient data was forwarded to engineers in Pune. The client's BAA forbids PHI outside the US, and no BAA is signed yet.",
+   "suggestion": "Stop use of the extract, confirm with the client whether it was PHI, delete offshore copies and record it; assess breach-notification duties with US counsel (Calloway Stern).",
+   "clause_ref": "2026-09-27_harrington_huddle.md",
+   "quote": "Pranav: scoping is going well. Kevin Brooks (their data eng manager) emailed a \"sample extract\" on 12 Sep so we could size the pipeline. Pranav opened it here and forwarded to Sneha and Vikram in Pune to start profiling. \"It's real data I think \u2014 names, DOBs, some diagnosis codes.\"",
+   "precedent": "",
+   "source": "notes",
+   "verified": true,
+   "id": "f-557268eff7",
+   "section": "rules",
+   "critical": true
+  },
+  {
+   "category": "Payment",
+   "severity": "Medium",
+   "title": "Payment term 90 days",
+   "explanation": "Payment in 90 days; checklist says '30 days, 45 max'.",
+   "suggestion": "Ask for 30 days (accept up to 45).",
+   "clause_ref": "4.3",
+   "quote": "4.3 **Payment Terms.** Client shall pay each properly submitted, undisputed invoice within ninety (90) days after Client's receipt thereof.",
+   "precedent": "Trustline: 90 days negotiated down to 45.",
+   "source": "rules",
+   "verified": true,
+   "id": "f-bbcb2ee75b",
+   "section": "rules",
+   "critical": false
+  },
+  {
+   "category": "Termination",
+   "severity": "Medium",
+   "title": "Termination for convenience without paying for work done",
+   "explanation": "Checklist: 'termination \u2192 they pay for work done'. Work in progress would go unpaid.",
+   "suggestion": "Pay for all services performed up to termination plus non-cancellable costs; give at least 30 days' notice.",
+   "clause_ref": "5.3",
+   "quote": "5.3 **Termination for Convenience.** Client may terminate this Agreement or any SOW, in whole or in part, for any reason or no reason, upon seven (7) days' written notice to Contractor. Upon such termination, Client's sole obligation shall be to pay Fees for Deliverables accepted by Client prior to the effective date of termination; Client shall have no obligation to pay for work in progress, unaccepted\u2026",
+   "precedent": "",
+   "source": "rules",
+   "verified": true,
+   "id": "f-4398e5ea95",
+   "section": "rules",
+   "critical": false
+  },
+  {
+   "category": "Completeness",
+   "severity": "Low",
+   "title": "Exhibit B is referenced but not attached",
+   "explanation": "The contract incorporates a document that is not in this draft, so you would be agreeing to terms you have not seen.",
+   "suggestion": "Ask for Exhibit B before signing and review it with the main agreement.",
+   "clause_ref": "Exhibit B",
+   "quote": "Exhibit B \u2014 Client Information Security Requirements",
+   "precedent": "",
+   "source": "rules",
+   "verified": true,
+   "id": "f-4426e0ac37",
+   "section": "completeness",
+   "critical": false
+  },
+  {
+   "category": "Completeness",
+   "severity": "Low",
+   "title": "Exhibit C is referenced but not attached",
+   "explanation": "The contract incorporates a document that is not in this draft, so you would be agreeing to terms you have not seen.",
+   "suggestion": "Ask for Exhibit C before signing and review it with the main agreement.",
+   "clause_ref": "Exhibit C",
+   "quote": "Exhibit C \u2014 Vendor Travel Policy",
+   "precedent": "",
+   "source": "rules",
+   "verified": true,
+   "id": "f-4374c8c44e",
+   "section": "completeness",
+   "critical": false
+  }
+ ],
+ "required_docs": [
+  {
+   "document": "NDA",
+   "status": "Present",
+   "detail": "C-045 (Signed)"
+  },
+  {
+   "document": "Services agreement / MSA",
+   "status": "Present",
+   "detail": "C-023 (In review)"
+  },
+  {
+   "document": "HIPAA BAA (signed together with the MSA)",
+   "status": "Missing",
+   "detail": "C-046 (In review)"
+  },
+  {
+   "document": "Subcontractor BAA for every party touching PHI (Pune team, freelancers)",
+   "status": "Missing",
+   "detail": "Existing intercompany BAA C-044 covers CareBridge only"
+  }
+ ],
+ "bundle": [
+  {
+   "id": "C-023",
+   "doc_type": "MSA",
+   "status": "In review",
+   "signed": "",
+   "notes": "need by 1 Oct (Rebecca). their lawyers say template is non-negotiable. $210k"
+  },
+  {
+   "id": "C-045",
+   "doc_type": "Mutual NDA",
+   "status": "Signed",
+   "signed": "2026-08-20",
+   "notes": ""
+  },
+  {
+   "id": "C-046",
+   "doc_type": "BAA",
+   "status": "In review",
+   "signed": "",
+   "notes": "Rebecca: must be signed together with the MSA. BAA wants $5M cyber insurance - ours is $1M (K)"
+  }
+ ],
+ "precedents": [
+  {
+   "draft_ref": "1.1",
+   "draft_text": "1.1 \"**Affiliate**\" means any entity that directly or indirectly controls, is controlled by, or is under common control with a Party.",
+   "signed_source": "2024-08-01_crestline_retail_msa.md",
+   "signed_ref": "1.1",
+   "signed_text": "1.1 \"**Affiliate**\" means any entity that directly or indirectly controls, is controlled by, or is under common control with a Party, where \"control\" means ownership of more than fifty percent (50%) of the voting interests of the entity or the power to direct its management.",
+   "score": 0.68
+  },
+  {
+   "draft_ref": "13.1",
+   "draft_text": "13.1 Contractor shall maintain, at its own expense, with carriers rated A- VII or better by A.M. Best: (a) commercial general liability of $2,000,000 per occurrence; (b) professional liability/errors and omissions of $5,000,000 per claim; (c) cyber liability of $5,000,000 per claim; (d) workers' com",
+   "signed_source": "2024-08-01_crestline_retail_msa.md",
+   "signed_ref": "14.1",
+   "signed_text": "14.1 Supplier shall maintain commercial general liability insurance of at least $1,000,000 per occurrence, professional liability (errors and omissions) insurance of at least $2,000,000, and workers' compensation insurance as required by law.",
+   "score": 0.67
+  },
+  {
+   "draft_ref": "14.3",
+   "draft_text": "14.3 **Venue.** Any action arising out of or relating to this Agreement shall be brought exclusively in the state or federal courts located in Harris County, Texas, and each Party irrevocably submits to the personal jurisdiction of such courts.",
+   "signed_source": "2026-08-20_harrington_health_mutual_nda.md",
+   "signed_ref": "8.1",
+   "signed_text": "8.1 **Governing Law; Venue.** This Agreement is governed by the laws of the State of Texas, without regard to its conflict of laws principles. Any action arising out of this Agreement shall be brought in the state or federal courts located in Harris County, Texas.",
+   "score": 0.62
+  },
+  {
+   "draft_ref": "1.1",
+   "draft_text": "1.1 \"**Affiliate**\" means any entity that directly or indirectly controls, is controlled by, or is under common control with a Party.",
+   "signed_source": "2025-09-01_cloudspan_strategic_partnership_agreement.md",
+   "signed_ref": "1.1",
+   "signed_text": "1.1 \"**Affiliate**\" means, in relation to a Party, any entity that directly or indirectly controls, is controlled by, or is under common control with that Party, where \"control\" means ownership of more than fifty per cent (50%) of the voting securities or the power to direct management.",
+   "score": 0.61
+  },
+  {
+   "draft_ref": "6.3",
+   "draft_text": "6.3 The foregoing obligations shall not apply to information that (a) is or becomes publicly available through no fault of the receiving Party; (b) was rightfully known without restriction prior to disclosure; (c) is rightfully received from a third party without restriction; or (d) is independently",
+   "signed_source": "2024-08-01_crestline_retail_msa.md",
+   "signed_ref": "7.2",
+   "signed_text": "7.2 The obligations in Section 7.1 do not apply to information that is or becomes publicly available without breach, was known to the recipient prior to disclosure, is independently developed, or is rightfully received from a third party.",
+   "score": 0.53
+  },
+  {
+   "draft_ref": "6.3",
+   "draft_text": "6.3 The foregoing obligations shall not apply to information that (a) is or becomes publicly available through no fault of the receiving Party; (b) was rightfully known without restriction prior to disclosure; (c) is rightfully received from a third party without restriction; or (d) is independently",
+   "signed_source": "2026-08-20_harrington_health_mutual_nda.md",
+   "signed_ref": "2.2",
+   "signed_text": "2.2 Confidential Information does not include information that the Receiving Party can demonstrate (a) is or becomes publicly available through no fault of the Receiving Party; (b) was lawfully known to it before disclosure; (c) is lawfully received from a third party without a duty of confidentiality; or (d) is independently developed without use of the Disclosing Party's Confidential Information.",
+   "score": 0.52
+  },
+  {
+   "draft_ref": "15.6",
+   "draft_text": "15.6 **Force Majeure.** Neither Party shall be liable for delay caused by events beyond its reasonable control, provided that a Party affected shall give prompt notice and use diligent efforts to resume performance. Force majeure shall not excuse Contractor's obligations under Article 12 or its busi",
+   "signed_source": "2026-08-15_trustline_nbfc_msa.md",
+   "signed_ref": "14.1",
+   "signed_text": "14.1 Neither Party shall be liable for failure or delay caused by events beyond its reasonable control.",
+   "score": 0.51
+  },
+  {
+   "draft_ref": "15.2",
+   "draft_text": "15.2 **Assignment.** Contractor may not assign or transfer this Agreement, by operation of law or otherwise, without Client's prior written consent. Client may assign this Agreement to any Affiliate or successor without consent.",
+   "signed_source": "2025-03-15_al_noor_hospitality_msa.md",
+   "signed_ref": "19.1",
+   "signed_text": "19.1 Neither Party may assign this Agreement without the prior written consent of the other, except that the Client may assign to an Affiliate on written notice.",
+   "score": 0.5
+  }
+ ],
+ "context_notes": [
+  {
+   "name": "2026-09-22_internal_contract_queue.md",
+   "body": "# Internal \u2014 contract queue (ad-hoc, 22 Sep)\nPresent: Karandeep, Bhavin, Dhaval, Jay\n\nCalled because three people chased Karandeep on the same morning.\n\nQueue as of today (from Jay's list on the whiteboard):\n- Harrington (Dhaval) \u2014 $210k, US, their paper \u2014 by **1 Oct**\n- Lakeshore (Jay) \u2014 $64k, US \u2014 by **3 Oct**\n- BlueOrchid pilot (Jay) \u2014 $38k \u2014 by **5 Oct**\n- Gulf Crown (Bhavin) \u2014 $140k, Saudi \u2014 by **10 Oct**\n- TravelHub (Karandeep) \u2014 $52k, Dubai \u2014 no date\n- Rheinwerk (Bhavin) \u2014 \u20ac88k, Munich \u2014 draft arriving tomorrow, by **15 Oct**\n- Sunrise SOW-2 (Dhaval) \u2014 $45k \u2014 Meera sending this week, wants by **8 Oct**\n\nDiscussion:\n- Karandeep: reviewing late at night after calls, 10pm onwards. A client-paper MSA takes him 3\u20134 hrs properly. \"Harrington alone is a whole evening and I haven't started.\"\n- Dhaval raised ShopSwift \u2014 SOW sat 9 days in July waiting for review, Elena's budget slipped a quarter. \"We lost that one to our own queue.\"\n- Volume: Bhavin reckons last year was ~5 contracts/month, this year ~9 (MSAs, SOWs, NDAs, DPAs, amendments). Only Karandeep signs.\n- Went through Gulf Crown headline terms. Midway Karandeep stopped: \"didn't we sign something with the Dubai hotel people that stops us doing hotels in the Gulf?\"\n- Nobody could find the Al Noor contract quickly \u2014 Dhaval searched the shared drive, not there. Karandeep thinks it's in his email \"somewhere\".\n- Bhavin: \"I think that expired, no? It was a 2025 thing.\" Karandeep not sure.\n- Jay: \"is there a list of what we've agreed to not do?\" \u2014 silence.\n- Dhaval asked if we should send Harrington to counsel. Karandeep: \"it's $210k, but Mehta Rao takes a week.\" Not decided.\n- Bhavin: Gulf Crown can't slip, Faisal has a summit on the 14th.\n\nKarandeep will go through them this weekend.\n\n*(No owner, order of review, or deadline per contract was agreed. The Al Noor contract was not located during the meeting.)*"
+  },
+  {
+   "name": "2026-09-27_harrington_huddle.md",
+   "body": "# Harrington \u2014 quick huddle (Sun 27 Sep, call)\nPresent: Karandeep, Dhaval, Pranav\n\n- Harrington now = 3 docs: NDA (signed Aug), MSA (their paper, in review), BAA (arrived 16 Sep \u2014 Rebecca wants it signed together with the MSA). Dhaval: \"one more doc for Harrington.\"\n- Pranav: scoping is going well. Kevin Brooks (their data eng manager) emailed a \"sample extract\" on 12 Sep so we could size the pipeline. Pranav opened it here and forwarded to Sneha and Vikram in Pune to start profiling. \"It's real data I think \u2014 names, DOBs, some diagnosis codes.\"\n- Dhaval: the BAA says nobody outside the US touches patient data, so he's bringing in Daniel Ortiz, freelance data engineer in Austin. Contractor agreement + NDA drafted on our US template. \"US-based, so the offshore thing is solved.\"\n- Karandeep: \"Our cyber policy is $1M btw, Harrington BAA wants 5.\"\n- Pranav asked if the CareBridge setup (the intercompany thing) covers this too \u2014 Karandeep: \"should do, same kind of work.\" Nobody checked.\n- Dhaval: Rebecca needs MSA + BAA by 1 Oct.\n\nLet's talk Monday.\n\n*(No decisions were made. As of 2026-09-28 no Business Associate Agreement had been signed with Harrington; the sample extract remained with the two Pune engineers; no subcontractor BAA had been drafted for Daniel Ortiz; the insurance gap was not raised with Harrington.)*"
+  },
+  {
+   "name": "negotiation_notes.md",
+   "body": "**Harrington Health (US) \u2014 NDA, Aug 2026 \u2014 AtliQ Inc**\n- Dhaval needed it signed so scoping could start. K signed next day (20 Aug). Nothing discussed.\n\n---\n\n*Jay's note: didn't get to Sunrise, DataNest, Orbit, Seaside or the older NDAs. A lot of the \"why\" is only in K's head.*"
+  }
+ ],
+ "llm_summary": "",
+ "llm_questions": [],
+ "llm_used": false,
+ "llm_error": "",
+ "judge": null,
+ "mode": "demo"
+}

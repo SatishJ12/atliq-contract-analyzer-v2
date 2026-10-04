@@ -1,0 +1,96 @@
+name: Test and deploy to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+      - name: Install dependencies
+        run: pip install -r requirements.txt -r backend/requirements.txt pytest httpx
+      - name: Golden cases + API + LLM-as-Judge tests
+        run: python -m pytest -q
+      - name: Streamlit app still renders (AppTest)
+        run: |
+          python - <<'PY'
+          from streamlit.testing.v1 import AppTest
+          at = AppTest.from_file("app.py", default_timeout=120).run()
+          assert not at.exception, [e.value for e in at.exception]
+          print("AppTest OK")
+          PY
+
+  build:
+    needs: test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: npm
+          cache-dependency-path: frontend/package-lock.json
+      - name: Export offline demo data from the Python pipeline
+        run: |
+          pip install -r backend/requirements.txt
+          python -m backend.export_demo
+      - name: Build React app
+        working-directory: frontend
+        env:
+          # Optional: set the repository variable ATLIQ_API_URL to the Render/Railway backend URL.
+          # Left empty, the site runs as the offline demo.
+          VITE_API_URL: ${{ vars.ATLIQ_API_URL }}
+        run: |
+          npm ci
+          npm test
+          npm run build
+      - name: Browser smoke test (desktop + mobile)
+        run: |
+          pip install playwright
+          python -m playwright install --with-deps chromium
+          python site/smoke_check.py
+      - name: Upload smoke screenshots
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: smoke-screenshots
+          path: smoke*.png
+          if-no-files-found: ignore
+      - uses: actions/configure-pages@v5
+        if: github.event_name != 'pull_request'
+      - uses: actions/upload-pages-artifact@v3
+        if: github.event_name != 'pull_request'
+        with:
+          path: frontend/dist
+
+  deploy:
+    if: github.event_name != 'pull_request'
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

@@ -1,0 +1,220 @@
+{
+ "filename": "2026-09-24_datavane_strategic_partnership_agreement_draft.md",
+ "counterparty": "Datavane Inc",
+ "title": "Strategic Partnership Agreement",
+ "profile": {
+  "doc_type": "Partnership agreement",
+  "is_nda": false,
+  "atliq_entity": "Pvt Ltd",
+  "atliq_role": "partner",
+  "counterparty_country": "USA",
+  "governing_law": "State of Delaware"
+ },
+ "tracker": [
+  {
+   "contract_id": "C-035",
+   "counterparty": "Datavane Inc",
+   "doc_type": "Partnership Agreement",
+   "atliq_entity": "Pvt Ltd",
+   "client_country": "USA",
+   "requested_by": "Bhavin",
+   "received_date": "2026-09-24",
+   "status": "In review",
+   "signed_date": "",
+   "expiry_date": "",
+   "value_usd": "",
+   "file_location": "Bhavin email",
+   "restrictive_clauses": "",
+   "notes": "by 15 Oct. Bhavin: 'huge for our Europe and Middle East pipeline'"
+  }
+ ],
+ "verdict": "Do not sign yet: 4 blocking issues to resolve",
+ "verdict_level": "blockers",
+ "escalate": [
+  "Conflict with a signed commitment and no waiver on file"
+ ],
+ "counts": {
+  "High": 4,
+  "Medium": 2,
+  "Low": 0,
+  "Info": 0
+ },
+ "value_usd": 0.0,
+ "deadline": "2026-10-15",
+ "days_left": 17,
+ "findings": [
+  {
+   "category": "Prior commitment",
+   "severity": "High",
+   "title": "Breaches CloudSpan partner exclusivity in India and the GCC (until 31 Aug 2028)",
+   "explanation": "CloudSpan cl. 7.1 bars AtliQ and its Affiliates from acting as implementation, reseller or referral partner for any competing cloud data-warehouse / lakehouse / unified analytics platform in India or the GCC. This draft appoints AtliQ as a partner for such a platform with a territory including India and the GCC.",
+   "suggestion": "Limit the territory to Europe (which K deliberately kept free in the CloudSpan deal), or exit CloudSpan first (90-day mutual termination for convenience) and weigh the 12% referral revenue and certified-engineer commitment.",
+   "clause_ref": "2025-09-01_cloudspan_strategic_partnership_agreement.md cl. 7.1",
+   "quote": "during the Term Partner and its Affiliates shall not act as an implementation, reseller or referral partner for any Competing Platform in India or the GCC.",
+   "precedent": "K on CloudSpan (Aug 2025): 'We can't do Europe \u2014 Europe is where we're growing.' Europe is free; India and GCC are not.",
+   "source": "register",
+   "verified": true,
+   "id": "f-d412008527",
+   "section": "commitments",
+   "critical": true
+  },
+  {
+   "category": "Liability",
+   "severity": "High",
+   "title": "Unlimited liability for one side",
+   "explanation": "The clause removes any cap on AtliQ's liability. Checklist: 'liability \u2192 1x fees. NOT unlimited'.",
+   "suggestion": "Mutual cap at 1x fees paid/payable in the prior 12 months, with standard carve-outs (fraud, wilful misconduct, confidentiality) and a separate, insured super-cap for data breach.",
+   "clause_ref": "11.1",
+   "quote": "11.1 **By Partner.** Partner shall defend, indemnify and hold harmless Datavane, its Affiliates and their respective directors, officers, employees and agents from and against any and all Losses arising out of or relating to (a) the Partner Services; (b) any breach of this Agreement by Partner or its Affiliates; (c) any representation made by Partner regarding the Platform; (d) any claim by a Datavane Account\u2026",
+   "precedent": "Kessler Mobility (\u20ac120k): K walked away over unlimited liability \u2014 'one bad incident \u2026 and the company is gone'.",
+   "source": "rules",
+   "verified": true,
+   "id": "f-7007d249c3",
+   "section": "rules",
+   "critical": false
+  },
+  {
+   "category": "Liability",
+   "severity": "High",
+   "title": "Only Datavane's liability is capped",
+   "explanation": "The cap protects Datavane only; the other side's exposure is open-ended.",
+   "suggestion": "Make the cap mutual: each party's aggregate liability limited to fees paid/payable in the prior 12 months.",
+   "clause_ref": "12.2",
+   "quote": "12.2 **Cap on Datavane Liability.** DATAVANE'S TOTAL AGGREGATE LIABILITY ARISING OUT OF OR RELATING TO THIS AGREEMENT, INCLUDING UNDER SECTION 11.2, SHALL NOT EXCEED TEN THOUSAND UNITED STATES DOLLARS (USD 10,000).",
+   "precedent": "",
+   "source": "rules",
+   "verified": true,
+   "id": "f-d5d06779c3",
+   "section": "rules",
+   "critical": false
+  },
+  {
+   "category": "Restrictive covenant",
+   "severity": "High",
+   "title": "New restriction on AtliQ's future business",
+   "explanation": "This clause limits who AtliQ can work for (up to 24 months). If signed it must be added to the commitment register.",
+   "suggestion": "Delete, or limit to active solicitation of named accounts AtliQ was introduced to, for the term only.",
+   "clause_ref": "5.3",
+   "quote": "5.3 **Non-Solicitation of Datavane Accounts.** During the Term and for a period of twenty-four (24) months following expiration or termination of this Agreement for any reason, Partner shall not, and shall cause its Affiliates not to, directly or indirectly solicit, market to, or provide any implementation, migration, managed or consulting services to any Datavane Account in connection with any cloud data\u2026",
+   "precedent": "",
+   "source": "rules",
+   "verified": true,
+   "id": "f-e7760f61fe",
+   "section": "rules",
+   "critical": false
+  },
+  {
+   "category": "Governing law",
+   "severity": "Medium",
+   "title": "Foreign governing law: State of Delaware",
+   "explanation": "A US state's law (State of Delaware) applied to the Indian entity. AtliQ Technologies Pvt Ltd would have to defend claims in US courts.",
+   "suggestion": "Ask for Indian law with Mumbai/Pune arbitration (Pvt Ltd) or a US state (Inc); fall back to a neutral seat such as SIAC/LCIA arbitration.",
+   "clause_ref": "Governing law",
+   "quote": "governed by the laws of State of Delaware",
+   "precedent": "",
+   "source": "rules",
+   "verified": true,
+   "id": "f-ee501ce07f",
+   "section": "rules",
+   "critical": false
+  },
+  {
+   "category": "Indemnity",
+   "severity": "Medium",
+   "title": "Broad one-way indemnity",
+   "explanation": "One party indemnifies for anything 'arising out of or relating to' the services, while the other side's indemnity (if any) is narrow.",
+   "suggestion": "Narrow to third-party claims caused by the indemnifying party's breach, negligence or IP infringement, and make it mutual.",
+   "clause_ref": "11.1",
+   "quote": "11.1 **By Partner.** Partner shall defend, indemnify and hold harmless Datavane, its Affiliates and their respective directors, officers, employees and agents from and against any and all Losses arising out of or relating to (a) the Partner Services; (b) any breach of this Agreement by Partner or its Affiliates; (c) any representation made by Partner regarding the Platform; (d) any claim by a Datavane Account\u2026",
+   "precedent": "",
+   "source": "rules",
+   "verified": true,
+   "id": "f-69c27fcfe3",
+   "section": "rules",
+   "critical": false
+  }
+ ],
+ "required_docs": [],
+ "bundle": [
+  {
+   "id": "C-035",
+   "doc_type": "Partnership Agreement",
+   "status": "In review",
+   "signed": "",
+   "notes": "by 15 Oct. Bhavin: 'huge for our Europe and Middle East pipeline'"
+  }
+ ],
+ "precedents": [
+  {
+   "draft_ref": "1.10",
+   "draft_text": "1.10 \"**Territory**\" means the Republic of India; the member states of the Gulf Cooperation Council (United Arab Emirates, Kingdom of Saudi Arabia, State of Qatar, State of Kuwait, Kingdom of Bahrain and Sultanate of Oman); and Europe (the member states of the European Union and the European Economi",
+   "signed_source": "2025-09-01_cloudspan_strategic_partnership_agreement.md",
+   "signed_ref": "1.10",
+   "signed_text": "1.10 \"**Territory**\" means the Republic of India and the member states of the Gulf Cooperation Council, being the United Arab Emirates, the Kingdom of Saudi Arabia, the State of Qatar, the State of Kuwait, the Kingdom of Bahrain and the Sultanate of Oman.",
+   "score": 0.95
+  },
+  {
+   "draft_ref": "1.1",
+   "draft_text": "1.1 \"**Affiliate**\" means any entity that directly or indirectly controls, is controlled by, or is under common control with a Party, where \"control\" means ownership of more than fifty percent (50%) of the voting interests of an entity.",
+   "signed_source": "2024-08-01_crestline_retail_msa.md",
+   "signed_ref": "1.1",
+   "signed_text": "1.1 \"**Affiliate**\" means any entity that directly or indirectly controls, is controlled by, or is under common control with a Party, where \"control\" means ownership of more than fifty percent (50%) of the voting interests of the entity or the power to direct its management.",
+   "score": 0.91
+  },
+  {
+   "draft_ref": "1.10",
+   "draft_text": "1.10 \"**Territory**\" means the Republic of India; the member states of the Gulf Cooperation Council (United Arab Emirates, Kingdom of Saudi Arabia, State of Qatar, State of Kuwait, Kingdom of Bahrain and Sultanate of Oman); and Europe (the member states of the European Union and the European Economi",
+   "signed_source": "2025-03-15_al_noor_hospitality_msa.md",
+   "signed_ref": "1.9",
+   "signed_text": "1.9 \"**GCC**\" means the member states of the Gulf Cooperation Council, being the United Arab Emirates, the Kingdom of Saudi Arabia, the State of Qatar, the State of Kuwait, the Kingdom of Bahrain and the Sultanate of Oman.",
+   "score": 0.82
+  },
+  {
+   "draft_ref": "1.1",
+   "draft_text": "1.1 \"**Affiliate**\" means any entity that directly or indirectly controls, is controlled by, or is under common control with a Party, where \"control\" means ownership of more than fifty percent (50%) of the voting interests of an entity.",
+   "signed_source": "2025-03-15_al_noor_hospitality_msa.md",
+   "signed_ref": "1.2",
+   "signed_text": "1.2 \"**Affiliate**\" means, in relation to a Party, any entity that directly or indirectly controls, is controlled by, or is under common control with that Party, where \"control\" means the ownership of more than fifty percent (50%) of the voting securities of an entity or the power to direct its management and policies, whether by contract or otherwise.",
+   "score": 0.7
+  },
+  {
+   "draft_ref": "3.3",
+   "draft_text": "3.3 **Conduct.** Partner shall not make any representation, warranty or commitment regarding the Platform other than as set out in Datavane's then-current published documentation.",
+   "signed_source": "2025-09-01_cloudspan_strategic_partnership_agreement.md",
+   "signed_ref": "3.3",
+   "signed_text": "3.3 Partner shall not make any representation or warranty concerning the CloudSpan Platform beyond those contained in CloudSpan's published documentation.",
+   "score": 0.62
+  },
+  {
+   "draft_ref": "8.2",
+   "draft_text": "8.2 Datavane grants Partner a non-exclusive, non-transferable, revocable licence during the Term to use Datavane's Marks in the Territory solely to promote the Platform in accordance with Datavane's brand guidelines.",
+   "signed_source": "2025-09-01_cloudspan_strategic_partnership_agreement.md",
+   "signed_ref": "6.1",
+   "signed_text": "6.1 Each Party grants the other a non-exclusive, non-transferable, royalty-free licence during the Term to use its Marks solely to identify the partnership, in accordance with the owning Party's brand guidelines.",
+   "score": 0.6
+  },
+  {
+   "draft_ref": "14.2",
+   "draft_text": "14.2 **Assignment.** Partner may not assign this Agreement, by operation of law, change of control or otherwise, without Datavane's prior written consent. Datavane may assign this Agreement without consent.",
+   "signed_source": "2025-01-22_al_noor_mutual_nda.md",
+   "signed_ref": "9.2",
+   "signed_text": "9.2 Neither Party may assign this Agreement without the prior written consent of the other.",
+   "score": 0.56
+  },
+  {
+   "draft_ref": "13.1",
+   "draft_text": "13.1 **Governing Law.** This Agreement shall be governed by and construed in accordance with the laws of the State of Delaware, without regard to its conflict of laws principles. The United Nations Convention on Contracts for the International Sale of Goods shall not apply.",
+   "signed_source": "2024-08-01_crestline_retail_msa.md",
+   "signed_ref": "16.1",
+   "signed_text": "16.1 This Agreement shall be governed by the laws of the State of Ohio, without regard to its conflict-of-laws principles.",
+   "score": 0.52
+  }
+ ],
+ "context_notes": [],
+ "llm_summary": "",
+ "llm_questions": [],
+ "llm_used": false,
+ "llm_error": "",
+ "judge": null,
+ "mode": "demo"
+}

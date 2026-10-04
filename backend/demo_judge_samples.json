@@ -1,0 +1,82 @@
+{
+  "_note": "Illustrative Stage 1 / Stage 2 outputs used only by the offline demo (GitHub Pages). They show what the LLM-as-Judge pipeline returns; they were written by hand against the drafts and are re-checked by the same quote verification and merge code the live pipeline uses (backend/export_demo.py).",
+  "2026-09-18_gulf_crown_hotels_msa_draft.md": {
+    "proposals": [
+      {"id": "s1-1", "category": "Restrictive covenant", "severity": "Medium", "title": "AtliQ warrants it has no conflicting restrictions", "clause_ref": "9.1(d)",
+       "quote": "it is not bound by any agreement or restriction which would prevent or restrict it from performing the Services for the Company.",
+       "explanation": "AtliQ promises it is free of any restriction that would stop it doing this work.", "suggestion": "Check existing commitments before giving this warranty, or qualify it with a disclosure schedule."},
+      {"id": "s1-2", "category": "Liability", "severity": "High", "title": "Uncapped liability for data protection and confidentiality breaches", "clause_ref": "10.2",
+       "quote": "Save in respect of liability arising from fraud, wilful misconduct, breach of Clause 7 (Confidentiality) or Clause 13 (Data Protection), each Party's aggregate liability under this Agreement shall not exceed the Contract Value.",
+       "explanation": "A guest-data incident across nine hotels sits outside the USD 140,000 cap, so exposure is unlimited.", "suggestion": "Add a super-cap for data protection breaches, e.g. 2x the Contract Value."},
+      {"id": "s1-3", "category": "Data protection", "severity": "High", "title": "Guest data must stay in Saudi Arabia", "clause_ref": "13.2",
+       "quote": "Guest Data shall be hosted within the Kingdom of Saudi Arabia unless the Company provides prior written approval for any transfer outside the Kingdom.",
+       "explanation": "Engineers in Pune viewing production data could count as a transfer outside the Kingdom.", "suggestion": "Get written approval for remote access from India, or commit to a KSA-hosted environment with masked data offshore."},
+      {"id": "s1-4", "category": "Other", "severity": "Medium", "title": "Arabic text prevails over English", "clause_ref": "15.3",
+       "quote": "In the event of any inconsistency, the Arabic text shall prevail.",
+       "explanation": "Nobody at AtliQ reads Arabic, so the binding version is one AtliQ has not reviewed.", "suggestion": "Ask for English to prevail, or get the Arabic version checked by counsel before signing."},
+      {"id": "s1-5", "category": "Termination", "severity": "Medium", "title": "Termination for convenience pays only for accepted work", "clause_ref": "6.3",
+       "quote": "the Company shall pay for all Services performed and accepted up to the date of termination.",
+       "explanation": "Work in progress on a milestone that is not yet accepted would go unpaid.", "suggestion": "Pay for work performed up to termination, accepted or not, plus reasonable demobilisation costs."},
+      {"id": "s1-6", "category": "IP", "severity": "Medium", "title": "Deliverables only transfer on payment in full", "clause_ref": "8.1",
+       "quote": "All Deliverables specifically created for the Company under this Agreement shall, upon payment in full, become the property of the Company.",
+       "explanation": "Ownership passes to the client only after full payment.", "suggestion": "Keep as is."},
+      {"id": "s1-7", "category": "NDA", "severity": "Low", "title": "Confidentiality survives five years", "clause_ref": "7.3",
+       "quote": "The obligations in this Clause 7 shall survive for a period of five (5) years following the expiry or termination of this Agreement.",
+       "explanation": "Confidentiality lasts five years after the contract ends.", "suggestion": "None needed."}
+    ],
+    "judgement": {
+      "summary": "The headline risk is not in this contract's wording: signing it puts AtliQ in breach of the Al Noor GCC non-compete, and clause 9.1(d) would make that a false warranty from day one. Beyond that, data-protection liability is uncapped and guest data must stay in Saudi Arabia, which clashes with a Pune delivery team.",
+      "rulings": [
+        {"finding_id": "s1-1", "verdict": "escalate", "final_severity": "High", "reasoning": "With the Al Noor non-compete in force until Sep 2029, AtliQ would be in breach of this warranty the moment it signs. This turns a commitment conflict into a direct claim by Gulf Crown as well.", "precedent": ""},
+        {"finding_id": "s1-2", "verdict": "confirm", "final_severity": "High", "reasoning": "Correct. Guest data for 2,500+ rooms sits outside the cap; the playbook says never accept unlimited liability.", "precedent": "PayTrack (Jan 2025): Karandeep held the liability cap at 1x fees."},
+        {"finding_id": "s1-3", "verdict": "confirm", "final_severity": "Medium", "reasoning": "A real delivery constraint, but it is solvable with written approval or a KSA-hosted workspace, so it is a negotiation point rather than a blocker.", "precedent": ""},
+        {"finding_id": "s1-4", "verdict": "confirm", "final_severity": "Medium", "reasoning": "Standard in KSA government-linked paper, but AtliQ should not sign a binding text it cannot read.", "precedent": ""},
+        {"finding_id": "s1-5", "verdict": "confirm", "final_severity": "Medium", "reasoning": "With milestones up to 10 weeks long, up to USD 42,000 of work could go unpaid on a convenience exit.", "precedent": ""},
+        {"finding_id": "s1-6", "verdict": "dismiss", "final_severity": "Low", "reasoning": "This protects AtliQ: the client does not own anything until it has paid. Keep it.", "precedent": ""},
+        {"finding_id": "s1-7", "verdict": "dismiss", "final_severity": "Low", "reasoning": "Five years is market standard and mutual.", "precedent": ""}
+      ],
+      "questions_for_karandeep": [
+        "Has Al Noor been asked for a waiver for Saudi Arabia, or is this deal off the table until Sep 2029?",
+        "Will any Gulf Crown guest data be viewed from Pune, and does Gulf Crown know that?",
+        "Who will review the Arabic version before signing?"
+      ]
+    }
+  },
+  "2026-09-26_kriti_data_labs_subcontractor_agreement_draft.md": {
+    "proposals": [
+      {"id": "s1-1", "category": "IP", "severity": "Medium", "title": "Vendor keeps ownership of the annotation outputs", "clause_ref": "7.2",
+       "quote": "Vendor shall retain all right, title and interest in and to its tools, labelling platform, scripts, ontologies, annotation guidelines developed by Vendor, and annotation outputs, including all intellectual property rights therein",
+       "explanation": "AtliQ only gets a licence to the labels it pays for.", "suggestion": "Assign the annotation outputs and Deliverables to AtliQ on payment."},
+      {"id": "s1-2", "category": "Data protection", "severity": "Medium", "title": "End Client personal data processed on the vendor's own platform", "clause_ref": "Engagement Schedule",
+       "quote": "Vendor Personnel shall access data via AtliQ-provisioned cloud workspaces and Vendor's own labelling platform.",
+       "explanation": "Technician names and shift data from a German client would sit on a platform AtliQ does not control.", "suggestion": "Restrict work to AtliQ workspaces or sign a sub-processor DPA mirroring the Rheinwerk terms."},
+      {"id": "s1-3", "category": "Fairness", "severity": "Medium", "title": "Endless re-testing, then a full refund", "clause_ref": "3.2",
+       "quote": "AtliQ may repeat the acceptance process until the Deliverable conforms, or may, at its option, reject the Deliverable and receive a refund of all Fees paid in respect thereof.",
+       "explanation": "AtliQ can keep rejecting work, then claw back everything paid for it.", "suggestion": "Two correction rounds, then a refund limited to the non-conforming batch."},
+      {"id": "s1-4", "category": "Fairness", "severity": "Medium", "title": "Fees are fixed for the whole term", "clause_ref": "4.1",
+       "quote": "Fees are firm and fixed and shall not be increased during the term of this Agreement.",
+       "explanation": "The vendor cannot raise prices during the engagement.", "suggestion": "Allow a change order for scope growth."},
+      {"id": "s1-5", "category": "Fairness", "severity": "Low", "title": "Only AtliQ can assign without consent", "clause_ref": "13.2",
+       "quote": "AtliQ may assign this Agreement to any Affiliate or successor without consent.",
+       "explanation": "Assignment rights are one-sided.", "suggestion": "Make assignment to affiliates mutual."},
+      {"id": "s1-6", "category": "Fairness", "severity": "Low", "title": "'Highest standards of the industry'", "clause_ref": "2.2",
+       "quote": "in accordance with the highest standards of the industry",
+       "explanation": "A higher bar than AtliQ accepts for itself (reasonable skill and care).", "suggestion": "Use 'good industry practice'."}
+    ],
+    "judgement": {
+      "summary": "On top of the unfair terms the rules already caught, this subcontract leaves AtliQ exposed on its own client deal: Kriti keeps the IP in the labels AtliQ must hand to Rheinwerk, and German personal data would sit on Kriti's platform with no DPA. Fix those two before the 5 Oct start.",
+      "rulings": [
+        {"finding_id": "s1-1", "verdict": "escalate", "final_severity": "High", "reasoning": "AtliQ has to deliver these datasets to Rheinwerk, whose paper expects AtliQ to transfer the results. A licence limited to 'the End Client project' cannot be passed on as ownership, so AtliQ would breach its client contract.", "precedent": ""},
+        {"finding_id": "s1-2", "verdict": "escalate", "final_severity": "High", "reasoning": "Technician names and shift IDs are personal data under GDPR. Kriti becomes a sub-processor and Rheinwerk's DPA annex is already missing, so there is no flow-down at all.", "precedent": ""},
+        {"finding_id": "s1-3", "verdict": "confirm", "final_severity": "Medium", "reasoning": "AtliQ would reject this if a client sent it. Two rounds then a batch-level refund is fair and still protects AtliQ.", "precedent": ""},
+        {"finding_id": "s1-4", "verdict": "dismiss", "final_severity": "Low", "reasoning": "A fixed price for a 12-week, fully specified batch job is normal, and clause 2.5 already allows change orders.", "precedent": ""},
+        {"finding_id": "s1-5", "verdict": "dismiss", "final_severity": "Low", "reasoning": "One-sided but harmless for a small vendor engagement; not worth negotiating capital on.", "precedent": ""},
+        {"finding_id": "s1-6", "verdict": "confirm", "final_severity": "Low", "reasoning": "Unfair wording but low practical risk because the Engagement Schedule sets a measurable 97% accuracy bar.", "precedent": ""}
+      ],
+      "questions_for_karandeep": [
+        "Does the Rheinwerk contract require AtliQ to assign or only license the labelled datasets?",
+        "Can Kriti work only inside AtliQ-provisioned workspaces, or do they need their own platform?"
+      ]
+    }
+  }
+}

@@ -1,0 +1,203 @@
+{
+ "filename": "2026-09-27_marcus_reed_contractor_agreement_draft.md",
+ "counterparty": "Marcus Reed",
+ "title": "Independent Contractor Agreement",
+ "profile": {
+  "doc_type": "Contractor agreement",
+  "is_nda": false,
+  "atliq_entity": "Pvt Ltd",
+  "atliq_role": "buyer",
+  "counterparty_country": "USA",
+  "governing_law": "India"
+ },
+ "tracker": [
+  {
+   "contract_id": "C-040",
+   "counterparty": "Marcus Reed",
+   "doc_type": "Contractor Agreement",
+   "atliq_entity": "",
+   "client_country": "USA",
+   "requested_by": "Jay",
+   "received_date": "2026-09-27",
+   "status": "Draft",
+   "signed_date": "",
+   "expiry_date": "",
+   "value_usd": "",
+   "file_location": "Jay email",
+   "restrictive_clauses": "",
+   "notes": "Jay wants to send by Thu 1 Oct. India freelancer template - only name and rate changed"
+  }
+ ],
+ "verdict": "Do not sign yet: 4 blocking issues to resolve",
+ "verdict_level": "blockers",
+ "escalate": [],
+ "counts": {
+  "High": 4,
+  "Medium": 1,
+  "Low": 0,
+  "Info": 0
+ },
+ "value_usd": 0.0,
+ "deadline": "2026-10-01",
+ "days_left": 3,
+ "findings": [
+  {
+   "category": "Entity",
+   "severity": "High",
+   "title": "Wrong AtliQ entity: AtliQ Technologies Pvt Ltd (India) for a USA counterparty",
+   "explanation": "Per atliq_entities.md, AtliQ Inc serves US clients only and Pvt Ltd serves everyone else. This draft names AtliQ Technologies Pvt Ltd (India), so invoicing entity, tax regime (GST vs US) and bank account will not line up.",
+   "suggestion": "Replace with AtliQ Inc (US) in the parties clause, signature block and notices.",
+   "clause_ref": "Parties",
+   "quote": "**AtliQ Technologies Pvt Ltd**, a company incorporated under the Companies Act, 2013, CIN U72900MH2019PTC321456, GSTIN 27AAKCA4821F1Z3, having its registered office at 4th Floor, Baner Business Bay, Pune 411045, Maharashtra, India (the \"**Company**\"); and",
+   "precedent": "Entity/invoice mismatches caused payment delays twice in 2025 (atliq_entities.md).",
+   "source": "rules",
+   "verified": true,
+   "id": "f-d8e42d92b5",
+   "section": "rules",
+   "critical": false
+  },
+  {
+   "category": "Fairness",
+   "severity": "High",
+   "title": "Fairness: full-time exclusivity on a freelancer",
+   "explanation": "Bars the contractor from other work during and after the engagement. Heavy for an individual; post-term non-competes are also widely unenforceable (India: Contract Act s.27; many US states restrict them).",
+   "suggestion": "Drop exclusivity and the post-term non-compete; keep confidentiality and a narrow non-solicit of AtliQ's clients the contractor served.",
+   "clause_ref": "3.1",
+   "quote": "3.1 During the term of this Agreement, the Contractor shall devote his professional working time exclusively to the Company and shall not, directly or indirectly, provide services to, or be engaged or employed by, any other person, firm or company, whether paid or unpaid, without the Company's prior written consent.",
+   "precedent": "",
+   "source": "rules",
+   "verified": true,
+   "id": "f-917b029a41",
+   "section": "rules",
+   "critical": false
+  },
+  {
+   "category": "Fairness",
+   "severity": "High",
+   "title": "Fairness: worldwide post-term non-compete on a freelancer",
+   "explanation": "Bars the contractor from other work during and after the engagement. Heavy for an individual; post-term non-competes are also widely unenforceable (India: Contract Act s.27; many US states restrict them).",
+   "suggestion": "Drop exclusivity and the post-term non-compete; keep confidentiality and a narrow non-solicit of AtliQ's clients the contractor served.",
+   "clause_ref": "8.1",
+   "quote": "8.1 For a period of twelve (12) months after termination or expiry of this Agreement, the Contractor shall not, anywhere in the world, directly or indirectly, provide any software or data services to any person, whether as an employee, consultant, contractor, partner or otherwise, in competition with the Company.",
+   "precedent": "",
+   "source": "rules",
+   "verified": true,
+   "id": "f-98f4e56610",
+   "section": "rules",
+   "critical": false
+  },
+  {
+   "category": "Entity",
+   "severity": "High",
+   "title": "India template sent to a US party",
+   "explanation": "The draft asks a US resident for an Indian PAN/GSTIN, pays in INR and is governed by India law with Indian courts. It was built from the India template with 'only name and rate changed' (tracker C-040).",
+   "suggestion": "Use the AtliQ Inc US contractor template (as used for Daniel Ortiz): USD payment by ACH, US law, W-9.",
+   "clause_ref": "Parties / Schedule",
+   "quote": "**Marcus Reed**, an individual residing at 1847 West Roscoe Street, Apt 3B, Chicago, Illinois 60657, USA, PAN: ____________ (the \"**Contractor**\"). 1.1 The Company engages the Contractor, and the Contractor agrees, to provide the services described in the\u2026",
+   "precedent": "",
+   "source": "rules",
+   "verified": true,
+   "id": "f-dbeacd70f9",
+   "section": "rules",
+   "critical": false
+  },
+  {
+   "category": "Payment",
+   "severity": "Medium",
+   "title": "Fairness: Payment term 60 days",
+   "explanation": "Payment in 60 days; checklist says '30 days, 45 max'.",
+   "suggestion": "Ask for 30 days (accept up to 45).",
+   "clause_ref": "4.3",
+   "quote": "4.3 The Contractor shall raise an invoice for approved hours. Payment shall be made within sixty (60) days after the date of timesheet approval.",
+   "precedent": "Trustline: 90 days negotiated down to 45.",
+   "source": "rules",
+   "verified": true,
+   "id": "f-3197dac1a8",
+   "section": "rules",
+   "critical": false
+  }
+ ],
+ "required_docs": [],
+ "bundle": [
+  {
+   "id": "C-040",
+   "doc_type": "Contractor Agreement",
+   "status": "Draft",
+   "signed": "",
+   "notes": "Jay wants to send by Thu 1 Oct. India freelancer template - only name and rate changed"
+  }
+ ],
+ "precedents": [
+  {
+   "draft_ref": "1.3",
+   "draft_text": "1.3 The Contractor shall perform the Services personally and shall not delegate or subcontract them without the Company's prior written consent.",
+   "signed_source": "2025-04-28_rohan_iyer_contractor_agreement.md",
+   "signed_ref": "1.2",
+   "signed_text": "1.2 The Contractor shall perform the Services personally and shall not subcontract any part of them without AtliQ's prior written consent.",
+   "score": 0.8
+  },
+  {
+   "draft_ref": "10.2",
+   "draft_text": "10.2 The Company's liability to the Contractor shall not exceed the fees payable for the preceding three (3) months.",
+   "signed_source": "2025-04-28_rohan_iyer_contractor_agreement.md",
+   "signed_ref": "8.1",
+   "signed_text": "8.1 Each party's aggregate liability under this Agreement shall not exceed the total fees paid or payable to the Contractor in the twelve (12) months preceding the claim, except for breach of Clause 6 or fraud.",
+   "score": 0.31
+  },
+  {
+   "draft_ref": "10.2",
+   "draft_text": "10.2 The Company's liability to the Contractor shall not exceed the fees payable for the preceding three (3) months.",
+   "signed_source": "2025-04-18_sunrise_foods_msa.md",
+   "signed_ref": "13.2",
+   "signed_text": "13.2 Each Party's aggregate liability under an SOW shall not exceed the Fees paid or payable under that SOW.",
+   "score": 0.3
+  },
+  {
+   "draft_ref": "1.3",
+   "draft_text": "1.3 The Contractor shall perform the Services personally and shall not delegate or subcontract them without the Company's prior written consent.",
+   "signed_source": "2026-08-15_trustline_nbfc_msa.md",
+   "signed_ref": "16.1",
+   "signed_text": "16.1 Neither Party shall assign or subcontract this Agreement without prior written consent of the other.",
+   "score": 0.28
+  },
+  {
+   "draft_ref": "6.2",
+   "draft_text": "6.2 The Contractor hereby assigns to the Company all present and future right, title and interest in the Work Product, including all intellectual property rights, worldwide and for the full term of such rights, and waives any moral rights therein. The assignment shall not lapse under Section 19(4) o",
+   "signed_source": "2025-06-20_northwind_logistics_msa.md",
+   "signed_ref": "9.2",
+   "signed_text": "9.2 All Intellectual Property Rights in the Deliverables, including any software, tools, frameworks, libraries and pre-existing materials incorporated into the Deliverables, shall vest in the Client absolutely upon payment of the Charges for the relevant Milestone. The Supplier hereby assigns to the Client, with full title guarantee and by way of present assignment of future rights, all such Intellectual Property Rights with effect from such payment.",
+   "score": 0.28
+  },
+  {
+   "draft_ref": "8.2",
+   "draft_text": "8.2 For a period of twelve (12) months after termination or expiry, the Contractor shall not solicit or accept work from any client of the Company for whom he performed Services, or solicit any employee of the Company.",
+   "signed_source": "2025-03-10_acme_retail_group_msa.md",
+   "signed_ref": "14.1",
+   "signed_text": "14.1 During the term and for six (6) months thereafter, neither Party shall solicit any employee of the other Party who was involved in the Services.",
+   "score": 0.28
+  },
+  {
+   "draft_ref": "6.2",
+   "draft_text": "6.2 The Contractor hereby assigns to the Company all present and future right, title and interest in the Work Product, including all intellectual property rights, worldwide and for the full term of such rights, and waives any moral rights therein. The assignment shall not lapse under Section 19(4) o",
+   "signed_source": "2025-04-28_rohan_iyer_contractor_agreement.md",
+   "signed_ref": "7.2",
+   "signed_text": "7.2 The Contractor warrants that the Work Product will not, to his knowledge, infringe the intellectual property rights of any third party.",
+   "score": 0.27
+  },
+  {
+   "draft_ref": "8.2",
+   "draft_text": "8.2 For a period of twelve (12) months after termination or expiry, the Contractor shall not solicit or accept work from any client of the Company for whom he performed Services, or solicit any employee of the Company.",
+   "signed_source": "2025-06-20_northwind_logistics_msa.md",
+   "signed_ref": "8.2",
+   "signed_text": "8.2 Neither party shall, during the term and for six (6) months afterwards, solicit any employee of the other party engaged in the Services.",
+   "score": 0.26
+  }
+ ],
+ "context_notes": [],
+ "llm_summary": "",
+ "llm_questions": [],
+ "llm_used": false,
+ "llm_error": "",
+ "judge": null,
+ "mode": "demo"
+}

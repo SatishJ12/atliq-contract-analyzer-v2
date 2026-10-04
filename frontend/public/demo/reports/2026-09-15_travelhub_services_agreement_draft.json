@@ -1,0 +1,195 @@
+{
+ "filename": "2026-09-15_travelhub_services_agreement_draft.md",
+ "counterparty": "TravelHub",
+ "title": "Software Development And Services Agreement",
+ "profile": {
+  "doc_type": "Services agreement",
+  "is_nda": false,
+  "atliq_entity": "Inc",
+  "atliq_role": "supplier",
+  "counterparty_country": "UAE",
+  "governing_law": "Emirate of Dubai and the applicable federal laws of the United Arab Emirates"
+ },
+ "tracker": [
+  {
+   "contract_id": "C-024",
+   "counterparty": "TravelHub",
+   "doc_type": "MSA",
+   "atliq_entity": "Inc",
+   "client_country": "UAE",
+   "requested_by": "Karandeep",
+   "received_date": "2026-09-15",
+   "status": "In review",
+   "signed_date": "",
+   "expiry_date": "",
+   "value_usd": "52000",
+   "file_location": "Karandeep email",
+   "restrictive_clauses": "",
+   "notes": "Nadia: 'we put your US company since you're US-listed on LinkedIn'. K to look this week"
+  }
+ ],
+ "verdict": "Do not sign yet: 3 blocking issues to resolve",
+ "verdict_level": "blockers",
+ "escalate": [
+  "Conflict with a signed commitment and no waiver on file"
+ ],
+ "counts": {
+  "High": 3,
+  "Medium": 1,
+  "Low": 0,
+  "Info": 0
+ },
+ "value_usd": 52000.0,
+ "deadline": null,
+ "days_left": null,
+ "findings": [
+  {
+   "category": "Prior commitment",
+   "severity": "High",
+   "title": "Conflicts with Al Noor GCC non-compete (in force until 14 Sep 2029): Saudi Arabia, United Arab Emirates",
+   "explanation": "Signed Al Noor MSA cl. 12.1 bars AtliQ and its Affiliates from analytics/AI/revenue-management work for any 'Hospitality Business' in the GCC, wherever the work is performed. Cl. 1.11 defines that as anyone who owns or operates hotels, resorts or serviced apartments, or who provides distribution, revenue-management or guest-analytics services to them (so hotel booking platforms count too). This draft covers that kind of work touching Saudi Arabia, United Arab Emirates. The Feb 2026 waiver covered the Seaside Hotels (Muscat) SOW only and does not help here. Evidence in this draft: 1.1 **TravelHub FZ-LLC**, a free zone limited liability company licensed by the Dubai Development Authority under licence no. 104772, with its office at Office 1408, Building 3, Dubai Internet City, P.O. Box 502211, Dubai, United Arab Emirates (\"**TravelHub**\" or \"**Customer**\"); and / (b) **Partner Hotel Ranking Module** \u2014 a ranking and recommendation service that scores, ranks and surfaces Partner Hotels in the United Arab Emirates and the Kingdom of Saudi Arabia to TravelHub users at the point of search and itinerary building, taking into account user fit, price competitiveness, partner commission tier, availability and conversion likelihood, and that drives the sort order of hotel results and \"recommended stay\" placements for booking through the TravelHub App; / 4.2 The initial launch markets for the Partner Hotel Ranking Module shall be Dubai, Abu Dhabi, Riyadh and Jeddah, with further cities in the UAE and KSA to be added by configuration.",
+   "suggestion": "Do not sign until one of: (a) a new written waiver from Al Noor under cl. 12.4 (as done for Seaside, Feb 2026); (b) GCC properties carved out of scope; or (c) counsel (Mehta Rao) confirms the restriction does not apply. Do not tell the client anything firm yet (counsel's advice, 25 Sep).",
+   "clause_ref": "2025-03-15_al_noor_hospitality_msa.md cl. 12.1, 12.2, 12.3 (definitions 1.9, 1.11, 1.14)",
+   "quote": "the Supplier undertakes that neither it nor any of its Affiliates shall, during the Restricted Period, directly or indirectly, provide data analytics, artificial intelligence or revenue-management services to any Hospitality Business in the GCC.",
+   "precedent": "22 Sep queue meeting: nobody could find the Al Noor contract; Bhavin thought it had expired. It runs to 14 Sep 2029.",
+   "source": "register",
+   "verified": true,
+   "id": "f-1b952d9a5c",
+   "section": "commitments",
+   "critical": true
+  },
+  {
+   "category": "Entity",
+   "severity": "High",
+   "title": "Wrong AtliQ entity: AtliQ Inc (US) for a UAE counterparty",
+   "explanation": "Per atliq_entities.md, AtliQ Inc serves US clients only and Pvt Ltd serves everyone else. This draft names AtliQ Inc (US), so invoicing entity, tax regime (GST vs US) and bank account will not line up.",
+   "suggestion": "Replace with AtliQ Technologies Pvt Ltd (India) in the parties clause, signature block and notices.",
+   "clause_ref": "Parties",
+   "quote": "1.2 **AtliQ Inc**, a Delaware corporation, with its principal office at 101 College Road East, Suite 210, Princeton, NJ 08540, USA (\"**AtliQ**\" or \"**Developer**\").",
+   "precedent": "Entity/invoice mismatches caused payment delays twice in 2025 (atliq_entities.md).",
+   "source": "rules",
+   "verified": true,
+   "id": "f-5f9a89182e",
+   "section": "rules",
+   "critical": false
+  },
+  {
+   "category": "Entity",
+   "severity": "High",
+   "title": "Invoicing entity differs from the contracting entity",
+   "explanation": "The contract is signed by one AtliQ entity but invoices are raised by the other.",
+   "suggestion": "Make the contracting party and the invoicing party the same entity.",
+   "clause_ref": "7.1",
+   "quote": "7.1 Invoices under this Agreement shall be raised by AtliQ Technologies Pvt Ltd, GSTIN 27AAKCA4821F1Z3, on or after Acceptance of each milestone as set out in Schedule B.",
+   "precedent": "",
+   "source": "rules",
+   "verified": true,
+   "id": "f-8183d70f06",
+   "section": "rules",
+   "critical": false
+  },
+  {
+   "category": "Governing law",
+   "severity": "Medium",
+   "title": "Foreign governing law: Emirate of Dubai and the applicable federal laws of the United Arab Emirates",
+   "explanation": "Governing law is Emirate of Dubai and the applicable federal laws of the United Arab Emirates. Karandeep's checklist: 'gov law \u2192 ours (India for Pvt Ltd, US for Inc)'. AtliQ has no presence there and would have to litigate abroad.",
+   "suggestion": "Ask for Indian law with Mumbai/Pune arbitration (Pvt Ltd) or a US state (Inc); fall back to a neutral seat such as SIAC/LCIA arbitration.",
+   "clause_ref": "Governing law",
+   "quote": "governed by the laws of Emirate of Dubai and the applicable federal laws of the United Arab Emirates",
+   "precedent": "Al Noor: DIFC law was accepted as the client's 'group standard'. Onshore Saudi/UAE law is a different, less predictable forum.",
+   "source": "rules",
+   "verified": true,
+   "id": "f-90b4d01b8d",
+   "section": "rules",
+   "critical": false
+  }
+ ],
+ "required_docs": [],
+ "bundle": [
+  {
+   "id": "C-024",
+   "doc_type": "MSA",
+   "status": "In review",
+   "signed": "",
+   "notes": "Nadia: 'we put your US company since you're US-listed on LinkedIn'. K to look this week"
+  }
+ ],
+ "precedents": [
+  {
+   "draft_ref": "16.2",
+   "draft_text": "16.2 **Assignment.** Neither Party may assign this Agreement without the other's prior written consent, except to an Affiliate or successor in a merger.",
+   "signed_source": "2025-09-01_cloudspan_strategic_partnership_agreement.md",
+   "signed_ref": "16.3",
+   "signed_text": "16.3 **Assignment.** Neither Party may assign this Agreement without the prior written consent of the other, except to an Affiliate or successor in a merger or sale of substantially all assets, on written notice.",
+   "score": 0.78
+  },
+  {
+   "draft_ref": "16.1",
+   "draft_text": "16.1 **Non-solicitation.** During the term and for twelve (12) months thereafter, neither Party shall solicit for employment any employee of the other Party directly involved in the Services.",
+   "signed_source": "2025-03-15_al_noor_hospitality_msa.md",
+   "signed_ref": "12.5",
+   "signed_text": "12.5 During the Term and for twelve (12) months thereafter, neither Party shall solicit for employment any employee of the other Party who was directly involved in the Services, save through general advertisements not targeted at such employees.",
+   "score": 0.63
+  },
+  {
+   "draft_ref": "10.2",
+   "draft_text": "10.2 AtliQ retains ownership of its Background Technology and grants TravelHub a perpetual, non-exclusive, royalty-free licence to use any Background Technology incorporated in the Deliverables as part of the TravelHub App.",
+   "signed_source": "2025-01-22_paytrack_technologies_msa.md",
+   "signed_ref": "8.2",
+   "signed_text": "8.2 AtliQ retains ownership of its pre-existing materials, tools and know-how and grants PayTrack a perpetual, non-exclusive, royalty-free licence to use such materials as incorporated in the Deliverables.",
+   "score": 0.58
+  },
+  {
+   "draft_ref": "10.2",
+   "draft_text": "10.2 AtliQ retains ownership of its Background Technology and grants TravelHub a perpetual, non-exclusive, royalty-free licence to use any Background Technology incorporated in the Deliverables as part of the TravelHub App.",
+   "signed_source": "2025-04-18_sunrise_foods_msa.md",
+   "signed_ref": "10.2",
+   "signed_text": "10.2 AtliQ retains ownership of its pre-existing tools, components, libraries and know-how. AtliQ grants Sunrise a perpetual, non-exclusive, royalty-free licence to use any such pre-existing materials to the extent incorporated in the Deliverables.",
+   "score": 0.54
+  },
+  {
+   "draft_ref": "12.2",
+   "draft_text": "12.2 Each Party's total liability arising out of this Agreement shall not exceed the total fees paid under this Agreement in the twelve (12) months preceding the claim, except for breach of confidentiality or wilful misconduct.",
+   "signed_source": "2025-04-28_rohan_iyer_contractor_agreement.md",
+   "signed_ref": "8.1",
+   "signed_text": "8.1 Each party's aggregate liability under this Agreement shall not exceed the total fees paid or payable to the Contractor in the twelve (12) months preceding the claim, except for breach of Clause 6 or fraud.",
+   "score": 0.54
+  },
+  {
+   "draft_ref": "16.1",
+   "draft_text": "16.1 **Non-solicitation.** During the term and for twelve (12) months thereafter, neither Party shall solicit for employment any employee of the other Party directly involved in the Services.",
+   "signed_source": "2025-03-10_acme_retail_group_msa.md",
+   "signed_ref": "14.1",
+   "signed_text": "14.1 During the term and for six (6) months thereafter, neither Party shall solicit any employee of the other Party who was involved in the Services.",
+   "score": 0.53
+  },
+  {
+   "draft_ref": "16.2",
+   "draft_text": "16.2 **Assignment.** Neither Party may assign this Agreement without the other's prior written consent, except to an Affiliate or successor in a merger.",
+   "signed_source": "2025-01-22_al_noor_mutual_nda.md",
+   "signed_ref": "9.2",
+   "signed_text": "9.2 Neither Party may assign this Agreement without the prior written consent of the other.",
+   "score": 0.52
+  },
+  {
+   "draft_ref": "1.1",
+   "draft_text": "1.1 **TravelHub FZ-LLC**, a free zone limited liability company licensed by the Dubai Development Authority under licence no. 104772, with its office at Office 1408, Building 3, Dubai Internet City, P.O. Box 502211, Dubai, United Arab Emirates (\"**TravelHub**\" or \"**Customer**\"); and",
+   "signed_source": "2025-03-15_al_noor_hospitality_msa.md",
+   "signed_ref": "",
+   "signed_text": "1. **AL NOOR HOSPITALITY GROUP LLC**, a limited liability company registered in the Emirate of Dubai, United Arab Emirates, having its principal office at Level 22, Al Noor Tower, Sheikh Zayed Road, PO Box 118834, Dubai, United Arab Emirates (the \"**Client**\"); and",
+   "score": 0.49
+  }
+ ],
+ "context_notes": [
+  {
+   "name": "2026-09-22_internal_contract_queue.md",
+   "body": "# Internal \u2014 contract queue (ad-hoc, 22 Sep)\nPresent: Karandeep, Bhavin, Dhaval, Jay\n\nCalled because three people chased Karandeep on the same morning.\n\nQueue as of today (from Jay's list on the whiteboard):\n- Harrington (Dhaval) \u2014 $210k, US, their paper \u2014 by **1 Oct**\n- Lakeshore (Jay) \u2014 $64k, US \u2014 by **3 Oct**\n- BlueOrchid pilot (Jay) \u2014 $38k \u2014 by **5 Oct**\n- Gulf Crown (Bhavin) \u2014 $140k, Saudi \u2014 by **10 Oct**\n- TravelHub (Karandeep) \u2014 $52k, Dubai \u2014 no date\n- Rheinwerk (Bhavin) \u2014 \u20ac88k, Munich \u2014 draft arriving tomorrow, by **15 Oct**\n- Sunrise SOW-2 (Dhaval) \u2014 $45k \u2014 Meera sending this week, wants by **8 Oct**\n\nDiscussion:\n- Karandeep: reviewing late at night after calls, 10pm onwards. A client-paper MSA takes him 3\u20134 hrs properly. \"Harrington alone is a whole evening and I haven't started.\"\n- Dhaval raised ShopSwift \u2014 SOW sat 9 days in July waiting for review, Elena's budget slipped a quarter. \"We lost that one to our own queue.\"\n- Volume: Bhavin reckons last year was ~5 contracts/month, this year ~9 (MSAs, SOWs, NDAs, DPAs, amendments). Only Karandeep signs.\n- Went through Gulf Crown headline terms. Midway Karandeep stopped: \"didn't we sign something with the Dubai hotel people that stops us doing hotels in the Gulf?\"\n- Nobody could find the Al Noor contract quickly \u2014 Dhaval searched the shared drive, not there. Karandeep thinks it's in his email \"somewhere\".\n- Bhavin: \"I think that expired, no? It was a 2025 thing.\" Karandeep not sure.\n- Jay: \"is there a list of what we've agreed to not do?\" \u2014 silence.\n- Dhaval asked if we should send Harrington to counsel. Karandeep: \"it's $210k, but Mehta Rao takes a week.\" Not decided.\n- Bhavin: Gulf Crown can't slip, Faisal has a summit on the 14th.\n\nKarandeep will go through them this weekend.\n\n*(No owner, order of review, or deadline per contract was agreed. The Al Noor contract was not located during the meeting.)*"
+  }
+ ],
+ "llm_summary": "",
+ "llm_questions": [],
+ "llm_used": false,
+ "llm_error": "",
+ "judge": null,
+ "mode": "demo"
+}

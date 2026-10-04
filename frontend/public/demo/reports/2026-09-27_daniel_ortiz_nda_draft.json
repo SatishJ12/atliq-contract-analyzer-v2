@@ -1,0 +1,123 @@
+{
+ "filename": "2026-09-27_daniel_ortiz_nda_draft.md",
+ "counterparty": "Daniel Ortiz",
+ "title": "Mutual Nondisclosure Agreement",
+ "profile": {
+  "doc_type": "Mutual NDA",
+  "is_nda": true,
+  "atliq_entity": "Inc",
+  "atliq_role": "nda",
+  "counterparty_country": "USA",
+  "governing_law": "State of Texas"
+ },
+ "tracker": [
+  {
+   "contract_id": "C-047",
+   "counterparty": "Daniel Ortiz",
+   "doc_type": "Contractor Agreement",
+   "atliq_entity": "Inc",
+   "client_country": "USA",
+   "requested_by": "Dhaval",
+   "received_date": "2026-09-27",
+   "status": "Draft",
+   "signed_date": "",
+   "expiry_date": "",
+   "value_usd": "",
+   "file_location": "Dhaval email",
+   "restrictive_clauses": "",
+   "notes": "US freelancer for Harrington. Dhaval: 'US-based, so the offshore thing is solved'. US contractor template"
+  },
+  {
+   "contract_id": "C-048",
+   "counterparty": "Daniel Ortiz",
+   "doc_type": "NDA",
+   "atliq_entity": "Inc",
+   "client_country": "USA",
+   "requested_by": "Dhaval",
+   "received_date": "2026-09-27",
+   "status": "Draft",
+   "signed_date": "",
+   "expiry_date": "",
+   "value_usd": "",
+   "file_location": "Dhaval email",
+   "restrictive_clauses": "",
+   "notes": ""
+  }
+ ],
+ "verdict": "No blocking issues found. Karandeep's sign-off is still required",
+ "verdict_level": "clear",
+ "escalate": [],
+ "counts": {
+  "High": 0,
+  "Medium": 0,
+  "Low": 0,
+  "Info": 0
+ },
+ "value_usd": 0.0,
+ "deadline": null,
+ "days_left": null,
+ "findings": [],
+ "required_docs": [],
+ "bundle": [
+  {
+   "id": "C-047",
+   "doc_type": "Contractor Agreement",
+   "status": "Draft",
+   "signed": "",
+   "notes": "US freelancer for Harrington. Dhaval: 'US-based, so the offshore thing is solved'. US contractor template"
+  },
+  {
+   "id": "C-048",
+   "doc_type": "NDA",
+   "status": "Draft",
+   "signed": "",
+   "notes": ""
+  }
+ ],
+ "precedents": [
+  {
+   "draft_ref": "8.2",
+   "draft_text": "8.2 This Agreement is the entire agreement of the Parties on its subject matter, may be amended only in writing signed by both Parties, and may not be assigned by either Party without the other's consent, except by AtliQ to an Affiliate or successor.",
+   "signed_source": "2025-01-22_al_noor_mutual_nda.md",
+   "signed_ref": "9.1",
+   "signed_text": "9.1 This Agreement is the entire agreement between the Parties on its subject matter and may be amended only in writing signed by both Parties.",
+   "score": 0.8
+  },
+  {
+   "draft_ref": "8.2",
+   "draft_text": "8.2 This Agreement is the entire agreement of the Parties on its subject matter, may be amended only in writing signed by both Parties, and may not be assigned by either Party without the other's consent, except by AtliQ to an Affiliate or successor.",
+   "signed_source": "2026-08-20_harrington_health_mutual_nda.md",
+   "signed_ref": "8.3",
+   "signed_text": "8.3 **Entire Agreement.** This Agreement is the entire agreement of the Parties on its subject matter and may be amended only in a writing signed by both Parties.",
+   "score": 0.76
+  },
+  {
+   "draft_ref": "3.1",
+   "draft_text": "3.1 The Receiving Party shall (a) use the Disclosing Party's Confidential Information only for the Purpose; (b) not disclose it to any third party except, in AtliQ's case, to its Affiliates, employees and professional advisers with a need to know who are bound by confidentiality obligations no less ",
+   "signed_source": "2026-08-20_harrington_health_mutual_nda.md",
+   "signed_ref": "3.1",
+   "signed_text": "3.1 Each Receiving Party shall (a) use the Disclosing Party's Confidential Information solely for the Purpose; (b) disclose it only to its and its Affiliates' employees, contractors and professional advisers who need to know it for the Purpose and are bound by written confidentiality obligations no less protective than this Agreement; (c) protect it with at least the degree of care it uses for its own confidential information of like kind, and no less than reasonable care; and (d) promptly notif",
+   "score": 0.61
+  },
+  {
+   "draft_ref": "3.1",
+   "draft_text": "3.1 The Receiving Party shall (a) use the Disclosing Party's Confidential Information only for the Purpose; (b) not disclose it to any third party except, in AtliQ's case, to its Affiliates, employees and professional advisers with a need to know who are bound by confidentiality obligations no less ",
+   "signed_source": "2025-01-22_al_noor_mutual_nda.md",
+   "signed_ref": "2.1",
+   "signed_text": "2.1 Each Party, as Receiving Party, shall:\n(a) use the Disclosing Party's Confidential Information solely for the Purpose;\n(b) not disclose it to any third party other than its Representatives who are bound by confidentiality obligations no less protective than those in this Agreement;\n(c) protect it using at least the same degree of care it uses for its own confidential information, and no less than reasonable care; and\n(d) promptly notify the Disclosing Party on becoming aware of any unauthori",
+   "score": 0.55
+  }
+ ],
+ "context_notes": [
+  {
+   "name": "2026-09-27_harrington_huddle.md",
+   "body": "# Harrington \u2014 quick huddle (Sun 27 Sep, call)\nPresent: Karandeep, Dhaval, Pranav\n\n- Harrington now = 3 docs: NDA (signed Aug), MSA (their paper, in review), BAA (arrived 16 Sep \u2014 Rebecca wants it signed together with the MSA). Dhaval: \"one more doc for Harrington.\"\n- Pranav: scoping is going well. Kevin Brooks (their data eng manager) emailed a \"sample extract\" on 12 Sep so we could size the pipeline. Pranav opened it here and forwarded to Sneha and Vikram in Pune to start profiling. \"It's real data I think \u2014 names, DOBs, some diagnosis codes.\"\n- Dhaval: the BAA says nobody outside the US touches patient data, so he's bringing in Daniel Ortiz, freelance data engineer in Austin. Contractor agreement + NDA drafted on our US template. \"US-based, so the offshore thing is solved.\"\n- Karandeep: \"Our cyber policy is $1M btw, Harrington BAA wants 5.\"\n- Pranav asked if the CareBridge setup (the intercompany thing) covers this too \u2014 Karandeep: \"should do, same kind of work.\" Nobody checked.\n- Dhaval: Rebecca needs MSA + BAA by 1 Oct.\n\nLet's talk Monday.\n\n*(No decisions were made. As of 2026-09-28 no Business Associate Agreement had been signed with Harrington; the sample extract remained with the two Pune engineers; no subcontractor BAA had been drafted for Daniel Ortiz; the insurance gap was not raised with Harrington.)*"
+  }
+ ],
+ "llm_summary": "",
+ "llm_questions": [],
+ "llm_used": false,
+ "llm_error": "",
+ "judge": null,
+ "mode": "demo"
+}

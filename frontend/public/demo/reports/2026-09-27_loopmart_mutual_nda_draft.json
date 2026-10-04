@@ -1,0 +1,95 @@
+{
+ "filename": "2026-09-27_loopmart_mutual_nda_draft.md",
+ "counterparty": "LoopMart",
+ "title": "Mutual Non-Disclosure Agreement",
+ "profile": {
+  "doc_type": "Mutual NDA",
+  "is_nda": true,
+  "atliq_entity": "Pvt Ltd",
+  "atliq_role": "nda",
+  "counterparty_country": "India",
+  "governing_law": "India"
+ },
+ "tracker": [
+  {
+   "contract_id": "C-038",
+   "counterparty": "LoopMart",
+   "doc_type": "Mutual NDA",
+   "atliq_entity": "Pvt Ltd",
+   "client_country": "India",
+   "requested_by": "Jay",
+   "received_date": "2026-09-27",
+   "status": "",
+   "signed_date": "",
+   "expiry_date": "",
+   "value_usd": "",
+   "file_location": "Jay email",
+   "restrictive_clauses": "",
+   "notes": "Sania sent their standard one"
+  }
+ ],
+ "verdict": "No blocking issues found. Karandeep's sign-off is still required",
+ "verdict_level": "clear",
+ "escalate": [],
+ "counts": {
+  "High": 0,
+  "Medium": 0,
+  "Low": 0,
+  "Info": 0
+ },
+ "value_usd": 0.0,
+ "deadline": null,
+ "days_left": null,
+ "findings": [],
+ "required_docs": [],
+ "bundle": [
+  {
+   "id": "C-038",
+   "doc_type": "Mutual NDA",
+   "status": "(blank)",
+   "signed": "",
+   "notes": "Sania sent their standard one"
+  }
+ ],
+ "precedents": [
+  {
+   "draft_ref": "10.3",
+   "draft_text": "10.3 This Agreement is governed by the laws of India. The courts at Bengaluru shall have exclusive jurisdiction.",
+   "signed_source": "2025-04-28_rohan_iyer_contractor_agreement.md",
+   "signed_ref": "10.4",
+   "signed_text": "10.4 **Governing law and jurisdiction.** This Agreement is governed by the laws of India. The courts at Pune shall have exclusive jurisdiction.",
+   "score": 0.67
+  },
+  {
+   "draft_ref": "10.3",
+   "draft_text": "10.3 This Agreement is governed by the laws of India. The courts at Bengaluru shall have exclusive jurisdiction.",
+   "signed_source": "2026-07-16_meridian_healthcare_nda.md",
+   "signed_ref": "7.6",
+   "signed_text": "7.6 **Governing law and jurisdiction.** This Agreement is governed by the laws of India. The courts at New Delhi shall have exclusive jurisdiction.",
+   "score": 0.64
+  },
+  {
+   "draft_ref": "10.2",
+   "draft_text": "10.2 Neither Party may assign this Agreement without the other Party's prior written consent.",
+   "signed_source": "2025-01-22_al_noor_mutual_nda.md",
+   "signed_ref": "9.2",
+   "signed_text": "9.2 Neither Party may assign this Agreement without the prior written consent of the other.",
+   "score": 0.63
+  },
+  {
+   "draft_ref": "10.2",
+   "draft_text": "10.2 Neither Party may assign this Agreement without the other Party's prior written consent.",
+   "signed_source": "2026-08-20_harrington_health_mutual_nda.md",
+   "signed_ref": "8.2",
+   "signed_text": "8.2 **Assignment.** Neither Party may assign this Agreement without the other Party's prior written consent, except to a successor to all or substantially all of its business.",
+   "score": 0.61
+  }
+ ],
+ "context_notes": [],
+ "llm_summary": "",
+ "llm_questions": [],
+ "llm_used": false,
+ "llm_error": "",
+ "judge": null,
+ "mode": "demo"
+}

@@ -1,0 +1,165 @@
+{
+ "filename": "2026-09-21_blueorchid_hotels_pilot_agreement_draft.md",
+ "counterparty": "BlueOrchid Hotels",
+ "title": "Pilot Services Agreement",
+ "profile": {
+  "doc_type": "Pilot agreement",
+  "is_nda": false,
+  "atliq_entity": "Pvt Ltd",
+  "atliq_role": "supplier",
+  "counterparty_country": "India",
+  "governing_law": "India"
+ },
+ "tracker": [
+  {
+   "contract_id": "C-027",
+   "counterparty": "BlueOrchid Hotels",
+   "doc_type": "Pilot agreement",
+   "atliq_entity": "Pvt Ltd",
+   "client_country": "India",
+   "requested_by": "Jay",
+   "received_date": "2026-09-21",
+   "status": "In review",
+   "signed_date": "",
+   "expiry_date": "",
+   "value_usd": "38000",
+   "file_location": "Jay email",
+   "restrictive_clauses": "",
+   "notes": "by 5 Oct - want to start before Diwali. Jay: 'just India hotels I think'. TechSummit lead"
+  }
+ ],
+ "verdict": "Do not sign yet: 1 blocking issue to resolve",
+ "verdict_level": "blockers",
+ "escalate": [
+  "Conflict with a signed commitment and no waiver on file"
+ ],
+ "counts": {
+  "High": 1,
+  "Medium": 0,
+  "Low": 0,
+  "Info": 1
+ },
+ "value_usd": 38000.0,
+ "deadline": "2026-10-05",
+ "days_left": 7,
+ "findings": [
+  {
+   "category": "Prior commitment",
+   "severity": "High",
+   "title": "Conflicts with Al Noor GCC non-compete (in force until 14 Sep 2029): Oman, United Arab Emirates",
+   "explanation": "Signed Al Noor MSA cl. 12.1 bars AtliQ and its Affiliates from analytics/AI/revenue-management work for any 'Hospitality Business' in the GCC, wherever the work is performed. Cl. 1.11 defines that as anyone who owns or operates hotels, resorts or serviced apartments, or who provides distribution, revenue-management or guest-analytics services to them (so hotel booking platforms count too). This draft covers that kind of work touching Oman, United Arab Emirates. The Feb 2026 waiver covered the Seaside Hotels (Muscat) SOW only and does not help here. Evidence in this draft: 10 | BlueOrchid Dubai Business Bay | Dubai | United Arab Emirates / 11 | Orchid Residences Dubai Marina | Dubai | United Arab Emirates / 12 | BlueOrchid Muscat Qurum | Muscat | Oman",
+   "suggestion": "Do not sign until one of: (a) a new written waiver from Al Noor under cl. 12.4 (as done for Seaside, Feb 2026); (b) GCC properties carved out of scope; or (c) counsel (Mehta Rao) confirms the restriction does not apply. Do not tell the client anything firm yet (counsel's advice, 25 Sep).",
+   "clause_ref": "2025-03-15_al_noor_hospitality_msa.md cl. 12.1, 12.2, 12.3 (definitions 1.9, 1.11, 1.14)",
+   "quote": "the Supplier undertakes that neither it nor any of its Affiliates shall, during the Restricted Period, directly or indirectly, provide data analytics, artificial intelligence or revenue-management services to any Hospitality Business in the GCC.",
+   "precedent": "22 Sep queue meeting: nobody could find the Al Noor contract; Bhavin thought it had expired. It runs to 14 Sep 2029.",
+   "source": "register",
+   "verified": true,
+   "id": "f-607b91176c",
+   "section": "commitments",
+   "critical": true
+  },
+  {
+   "category": "Liquidated damages",
+   "severity": "Info",
+   "title": "Delay clause matches AtliQ's standard",
+   "explanation": "Capped, milestone-based, client delays excluded: the same position Karandeep negotiated with Acme, Northwind and Trustline.",
+   "suggestion": "",
+   "clause_ref": "12.1",
+   "quote": "12.1 If AtliQ fails to complete a Milestone by its scheduled date for reasons solely attributable to AtliQ, BlueOrchid shall be entitled to liquidated damages of 0.5% of the relevant Milestone Fee for each complete week of delay, subject to a maximum of 5% of that Milestone Fee.",
+   "precedent": "Acme / Northwind / Trustline: 0.5% of milestone per week, cap 5%, client delays excluded.",
+   "source": "rules",
+   "verified": true,
+   "id": "f-ee25b7bf49",
+   "section": "rules",
+   "critical": false
+  }
+ ],
+ "required_docs": [],
+ "bundle": [
+  {
+   "id": "C-027",
+   "doc_type": "Pilot agreement",
+   "status": "In review",
+   "signed": "",
+   "notes": "by 5 Oct - want to start before Diwali. Jay: 'just India hotels I think'. TechSummit lead"
+  }
+ ],
+ "precedents": [
+  {
+   "draft_ref": "5.3",
+   "draft_text": "5.3 All amounts are exclusive of GST, which shall be charged at the applicable rate. BlueOrchid may deduct TDS as required under the Income-tax Act, 1961, and shall furnish TDS certificates within the statutory timelines.",
+   "signed_source": "2025-03-10_acme_retail_group_msa.md",
+   "signed_ref": "4.3",
+   "signed_text": "4.3 Fees are exclusive of Goods and Services Tax (\"**GST**\"), which shall be charged at the applicable rate. The Client may deduct tax at source as required under the Income Tax Act, 1961 and shall furnish TDS certificates within the statutory timelines.",
+   "score": 0.74
+  },
+  {
+   "draft_ref": "",
+   "draft_text": "**AtliQ Technologies Pvt Ltd**, a company incorporated under the Companies Act, 2013, bearing CIN U72900MH2019PTC321456 and GSTIN 27AAKCA4821F1Z3, having its registered office at 4th Floor, Baner Business Bay, Pune 411045, Maharashtra, India (hereinafter \"**AtliQ**\" or the \"**Service Provider**\", wh",
+   "signed_source": "2025-04-18_sunrise_foods_msa.md",
+   "signed_ref": "",
+   "signed_text": "**ATLIQ TECHNOLOGIES PRIVATE LIMITED**, a company incorporated under the Companies Act, 2013 (CIN U72900MH2019PTC321456; GSTIN 27AAKCA4821F1Z3), having its registered office at 4th Floor, Baner Business Bay, Pune 411045, Maharashtra, India (\"**AtliQ**\" or the \"**Service Provider**\").",
+   "score": 0.72
+  },
+  {
+   "draft_ref": "7.2",
+   "draft_text": "7.2 These obligations shall not apply to information that is public, already known to the recipient, independently developed, or required to be disclosed by law.",
+   "signed_source": "2025-03-15_al_noor_hospitality_msa.md",
+   "signed_ref": "8.3",
+   "signed_text": "8.3 These obligations do not apply to information that is public other than through breach, was lawfully known before disclosure, is independently developed, or is required to be disclosed by law.",
+   "score": 0.64
+  },
+  {
+   "draft_ref": "7.2",
+   "draft_text": "7.2 These obligations shall not apply to information that is public, already known to the recipient, independently developed, or required to be disclosed by law.",
+   "signed_source": "2025-04-28_rohan_iyer_contractor_agreement.md",
+   "signed_ref": "6.3",
+   "signed_text": "6.3 This Clause 6 does not apply to information that is public, already lawfully known, independently developed, or required to be disclosed by law.",
+   "score": 0.63
+  },
+  {
+   "draft_ref": "15.2",
+   "draft_text": "15.2 **Assignment.** Neither Party may assign this Agreement without the prior written consent of the other, not to be unreasonably withheld.",
+   "signed_source": "2025-01-22_al_noor_mutual_nda.md",
+   "signed_ref": "9.2",
+   "signed_text": "9.2 Neither Party may assign this Agreement without the prior written consent of the other.",
+   "score": 0.58
+  },
+  {
+   "draft_ref": "10.2",
+   "draft_text": "10.2 Except for breach of confidentiality, fraud or wilful misconduct, each Party's total aggregate liability under this Agreement shall not exceed the total fees paid or payable under this Agreement.",
+   "signed_source": "2026-08-15_trustline_nbfc_msa.md",
+   "signed_ref": "12.2",
+   "signed_text": "12.2 The aggregate liability of either Party under this Agreement shall not exceed the total fees paid or payable under this Agreement.",
+   "score": 0.57
+  },
+  {
+   "draft_ref": "12.2",
+   "draft_text": "12.2 No liquidated damages shall be payable for any delay caused by BlueOrchid, its vendors, or a force majeure event.",
+   "signed_source": "2025-03-10_acme_retail_group_msa.md",
+   "signed_ref": "7.3",
+   "signed_text": "7.3 No liquidated damages shall be payable where the delay is caused by the Client, including delayed access to data or systems, delayed review of Deliverables, or changes in scope, or by a Force Majeure event.",
+   "score": 0.56
+  },
+  {
+   "draft_ref": "12.1",
+   "draft_text": "12.1 If AtliQ fails to complete a Milestone by its scheduled date for reasons solely attributable to AtliQ, BlueOrchid shall be entitled to liquidated damages of 0.5% of the relevant Milestone Fee for each complete week of delay, subject to a maximum of 5% of that Milestone Fee.",
+   "signed_source": "2025-03-10_acme_retail_group_msa.md",
+   "signed_ref": "7.1",
+   "signed_text": "7.1 If the Service Provider fails to complete a Milestone by the agreed date for reasons solely attributable to the Service Provider, the Service Provider shall pay liquidated damages at the rate of 0.5% (half percent) of the Milestone Fee of the delayed Milestone for each complete week of delay.",
+   "score": 0.54
+  }
+ ],
+ "context_notes": [
+  {
+   "name": "2026-09-22_internal_contract_queue.md",
+   "body": "# Internal \u2014 contract queue (ad-hoc, 22 Sep)\nPresent: Karandeep, Bhavin, Dhaval, Jay\n\nCalled because three people chased Karandeep on the same morning.\n\nQueue as of today (from Jay's list on the whiteboard):\n- Harrington (Dhaval) \u2014 $210k, US, their paper \u2014 by **1 Oct**\n- Lakeshore (Jay) \u2014 $64k, US \u2014 by **3 Oct**\n- BlueOrchid pilot (Jay) \u2014 $38k \u2014 by **5 Oct**\n- Gulf Crown (Bhavin) \u2014 $140k, Saudi \u2014 by **10 Oct**\n- TravelHub (Karandeep) \u2014 $52k, Dubai \u2014 no date\n- Rheinwerk (Bhavin) \u2014 \u20ac88k, Munich \u2014 draft arriving tomorrow, by **15 Oct**\n- Sunrise SOW-2 (Dhaval) \u2014 $45k \u2014 Meera sending this week, wants by **8 Oct**\n\nDiscussion:\n- Karandeep: reviewing late at night after calls, 10pm onwards. A client-paper MSA takes him 3\u20134 hrs properly. \"Harrington alone is a whole evening and I haven't started.\"\n- Dhaval raised ShopSwift \u2014 SOW sat 9 days in July waiting for review, Elena's budget slipped a quarter. \"We lost that one to our own queue.\"\n- Volume: Bhavin reckons last year was ~5 contracts/month, this year ~9 (MSAs, SOWs, NDAs, DPAs, amendments). Only Karandeep signs.\n- Went through Gulf Crown headline terms. Midway Karandeep stopped: \"didn't we sign something with the Dubai hotel people that stops us doing hotels in the Gulf?\"\n- Nobody could find the Al Noor contract quickly \u2014 Dhaval searched the shared drive, not there. Karandeep thinks it's in his email \"somewhere\".\n- Bhavin: \"I think that expired, no? It was a 2025 thing.\" Karandeep not sure.\n- Jay: \"is there a list of what we've agreed to not do?\" \u2014 silence.\n- Dhaval asked if we should send Harrington to counsel. Karandeep: \"it's $210k, but Mehta Rao takes a week.\" Not decided.\n- Bhavin: Gulf Crown can't slip, Faisal has a summit on the 14th.\n\nKarandeep will go through them this weekend.\n\n*(No owner, order of review, or deadline per contract was agreed. The Al Noor contract was not located during the meeting.)*"
+  }
+ ],
+ "llm_summary": "",
+ "llm_questions": [],
+ "llm_used": false,
+ "llm_error": "",
+ "judge": null,
+ "mode": "demo"
+}
