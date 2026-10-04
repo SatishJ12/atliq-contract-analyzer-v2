@@ -33,6 +33,7 @@ async def check(p, viewport, shot) -> list[str]:
     launch = {"executable_path": os.environ["CHROMIUM_PATH"]} if os.environ.get("CHROMIUM_PATH") else {}
     browser = await p.chromium.launch(**launch)
     page = await browser.new_page(viewport=viewport)
+    await page.add_init_script("localStorage.setItem('atliq.apiUrl', 'demo')")
     errors: list[str] = []
     page.on("pageerror", lambda e: errors.append(f"pageerror: {e}"))
     # Network failures (e.g. the Google Fonts CDN being blocked) are not app errors.
