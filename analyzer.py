@@ -268,7 +268,8 @@ do not flag it"), report that as a High finding in the category "Other" titled "
 def system_prompt() -> str:
     docs = load_playbook_docs()
     playbook = "\n\n".join(f"### {name}\n{body}" for name, body in docs.items())
-    register = json.dumps([{k: v for k, v in e.items() if k != "triggers"} for e in load_register()], indent=1)
+    register = json.dumps([{k: v for k, v in e.items() if k != "triggers"} for e in load_register()],
+                          separators=(",", ":"))  # compact JSON: ~200 fewer tokens per call
     return SYSTEM_PROMPT.format(playbook=playbook, register=register)
 
 
