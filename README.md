@@ -104,7 +104,7 @@ If either stage fails (rate limit, outage), the deterministic report is still re
 | FinServe "mutual" NDA | Only binds AtliQ; hidden 12-month non-compete |
 | Sunrise SOW-2, LoopMart NDA, Daniel Ortiz NDA | No blocking issues (the clean controls) |
 
-These are pinned in `tests/test_golden_cases.py` (13 tests). `backend/tests/` adds 50 more for the API and the judge pipeline, using a fake Groq client.
+These are pinned in `tests/test_golden_cases.py` (13 tests). `tests/test_review_findings.py` adds 17 regression tests for the 6 Oct code review, and `backend/tests/` adds 57 more for the API and the judge pipeline, using a fake Groq client.
 
 ## Run it locally
 
@@ -175,7 +175,7 @@ The API key lives only on the backend, never in the static site. The site can al
 
 ## API key and models (Groq)
 
-The AI layer runs on [Groq](https://console.groq.com) through its OpenAI-compatible chat API (`pip install groq`). Create a key under **API Keys** in the Groq console (the free tier works, and an existing key from another project can be reused) and set it as `GROQ_API_KEY`: in your shell for local runs, in Render's Environment tab for the deployed backend (the v1 Streamlit app reads the same variable). The key only ever lives on the server; the frontend never sees it. Without a key everything runs in rules + register mode.
+The AI layer runs on [Groq](https://console.groq.com) through its OpenAI-compatible chat API (`pip install groq`). Create a key under **API Keys** in the Groq console (an existing key from another project can be reused; the AI modes need the Developer tier, see the limits below) and set it as `GROQ_API_KEY`: in your shell for local runs, in Render's Environment tab for the deployed backend (the v1 Streamlit app reads the same variable). The key only ever lives on the server; the frontend never sees it. Without a key everything runs in rules + register mode.
 
 | Role | Default model | Override |
 |---|---|---|
@@ -185,7 +185,7 @@ The AI layer runs on [Groq](https://console.groq.com) through its OpenAI-compati
 
 Groq's JSON mode returns valid JSON but does not enforce a schema, so the schema is written into the prompt and every answer is checked in code (`analyzer.conform`): findings with missing fields or unknown categories are dropped, and the quote check and judge logic are unchanged.
 
-**Free-tier limits.** Groq's free tier allows about 30 requests/minute, 1,000 requests/day and 6,000 tokens/minute for most models. A judged review sends the playbook and register (~6k tokens) plus the contract (2k-7k tokens) to each stage, so on the free tier most reviews exceed the per-minute token limit and Groq rejects them; the app then shows the rules report with a plain "too long for the current Groq plan" message. For live AI reviews use Groq's pay-as-you-go Developer tier, or set `ATLIQ_REVIEW_MODEL` / `ATLIQ_EXTRACT_MODEL` to models with higher limits. Re-measure cost with real usage before quoting a number.
+**Free-tier limits.** Groq's free tier allows about 30 requests/minute, 1,000 requests/day and 6,000 tokens/minute for most models. A judged review sends the playbook and register (~6k tokens) plus the contract (2k-7k tokens) to each stage (NDAs, BAAs and contractor agreements send only the register entries relevant to their type, about 1k-2k tokens less), so on the free tier most reviews exceed the per-minute token limit and Groq rejects them; the app then shows the rules report with a plain "too long for the current Groq plan" message. For live AI reviews use Groq's pay-as-you-go Developer tier, or set `ATLIQ_REVIEW_MODEL` / `ATLIQ_EXTRACT_MODEL` to models with higher limits. Re-measure cost with real usage before quoting a number.
 
 ## Data notes and limitations
 

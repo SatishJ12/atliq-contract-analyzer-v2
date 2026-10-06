@@ -21,7 +21,7 @@ from . import core  # (puts the repo root on sys.path)
 from analyzer import (EXTRACT_MODEL, REVIEW_MODEL, Report, _llm_client, _verdict, chat_json, fence_contract, is_critical,
                       public_error, quote_in_text, system_prompt)
 from data_loader import DATASET_TODAY
-from rules import SEV_ORDER, Finding
+from rules import SEV_ORDER, Finding, downgrade_severity
 
 log = logging.getLogger("atliq.judge")
 
@@ -87,6 +87,8 @@ JUDGE_SCHEMA = {
 # only add what system_prompt() does not already say (quote rule, fairness, injection, summary/questions
 # are defined there once). A review is ~8k-14k input tokens per stage, so the free tier can't run it;
 # AI reviews need Groq Developer tier, and on 413/429 the deterministic report is shown instead.
+# To trim the bill, system_prompt(profile, text) sends only the register entries relevant to the document type
+# (analyzer.relevant_register): an NDA or a BAA drops most of the ~2.7k register tokens; MSAs/SOWs keep them all.
 EXTRACTOR_INSTRUCTIONS = """You are Stage 1 (extractor) of a two-stage review. List every CONTRACT clause that could hurt AtliQ, \
 with an initial severity. A stronger judge checks each call, so propose borderline findings rather than miss one.
 - Explanations: 1-2 plain sentences. Suggestions: one concrete counter-position."""
@@ -189,7 +191,7 @@ doc type: {p.doc_type}; AtliQ entity on the paper: {p.atliq_entity}; AtliQ's rol
 
 def run_extractor(client, text: str, report: Report) -> list[dict]:
     """Stage 1: the fast model proposes findings."""
-    data = chat_json(client, EXTRACT_MODEL, system_prompt() + "\n\n" + EXTRACTOR_INSTRUCTIONS,
+    data = chat_json(client, EXTRACT_MODEL, system_prompt(report.profile, text) + "\n\n" + EXTRACTOR_INSTRUCTIONS,
                      _context(text, report) + "\n\nReturn your findings as JSON matching the schema.",
                      EXTRACT_SCHEMA, "Stage 1 extractor")
     findings = data["findings"]
@@ -202,7 +204,7 @@ def run_judge(client, text: str, report: Report, proposals: list[dict]) -> dict:
     """Stage 2: the reasoning model rules on every Stage 1 finding."""
     listed = json.dumps([{k: f[k] for k in ("id", "category", "severity", "title", "clause_ref", "quote", "explanation")}
                          for f in proposals], indent=1)
-    return chat_json(client, REVIEW_MODEL, system_prompt() + "\n\n" + JUDGE_INSTRUCTIONS,
+    return chat_json(client, REVIEW_MODEL, system_prompt(report.profile, text) + "\n\n" + JUDGE_INSTRUCTIONS,
                      _context(text, report) + f"\n\n<stage1_findings>\n{listed}\n</stage1_findings>\n\n"
                      "Return one ruling per Stage 1 finding as JSON matching the schema.",
                      JUDGE_SCHEMA, "Stage 2 judge")
@@ -248,8 +250,7 @@ def combine(text: str, proposals: list[dict], judgement: dict) -> list[JudgedFin
         f.verified = quote_in_text(f.quote, text)
         if not f.verified:
             f.review_reasons.append("Quote not found in the contract")
-            if f.final_severity == "High":
-                f.final_severity = "Medium"
+            f.final_severity = downgrade_severity(f.final_severity)  # same rule as the single-pass review
         if verdict in ("escalate", "dismiss"):
             f.review_reasons.append(f"Judge {'escalated' if verdict == 'escalate' else 'dismissed'} the Stage 1 call")
             if verdict == "escalate" and SEV_ORDER.get(final, 9) >= SEV_ORDER.get(p["severity"], 9):

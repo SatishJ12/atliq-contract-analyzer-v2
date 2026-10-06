@@ -24,6 +24,7 @@ import copy
 import hashlib
 import logging
 import os
+import secrets
 import threading
 import time
 from collections import OrderedDict, defaultdict, deque
@@ -33,6 +34,7 @@ from typing import Literal
 from fastapi import FastAPI, File, Form, Header, HTTPException, Request, UploadFile
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel, Field
+from starlette.concurrency import run_in_threadpool
 
 from . import core
 from .judge import judge_review
@@ -131,7 +133,8 @@ def _client_ip(request: Request) -> str:
 
 def _check_token(token: str | None) -> None:
     expected = os.environ.get("ATLIQ_ACCESS_TOKEN")
-    if expected and token != expected:
+    # constant-time comparison, so response timing does not leak how much of a guessed token was right
+    if expected and not secrets.compare_digest((token or "").encode(), expected.encode()):
         raise HTTPException(401, "The AI modes need an access token. Add it in Settings, or use rules mode.")
 
 
@@ -179,6 +182,8 @@ def _resolve_text(draft: str | None, text: str | None, filename: str) -> tuple[s
 
 
 def _review(text: str, filename: str, mode: Mode, request: Request, token: str | None) -> dict:
+    if not text or not text.strip():
+        raise HTTPException(400, "The contract text is empty.")
     notes = []
     if mode in LLM_MODES and not llm_available():
         mode = "rules"
@@ -246,7 +251,8 @@ async def analyze_upload(request: Request, file: UploadFile = File(...), mode: M
         raise HTTPException(415, "Upload a PDF, Word (.docx), .txt or .md file.")
     meta: dict = {}
     try:
-        text = extract_text_from_upload(name, data, max_pages=MAX_PDF_PAGES, meta=meta)
+        # pdfplumber and the AI calls (up to ~2 minutes each) block, so they run in the threadpool, not on the event loop
+        text = await run_in_threadpool(extract_text_from_upload, name, data, max_pages=MAX_PDF_PAGES, meta=meta)
     except Exception:
         log.exception("Could not extract text from upload %s", name)
         raise HTTPException(422, "Could not read that file. Check it opens normally, or paste its text instead.") from None
@@ -254,7 +260,7 @@ async def analyze_upload(request: Request, file: UploadFile = File(...), mode: M
         raise HTTPException(422, "No text found in that file. If it is a scanned PDF it needs OCR first.")
     if len(text) > MAX_TEXT_CHARS:
         raise HTTPException(413, f"That file has more than {MAX_TEXT_CHARS:,} characters of text. Upload the contract on its own.")
-    out = _review(text, name, mode, request, x_access_token)
+    out = await run_in_threadpool(_review, text, name, mode, request, x_access_token)
     if meta.get("truncated"):
         msg = f"Only the first {MAX_PDF_PAGES} of {meta['pages']} pages were read."
         out["warning"] = f"{out['warning']} {msg}" if out.get("warning") else msg
