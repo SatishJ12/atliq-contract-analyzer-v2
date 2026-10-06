@@ -262,7 +262,7 @@ export default function App() {
                     ))}
                   </div>
                   {!client.live && (
-                    <p className="mt-2 px-1 text-xs text-muted-foreground">Real rule, register and document-set results for all 15 drafts. Drafts marked with a gavel include a sample LLM-as-Judge run.</p>
+                    <p className="mt-2 px-1 text-xs text-muted-foreground">Real rule, register and document-set results for all 13 drafts. Drafts marked with a gavel include a sample LLM-as-Judge run.</p>
                   )}
                   {client.live && !health.llm_available && (
                     <p className="mt-2 px-1 text-xs text-muted-foreground">Set GROQ_API_KEY on the backend to enable the AI review modes.</p>

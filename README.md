@@ -87,7 +87,9 @@ If either stage fails (rate limit, outage), the deterministic report is still re
 | Self-consistency voting | Same model run 3-5 times, keep findings that appear in most runs | Reduces noise but triples cost and gives no reasoning for the human. |
 | Rules only | No LLM at all | Free and predictable (and it is the offline/fallback mode), but misses context-dependent risks such as the Gulf Crown no-conflict warranty. |
 
-## Results on the 15 incoming drafts (rules + register mode)
+## Results on the 15 drafts (rules + register mode)
+
+Gulf Crown MSA and Harrington MSA sit in `data/demo_uploads/` rather than `data/incoming/`, so they are not pre-loaded: upload them during a demo to show a live review.
 
 | Draft | What it catches |
 |---|---|

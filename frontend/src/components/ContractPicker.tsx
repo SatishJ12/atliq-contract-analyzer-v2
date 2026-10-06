@@ -51,7 +51,7 @@ export function ContractPicker({
 
       {source === "draft" && (
         <div className="max-h-72 overflow-y-auto sm:max-h-[28rem] p-2 lg:max-h-[calc(100vh-14rem)]">
-          <p className="px-2 pb-2 pt-1 text-xs text-muted-foreground">15 drafts awaiting Karandeep, soonest deadline first</p>
+          <p className="px-2 pb-2 pt-1 text-xs text-muted-foreground">13 drafts awaiting Karandeep, soonest deadline first</p>
           {[...drafts]
             .sort((a, b) => (a.deadline ?? "9") .localeCompare(b.deadline ?? "9"))
             .map((d) => (
@@ -119,7 +119,7 @@ export function ContractPicker({
               }}
             />
           </div>
-          {!live && <p className="mt-3 text-xs text-muted-foreground">Uploading needs the live backend. The offline demo covers the 15 incoming drafts.</p>}
+          {!live && <p className="mt-3 text-xs text-muted-foreground">Uploading needs the live backend. The offline demo covers the 13 incoming drafts.</p>}
         </div>
       )}
 

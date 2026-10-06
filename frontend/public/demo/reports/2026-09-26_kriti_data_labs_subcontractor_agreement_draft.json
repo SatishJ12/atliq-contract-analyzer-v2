@@ -219,8 +219,8 @@
  "llm_used": true,
  "llm_error": "",
  "judge": {
-  "extractor_model": "claude-haiku-4-5",
-  "judge_model": "claude-sonnet-4-6",
+  "extractor_model": "llama-3.1-8b-instant",
+  "judge_model": "qwen/qwen3-32b",
   "summary": "On top of the unfair terms the rules already caught, this subcontract leaves AtliQ exposed on its own client deal: Kriti keeps the IP in the labels AtliQ must hand to Rheinwerk, and German personal data would sit on Kriti's platform with no DPA. Fix those two before the 5 Oct start.",
   "questions": [
    "Does the Rheinwerk contract require AtliQ to assign or only license the labelled datasets?",

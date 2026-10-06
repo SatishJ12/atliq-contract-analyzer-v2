@@ -30,6 +30,11 @@ REASONING_MODEL_PREFIXES = ("qwen/qwen3", "qwen-qwq", "deepseek-r1")
 
 COUNSEL_VALUE_THRESHOLD = 150_000
 
+# Groq's free tier allows ~6k tokens a minute per model, so the contract sent to the AI is capped at
+# ~4k tokens (~4 characters a token). Rules, register, completeness and quote checks still read the full text.
+LLM_CONTRACT_CHAR_LIMIT = int(os.environ.get("ATLIQ_LLM_CONTRACT_CHARS", "16000"))
+TRUNCATION_NOTE = "[... contract truncated for AI analysis — full text used for rules checks]"
+
 
 def _get_api_key() -> str | None:
     key = os.environ.get("GROQ_API_KEY")
@@ -153,10 +158,18 @@ def neutralize_tags(text: str) -> str:
     return _TAG_LIKE.sub(lambda m: m.group(0).replace("<", "‹").replace(">", "›"), text)
 
 
+def trim_for_llm(text: str, limit: int | None = None) -> str:
+    """Cap the contract text an AI call sees; longer text is cut and ends with TRUNCATION_NOTE."""
+    limit = LLM_CONTRACT_CHAR_LIMIT if limit is None else limit
+    if len(text) <= limit:
+        return text
+    return text[:limit].rstrip() + "\n\n" + TRUNCATION_NOTE
+
+
 def fence_contract(text: str) -> str:
-    """Wrap counterparty text in a per-request random delimiter it cannot close."""
+    """Wrap counterparty text (trimmed for the AI) in a per-request random delimiter it cannot close."""
     tag = f"contract_{secrets.token_hex(6)}"
-    return f"<{tag}>\n{neutralize_tags(text)}\n</{tag}>"
+    return f"<{tag}>\n{neutralize_tags(trim_for_llm(text))}\n</{tag}>"
 
 
 @dataclass

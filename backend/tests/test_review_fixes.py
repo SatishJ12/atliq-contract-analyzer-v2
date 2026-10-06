@@ -15,10 +15,10 @@ import analyzer
 from analyzer import REVIEW_SCHEMA, analyze
 from backend import core, main
 from backend.judge import EXTRACT_SCHEMA, JUDGE_SCHEMA, combine, judge_review
-from data_loader import INCOMING_DIR, list_incoming, read_text
+from data_loader import DEMO_UPLOADS_DIR, INCOMING_DIR, list_incoming, read_text
 
 client = TestClient(main.app)
-GULF = next(INCOMING_DIR.glob("*gulf_crown*"))
+GULF = next(DEMO_UPLOADS_DIR.glob("*gulf_crown*"))
 GULF_TEXT = read_text(GULF)
 LOOPMART = next(INCOMING_DIR.glob("*loopmart*"))
 REAL_QUOTE = "In the event of any inconsistency, the Arabic text shall prevail."
@@ -101,7 +101,7 @@ def test_oversize_text_and_question_are_rejected(no_key):
 
 
 def test_ai_modes_need_the_token_but_rules_mode_is_open(fake):
-    draft = {"draft": GULF.name}
+    draft = {"text": GULF_TEXT, "filename": GULF.name}
     assert client.post("/api/analyze", json=draft | {"mode": "judge"}).status_code == 401
     assert client.post("/api/analyze", json=draft | {"mode": "single"}, headers={"X-Access-Token": "wrong"}).status_code == 401
     assert client.post("/api/ask", json={"question": "q", **draft}).status_code == 401
@@ -123,7 +123,7 @@ def test_rate_limit_per_ip(fake, monkeypatch):
 
 def test_daily_budget_falls_back_to_rules(fake, monkeypatch):
     monkeypatch.setenv("ATLIQ_DAILY_LLM_LIMIT", "0")
-    r = client.post("/api/analyze", json={"draft": GULF.name, "mode": "judge"}, headers=AUTH).json()
+    r = client.post("/api/analyze", json={"text": GULF_TEXT, "filename": GULF.name, "mode": "judge"}, headers=AUTH).json()
     assert r["mode"] == "rules" and "budget" in r["warning"] and not fake.calls
 
 
@@ -174,7 +174,7 @@ def test_injected_instructions_are_reported_deterministically():
 
 
 def test_no_false_injection_hits_on_the_dataset():
-    for p in list_incoming():
+    for p in list_incoming() + sorted(DEMO_UPLOADS_DIR.glob("*.md")):
         assert not analyzer._injection_findings(read_text(p)), p.name
 
 
@@ -324,17 +324,17 @@ def test_empty_stage1_skips_the_judge():
 # Single mode, Ask, cache (M1), shared draft scan (M2)
 # --------------------------------------------------------------------------- #
 def test_single_mode_and_ask(fake):
-    r = client.post("/api/analyze", json={"draft": GULF.name, "mode": "single"}, headers=AUTH).json()
+    r = client.post("/api/analyze", json={"text": GULF_TEXT, "filename": GULF.name, "mode": "single"}, headers=AUTH).json()
     assert r["mode"] == "single" and r["llm_summary"] == "single"
     assert any(f["section"] == "ai" and f["title"] == "Arabic prevails" for f in r["findings"])
-    a = client.post("/api/ask", json={"question": "Which text prevails?", "draft": GULF.name}, headers=AUTH)
+    a = client.post("/api/ask", json={"question": "Which text prevails?", "text": GULF_TEXT, "filename": GULF.name}, headers=AUTH)
     assert a.status_code == 200 and "Arabic" in a.json()["answer"]
 
 
 def test_same_draft_twice_is_served_from_cache(fake):
-    first = client.post("/api/analyze", json={"draft": GULF.name, "mode": "judge"}, headers=AUTH).json()
+    first = client.post("/api/analyze", json={"text": GULF_TEXT, "filename": GULF.name, "mode": "judge"}, headers=AUTH).json()
     calls = len(fake.calls)
-    second = client.post("/api/analyze", json={"draft": GULF.name, "mode": "judge"}, headers=AUTH).json()
+    second = client.post("/api/analyze", json={"text": GULF_TEXT, "filename": GULF.name, "mode": "judge"}, headers=AUTH).json()
     assert not first["cached"] and second["cached"] and len(fake.calls) == calls
     assert [f["id"] for f in second["judge"]["findings"]] == [f["id"] for f in first["judge"]["findings"]]
 
@@ -354,7 +354,7 @@ def test_drafts_and_queue_share_one_cached_scan():
 # M5: one source of truth for "Critical"
 # --------------------------------------------------------------------------- #
 def test_data_protection_high_is_critical_and_escalates():
-    path = next(INCOMING_DIR.glob("*harrington_health_msa*"))
+    path = next(DEMO_UPLOADS_DIR.glob("*harrington_health_msa*"))
     report = analyze(read_text(path), path.name, use_llm=False)
     assert any("patient data" in e.lower() for e in report.escalate)
     d = core.report_to_dict(report)
@@ -397,12 +397,12 @@ def test_loose_json_from_small_models_is_conformed():
 
 def test_single_review_ignores_unknown_keys(fake):
     fake.single["findings"][0]["confidence"] = "high"  # would break Finding(**item) if passed through
-    r = client.post("/api/analyze", json={"draft": GULF.name, "mode": "single"}, headers=AUTH).json()
+    r = client.post("/api/analyze", json={"text": GULF_TEXT, "filename": GULF.name, "mode": "single"}, headers=AUTH).json()
     assert not r["llm_error"] and any(f["title"] == "Arabic prevails" for f in r["findings"])
 
 
 def test_ask_uses_the_ask_model_without_json_mode(fake):
-    client.post("/api/ask", json={"question": "Which law governs?", "draft": GULF.name}, headers=AUTH)
+    client.post("/api/ask", json={"question": "Which law governs?", "text": GULF_TEXT, "filename": GULF.name}, headers=AUTH)
     call = fake.calls[-1]
     assert call["model"] == analyzer.ASK_MODEL and "response_format" not in call
 

@@ -9,10 +9,10 @@
   "status": "In review",
   "notes": "need by 1 Oct (Rebecca). their lawyers say template is non-negotiable. $210k",
   "deadline": "2026-10-01",
-  "high": 11,
-  "scan_verdict": "Do not sign yet: 11 blocking issues to resolve",
-  "scan_level": "blockers",
-  "draft": "2026-09-10_harrington_health_msa_draft.md"
+  "high": null,
+  "scan_verdict": "No draft in dataset",
+  "scan_level": null,
+  "draft": null
  },
  {
   "contract_id": "C-036",
@@ -99,10 +99,10 @@
   "status": "In review",
   "notes": "sign by 10 Oct!! Faisal has a summit on the 14th. biggest deal of the year (Bhavin)",
   "deadline": "2026-10-10",
-  "high": 2,
-  "scan_verdict": "Do not sign yet: 2 blocking issues to resolve",
-  "scan_level": "blockers",
-  "draft": "2026-09-18_gulf_crown_hotels_msa_draft.md"
+  "high": null,
+  "scan_verdict": "No draft in dataset",
+  "scan_level": null,
+  "draft": null
  },
  {
   "contract_id": "C-028",
