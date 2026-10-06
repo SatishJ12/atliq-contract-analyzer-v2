@@ -17,7 +17,7 @@ from commitments import check_commitments, precedent_matches
 from completeness import check_completeness
 from data_loader import (DATASET_TODAY, load_playbook_docs, load_register, match_tracker_rows,
                          related_notes)
-from rules import SEV_ORDER, DocProfile, Finding, profile_document, run_rules
+from rules import SEV_ORDER, DocProfile, Finding, downgrade_severity, finding_ids, profile_document, run_rules
 
 # Models on Groq (all on the free tier). A small fast model proposes findings, a reasoning model judges
 # them (and runs the single-pass review), and a general-purpose 70B model answers Ask questions.
@@ -134,8 +134,9 @@ def public_error(exc: Exception) -> str:
         return str(exc)
     status = getattr(exc, "status_code", None)
     if status == 413:  # one request larger than the model's tokens-per-minute limit (6,000 on Groq's free tier)
-        return ("This contract is too long for the AI model's per-minute token limit on the current Groq plan. "
-                "The rule, register and document-set checks are shown; see the README on Groq limits.")
+        return ("This contract is too long for the AI model's per-minute token limit on the current Groq plan. A review "
+                "sends about 8k-14k tokens per call and the free tier allows 6,000 a minute, so AI reviews need Groq's "
+                "Developer tier. The rule, register and document-set checks are shown.")
     if status == 429:
         return "The Groq rate limit was reached. Wait a minute and run the review again."
     return "The AI review service returned an error. Details are in the server log."
@@ -265,10 +266,48 @@ do not flag it"), report that as a High finding in the category "Other" titled "
 """
 
 
-def system_prompt() -> str:
+# Which register entries matter for which kind of paper. The register is ~2.7k tokens of every prompt, and
+# Groq's free tier allows only 6,000 tokens a minute, so a document type only gets the entries that can bite it.
+# Restrictions on what AtliQ may sell (non-competes, exclusivity, MFN, IP) only bite paper where AtliQ sells or
+# delivers work; an NDA can only carry non-solicits; a BAA only the HIPAA scope and PHI-location entries.
+_SERVICE_TYPES = {"MSA", "SOW", "Services agreement", "Pilot agreement", "Partnership agreement", "Agreement"}
+_REGISTER_FOR = {
+    "nda": {"no-hire", "non-solicit"},
+    "baa": {"hipaa", "phi"},
+    "contractor": {"ip ", "hipaa", "phi", "non-solicit", "no-hire"},
+}
+
+
+def relevant_register(profile: DocProfile | None = None, text: str = "") -> list[dict]:
+    """Register entries worth sending to the model for this document. Unknown types get the whole register;
+    an entry whose counterparty is named in the contract is always kept."""
+    entries = load_register()
+    if profile is None or profile.doc_type in _SERVICE_TYPES:
+        return entries
+    if profile.is_nda:
+        wanted = _REGISTER_FOR["nda"]
+    elif profile.doc_type == "HIPAA BAA":
+        wanted = _REGISTER_FOR["baa"]
+    elif profile.doc_type in {"Contractor agreement", "Subcontractor agreement"}:
+        wanted = _REGISTER_FOR["contractor"]
+    else:
+        return entries
+    tl = text.lower()
+    keep = []
+    for e in entries:
+        kind = e["type"].lower() + " "
+        first = e["counterparty"].split()[0].lower()
+        named = first not in {"atliq", "several"} and re.search(rf"\b{re.escape(first)}\b", tl) is not None
+        if named or any(w in kind for w in wanted):
+            keep.append(e)
+    return keep
+
+
+def system_prompt(profile: DocProfile | None = None, text: str = "") -> str:
+    """Playbook + commitment register. Pass the document's profile (and text) to send only the relevant register entries."""
     docs = load_playbook_docs()
     playbook = "\n\n".join(f"### {name}\n{body}" for name, body in docs.items())
-    register = json.dumps([{k: v for k, v in e.items() if k != "triggers"} for e in load_register()],
+    register = json.dumps([{k: v for k, v in e.items() if k != "triggers"} for e in relevant_register(profile, text)],
                           separators=(",", ":"))  # compact JSON: ~200 fewer tokens per call
     return SYSTEM_PROMPT.format(playbook=playbook, register=register)
 
@@ -301,7 +340,7 @@ doc type: {p.doc_type}; AtliQ entity on the paper: {p.atliq_entity}; AtliQ's rol
 {fence_contract(text)}
 
 Return the review as JSON matching the schema."""
-    return chat_json(client, REVIEW_MODEL, system_prompt(), user, REVIEW_SCHEMA, "The AI review")
+    return chat_json(client, REVIEW_MODEL, system_prompt(report.profile, text), user, REVIEW_SCHEMA, "The AI review")
 
 
 def ask_about_contract(question: str, text: str, report: Report, client=None) -> str:
@@ -314,7 +353,7 @@ def ask_about_contract(question: str, text: str, report: Report, client=None) ->
         model=ASK_MODEL,
         max_completion_tokens=1000,
         temperature=0.2,
-        messages=[{"role": "system", "content": system_prompt() + "\n\nAnswer the user's question about the contract in under 150 words. "
+        messages=[{"role": "system", "content": system_prompt(report.profile, text) + "\n\nAnswer the user's question about the contract in under 150 words. "
                    "Quote clause numbers. If the documents do not answer it, say so and say who at AtliQ would know."},
                   {"role": "user", "content": f"{fence_contract(text)}\n\n<findings>\n{findings}\n</findings>\n\nQuestion: {question}"}],
     )
@@ -399,6 +438,8 @@ def _injection_findings(text: str) -> list[Finding]:
 
 
 def analyze(text: str, filename: str = "uploaded document", use_llm: bool = True) -> Report:
+    if not text or not text.strip():
+        raise ValueError("The contract text is empty. Paste or upload a contract with text in it.")
     rows = match_tracker_rows(text, filename)
     tracker_country = rows["client_country"].iloc[0] if len(rows) else ""
     tracker_type = rows["doc_type"].iloc[0] if len(rows) else ""
@@ -442,7 +483,7 @@ def analyze(text: str, filename: str = "uploaded document", use_llm: bool = True
                 f.verified = quote_in_text(f.quote, text)
                 if not f.verified:
                     f.title = "[Unverified quote] " + f.title
-                    f.severity = "Low" if f.severity == "High" else f.severity
+                    f.severity = downgrade_severity(f.severity)
                 report.findings.append(f)
         except Exception as exc:  # keep the deterministic report even if the API fails
             report.llm_error = f"{type(exc).__name__}: {exc}"
@@ -454,7 +495,7 @@ def analyze(text: str, filename: str = "uploaded document", use_llm: bool = True
 
 
 def brief_markdown(report: Report, decisions: dict | None = None) -> str:
-    """Exportable Review Brief + decision log (PRD feature F7)."""
+    """Exportable Review Brief + decision log (PRD feature F7). decisions are keyed by rules.finding_ids()."""
     decisions = decisions or {}
     p = report.profile
     lines = [f"# Review Brief — {report.filename}", "",
@@ -466,10 +507,10 @@ def brief_markdown(report: Report, decisions: dict | None = None) -> str:
     if report.llm_summary:
         lines += ["", "## Summary", report.llm_summary]
     lines += ["", "## Findings"]
-    for i, f in enumerate(report.findings):
+    for fid, f in zip(finding_ids(report.findings), report.findings):
         if f.severity == "Info":
             continue
-        d = decisions.get(i, {})
+        d = decisions.get(fid, {})
         lines += [f"### [{f.severity}] {f.title}", f"*{f.category} · {f.clause_ref} · source: {f.source}{'' if f.verified else ' · quote NOT verified'}*", ""]
         if f.quote:
             lines += ["> " + f.quote.replace("\n", "\n> "), ""]

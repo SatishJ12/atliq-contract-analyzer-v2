@@ -1,5 +1,7 @@
 # Render blueprint for the FastAPI backend (free tier). Runs from the repo root (no rootDir): the backend imports analyzer.py, rules.py and data/ from there. In Render: New > Blueprint > this repo,
 # then set GROQ_API_KEY (from console.groq.com) in the service's Environment tab.
+# The AI modes need Groq's Developer tier: each call sends ~8k-14k tokens and the free tier allows 6,000 tokens a
+# minute per model, so on the free tier every AI review fails (413) and the site shows the rules-only report.
 services:
   - type: web
     name: atliq-contract-api

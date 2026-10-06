@@ -1,6 +1,12 @@
 import type { Draft, Health, Mode, QueueRow, RegisterEntry, Report } from "./types";
 
 const STORAGE_KEY = "atliq.apiUrl";
+/**
+ * The access token is kept in localStorage so it survives reloads. Any script that runs on this origin (an XSS
+ * bug, a compromised dependency) can read it, so treat it as a spend-limiting key for a demo, not a secret:
+ * the backend still rate-limits per IP and per day, and the token can be rotated in Render at any time.
+ * React escapes rendered contract text, and the page loads no third-party scripts, which keeps that risk low.
+ */
 const TOKEN_KEY = "atliq.accessToken";
 /** Saved in place of a URL when the user explicitly picks the offline demo. */
 export const DEMO_SENTINEL = "demo";
