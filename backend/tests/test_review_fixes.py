@@ -416,3 +416,53 @@ def test_groq_limit_errors_get_a_plain_message(status, expect):
     report = analyze(GULF_TEXT, GULF.name, use_llm=False)
     result = judge_review(GULF_TEXT, report, client=_client(Limited()))
     assert expect in result.error and "6000" not in result.error and "6000" in report.llm_error
+
+
+# --------------------------------------------------------------------------- #
+# 6 Oct 2026 review: Ask error statuses, client IP behind proxies
+# --------------------------------------------------------------------------- #
+class _GroqError(Exception):
+    def __init__(self, status_code):
+        super().__init__(f"Error code: {status_code}")
+        self.status_code = status_code
+
+
+@pytest.mark.parametrize("status, expect_status, expect_text", [
+    (413, 413, "too long"),
+    (429, 429, "rate limit"),
+    (500, 502, "could not answer right now"),
+])
+def test_ask_passes_on_why_groq_failed(fake, monkeypatch, status, expect_status, expect_text):
+    def boom(**kw):
+        raise _GroqError(status)
+    monkeypatch.setattr(fake, "create", boom)
+    r = client.post("/api/ask", json={"question": "q", "draft": GULF.name}, headers=AUTH)
+    assert r.status_code == expect_status and expect_text in r.json()["detail"]
+
+
+def _req(fwd=None, host="10.0.0.9"):
+    headers = [(b"x-forwarded-for", fwd.encode())] if fwd is not None else []
+    from starlette.requests import Request
+    return Request({"type": "http", "headers": headers, "client": (host, 1234)})
+
+
+@pytest.mark.parametrize("hops, fwd, expect", [
+    (None, "203.0.113.7", "203.0.113.7"),                  # default: one proxy (Render)
+    (None, "6.6.6.6, 203.0.113.7", "203.0.113.7"),         # a forged first entry is ignored
+    ("2", "6.6.6.6, 203.0.113.7, 10.1.1.1", "203.0.113.7"),  # two proxies: second from the right
+    ("2", "203.0.113.7", "203.0.113.7"),                   # fewer entries than hops: the leftmost
+    ("0", "6.6.6.6", "10.0.0.9"),                          # no proxy: header ignored
+    (None, None, "10.0.0.9"),                              # no header: socket address
+    ("junk", "6.6.6.6, 203.0.113.7", "203.0.113.7"),       # bad setting falls back to one hop
+])
+def test_client_ip_trusts_only_proxy_added_entries(monkeypatch, hops, fwd, expect):
+    if hops is None:
+        monkeypatch.delenv("ATLIQ_TRUSTED_PROXY_HOPS", raising=False)
+    else:
+        monkeypatch.setenv("ATLIQ_TRUSTED_PROXY_HOPS", hops)
+    assert main._client_ip(_req(fwd)) == expect
+
+
+def test_rate_limit_default_allows_a_demo_session(monkeypatch):
+    monkeypatch.delenv("ATLIQ_RATE_LIMIT_PER_HOUR", raising=False)
+    assert main.SpendGuard.per_hour() == 30

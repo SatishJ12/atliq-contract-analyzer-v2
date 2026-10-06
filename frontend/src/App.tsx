@@ -13,6 +13,7 @@ import { Input } from "@/components/ui/textarea";
 import { type Client, connect, getAccessToken, getApiUrl, setAccessToken, setApiUrl } from "@/lib/api";
 import { createLatestGuard } from "@/lib/latest";
 import { MODE_LABEL } from "@/lib/modes";
+import { mergeWarnings } from "@/lib/warning";
 import type { Draft, Health, Mode, QueueRow, RegisterEntry, Report } from "@/lib/types";
 import { cn } from "@/lib/utils";
 
@@ -111,7 +112,7 @@ export default function App() {
             ? await c.analyzeDraft(s.draft, want, t.signal)
             : await c.analyzeText(s.text ?? "", s.filename ?? r.filename, want, t.signal);
           if (!t.isCurrent()) return;
-          setReport(full);
+          setReport({ ...full, warning: mergeWarnings(full.warning, r.warning) });
         }
       } catch (e) {
         if (t.isCurrent()) setError((e as Error).message);
