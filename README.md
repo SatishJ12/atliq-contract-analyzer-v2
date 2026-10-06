@@ -148,7 +148,7 @@ Open the app against the live backend, choose **Upload** in the contract picker 
 
 **Frontend → GitHub Pages.** `.github/workflows/deploy.yml` runs on every push to `main`:
 1. **test**: golden cases, API and judge tests, and a Streamlit `AppTest` render.
-2. **build**: exports the demo data from the Python pipeline, builds the React app, and runs `site/smoke_check.py` in headless Chromium (desktop and phone width) to check the Gulf Crown review, the Al Noor conflict and the judge sample render with no JS errors and no sideways scroll.
+2. **build**: exports the demo data from the Python pipeline, builds the React app, and runs `site/smoke_check.py` in headless Chromium (desktop and phone width) to check the default review (Kriti Data Labs, the first draft with a judge sample), the Al Noor conflict and the judge sample render with no JS errors and no sideways scroll.
 3. **deploy**: publishes `frontend/dist` to `https://satishj12.github.io/<repo-name>/` (for this repo, `https://satishj12.github.io/atliq-contract-analyzer-v2/`).
 
 One-time setup: **Settings → Pages → Source: GitHub Actions**.

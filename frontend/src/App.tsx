@@ -141,7 +141,7 @@ export default function App() {
     boot().then((res) => {
       if (!res) return;
       const { client, drafts } = res;
-      const first = drafts.find((d) => d.filename.includes("gulf_crown")) ?? drafts[0];
+      const first = drafts.find((d) => d.has_judge_sample) ?? drafts[0];
       // Rules only on load, so opening the page never spends the API key. The report shows its own mode.
       if (first) run(client, client.live ? "rules" : "demo", (m, sig) => client.analyzeDraft(first.filename, m, sig), { draft: first.filename });
     });
