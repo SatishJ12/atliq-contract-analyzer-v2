@@ -13,9 +13,11 @@ Endpoints (all JSON):
 
 The AI modes ("single", "judge") and /api/ask spend the Groq key (GROQ_API_KEY), so they are guarded:
     ATLIQ_ACCESS_TOKEN          if set, callers must send it in the X-Access-Token header (401 otherwise)
-    ATLIQ_RATE_LIMIT_PER_HOUR   AI runs per client IP per hour (default 10; 429 when exceeded)
+    ATLIQ_RATE_LIMIT_PER_HOUR   AI runs per client IP per hour (default 30; 429 when exceeded)
     ATLIQ_DAILY_LLM_LIMIT       AI runs per day for the whole server (default 200); after that, reviews fall back to rules
     ATLIQ_CORS_ORIGINS          comma-separated allowed origins (default: the GitHub Pages site and the Vite dev server)
+    ATLIQ_TRUSTED_PROXY_HOPS    proxies in front of the app that append to X-Forwarded-For (default 1, Render);
+                                0 ignores the header and uses the socket address
 Rules mode stays open. Request bodies are capped (contract text 200k characters, question 1,000).
 """
 from __future__ import annotations
@@ -38,7 +40,7 @@ from starlette.concurrency import run_in_threadpool
 
 from . import core
 from .judge import judge_review
-from analyzer import ASK_MODEL, EXTRACT_MODEL, REVIEW_MODEL, analyze, ask_about_contract, llm_available
+from analyzer import ASK_MODEL, EXTRACT_MODEL, REVIEW_MODEL, analyze, ask_about_contract, llm_available, public_error
 from data_loader import DATASET_TODAY, extract_text_from_upload, read_text
 
 log = logging.getLogger("atliq.api")
@@ -85,7 +87,7 @@ class SpendGuard:
 
     @staticmethod
     def per_hour() -> int:
-        return int(os.environ.get("ATLIQ_RATE_LIMIT_PER_HOUR", "10"))
+        return int(os.environ.get("ATLIQ_RATE_LIMIT_PER_HOUR", "30"))
 
     @staticmethod
     def per_day() -> int:
@@ -124,11 +126,20 @@ guard = SpendGuard()
 
 
 def _client_ip(request: Request) -> str:
-    # Render (one proxy hop) appends the caller's address last; earlier entries are client-supplied.
-    fwd = request.headers.get("x-forwarded-for", "")
-    if fwd:
-        return fwd.split(",")[-1].strip()
-    return request.client.host if request.client else "unknown"
+    """The caller's address for the per-IP limit.
+
+    Each trusted proxy appends the address it received the request from, so with N trusted hops the caller is
+    the N-th entry from the right; anything further left was sent by the client and could be forged.
+    """
+    socket_ip = request.client.host if request.client else "unknown"
+    try:
+        hops = max(0, int(os.environ.get("ATLIQ_TRUSTED_PROXY_HOPS", "1")))
+    except ValueError:
+        hops = 1
+    entries = [e.strip() for e in request.headers.get("x-forwarded-for", "").split(",") if e.strip()]
+    if hops == 0 or not entries:
+        return socket_ip
+    return entries[-hops] if len(entries) >= hops else entries[0]
 
 
 def _check_token(token: str | None) -> None:
@@ -279,8 +290,13 @@ def ask(req: AskRequest, request: Request, x_access_token: str | None = Header(N
     report = analyze(text, filename, use_llm=False)
     try:
         answer = ask_about_contract(req.question, text, report)
-    except Exception:
+    except Exception as exc:
         log.exception("Ask failed for %s", filename)
+        # pass on what actually went wrong (contract too long for the Groq plan, Groq rate limit) instead of
+        # always saying "try again", which never helps for a too-long contract
+        status = getattr(exc, "status_code", None)
+        if status in (413, 429):
+            raise HTTPException(status, public_error(exc)) from None
         raise HTTPException(502, "The AI service could not answer right now. Try again in a minute.") from None
     return {"answer": answer}
 

@@ -20,7 +20,7 @@ services:
       - key: ATLIQ_ACCESS_TOKEN
         generateValue: true
       - key: ATLIQ_RATE_LIMIT_PER_HOUR
-        value: "10"
+        value: "30"
       - key: ATLIQ_DAILY_LLM_LIMIT
         value: "200"
       - key: ATLIQ_CORS_ORIGINS

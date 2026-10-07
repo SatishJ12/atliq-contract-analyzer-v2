@@ -176,7 +176,8 @@ None of these are needed for rules mode or the tests. Set them on the backend on
 | `ATLIQ_EXTRACT_MODEL` | Stage 1 model | `llama-3.1-8b-instant` |
 | `ATLIQ_REVIEW_MODEL` | Stage 2 judge and single-pass model | `qwen/qwen3-32b` |
 | `ATLIQ_ASK_MODEL` | Ask-a-question model | `llama-3.3-70b-versatile` |
-| `ATLIQ_RATE_LIMIT_PER_HOUR` | AI runs per IP per hour | `10` |
+| `ATLIQ_RATE_LIMIT_PER_HOUR` | AI runs per IP per hour (a Judge review or an Ask counts as one) | `30` |
+| `ATLIQ_TRUSTED_PROXY_HOPS` | Proxies in front of the API that append to `X-Forwarded-For`; `0` uses the socket address | `1` (Render) |
 | `ATLIQ_DAILY_LLM_LIMIT` | AI runs per day before falling back to rules | `200` |
 | `ATLIQ_CORS_ORIGINS` | Comma-separated allowed origins | the GitHub Pages site |
 
