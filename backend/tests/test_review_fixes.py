@@ -436,7 +436,8 @@ def test_ask_passes_on_why_groq_failed(fake, monkeypatch, status, expect_status,
     def boom(**kw):
         raise _GroqError(status)
     monkeypatch.setattr(fake, "create", boom)
-    r = client.post("/api/ask", json={"question": "q", "draft": GULF.name}, headers=AUTH)
+    # Gulf Crown is a demo upload now, not an incoming draft, so it is sent as text
+    r = client.post("/api/ask", json={"question": "q", "text": GULF_TEXT, "filename": GULF.name}, headers=AUTH)
     assert r.status_code == expect_status and expect_text in r.json()["detail"]
 
 
