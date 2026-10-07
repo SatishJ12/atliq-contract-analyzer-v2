@@ -109,7 +109,7 @@ export function liveClient(base: string): Client {
   };
 }
 
-const needsBackend = () => Promise.reject(new Error("This needs the live backend. The demo only covers the 15 incoming drafts."));
+const needsBackend = () => Promise.reject(new Error("This needs the live backend. The demo only covers the 13 incoming drafts."));
 
 export const demoClient: Client = {
   live: false,

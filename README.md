@@ -87,7 +87,9 @@ If either stage fails (rate limit, outage), the deterministic report is still re
 | Self-consistency voting | Same model run 3-5 times, keep findings that appear in most runs | Reduces noise but triples cost and gives no reasoning for the human. |
 | Rules only | No LLM at all | Free and predictable (and it is the offline/fallback mode), but misses context-dependent risks such as the Gulf Crown no-conflict warranty. |
 
-## Results on the 15 incoming drafts (rules + register mode)
+## Results on the 15 drafts (rules + register mode)
+
+Gulf Crown MSA and Harrington MSA sit in `data/demo_uploads/` rather than `data/incoming/`, so they are not pre-loaded; the draft list, queue and offline demo show the other 13. See "Live demo with uploads" below.
 
 | Draft | What it catches |
 |---|---|
@@ -131,11 +133,22 @@ Tests: `pip install -r requirements.txt -r backend/requirements.txt pytest httpx
 
 The original Streamlit app still works: `pip install -r requirements.txt && streamlit run app.py`.
 
+## Live demo with uploads
+
+`data/demo_uploads/` holds two drafts that the app never loads on its own, so you can show a review happening live:
+
+| File | What the review catches |
+|---|---|
+| `2026-09-18_gulf_crown_hotels_msa_draft.md` | Al Noor GCC non-compete conflict from the commitment register, LD on total contract value, Saudi law |
+| `2026-09-10_harrington_health_msa_draft.md` | Healthcare deal with no signed BAA and no subcontractor BAA (HIPAA gap), uncapped per-day LD |
+
+Open the app against the live backend, choose **Upload** in the contract picker and pick one of these files. Uploading needs the backend; the offline GitHub Pages demo cannot upload.
+
 ## Deploy
 
 **Frontend → GitHub Pages.** `.github/workflows/deploy.yml` runs on every push to `main`:
 1. **test**: golden cases, API and judge tests, and a Streamlit `AppTest` render.
-2. **build**: exports the demo data from the Python pipeline, builds the React app, and runs `site/smoke_check.py` in headless Chromium (desktop and phone width) to check the Gulf Crown review, the Al Noor conflict and the judge sample render with no JS errors and no sideways scroll.
+2. **build**: exports the demo data from the Python pipeline, builds the React app, and runs `site/smoke_check.py` in headless Chromium (desktop and phone width) to check the default review (Kriti Data Labs, the first draft with a judge sample), the Al Noor conflict and the judge sample render with no JS errors and no sideways scroll.
 3. **deploy**: publishes `frontend/dist` to `https://satishj12.github.io/<repo-name>/` (for this repo, `https://satishj12.github.io/atliq-contract-analyzer-v2/`).
 
 One-time setup: **Settings → Pages → Source: GitHub Actions**.
@@ -185,7 +198,7 @@ The AI layer runs on [Groq](https://console.groq.com) through its OpenAI-compati
 
 Groq's JSON mode returns valid JSON but does not enforce a schema, so the schema is written into the prompt and every answer is checked in code (`analyzer.conform`): findings with missing fields or unknown categories are dropped, and the quote check and judge logic are unchanged.
 
-**Free-tier limits.** Groq's free tier allows about 30 requests/minute, 1,000 requests/day and 6,000 tokens/minute for most models. A judged review sends the playbook and register (~6k tokens) plus the contract (2k-7k tokens) to each stage (NDAs, BAAs and contractor agreements send only the register entries relevant to their type, about 1k-2k tokens less), so on the free tier most reviews exceed the per-minute token limit and Groq rejects them; the app then shows the rules report with a plain "too long for the current Groq plan" message. For live AI reviews use Groq's pay-as-you-go Developer tier, or set `ATLIQ_REVIEW_MODEL` / `ATLIQ_EXTRACT_MODEL` to models with higher limits. Re-measure cost with real usage before quoting a number.
+**Free-tier limits.** Groq's free tier allows about 30 requests/minute, 1,000 requests/day and 6,000 tokens/minute for most models. To stay closer to that, the contract text sent to the AI is capped at 16,000 characters (about 4,000 tokens; change it with `ATLIQ_LLM_CONTRACT_CHARS`). A longer contract is cut there and ends with "[... contract truncated for AI analysis — full text used for rules checks]". The rules, register, completeness and quote checks always read the full text, so a truncated contract still gets every deterministic finding. The playbook and register add ~6k tokens per call (NDAs, BAAs and contractor agreements send only the relevant register entries, about 1k-2k tokens less), so a judged review of a long MSA can still go over the per-minute limit; the app then shows the rules report with a plain "too long for the current Groq plan" message. For dependable live AI reviews use Groq's pay-as-you-go Developer tier, or set `ATLIQ_REVIEW_MODEL` / `ATLIQ_EXTRACT_MODEL` to models with higher limits.
 
 ## Data notes and limitations
 

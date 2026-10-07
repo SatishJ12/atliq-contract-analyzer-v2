@@ -4,7 +4,7 @@
 
 Endpoints (all JSON):
     GET  /api/health                 which review modes are available
-    GET  /api/drafts                 the 15 incoming drafts with deadline and High count
+    GET  /api/drafts                 the 13 incoming drafts with deadline and High count
     POST /api/analyze                review an incoming draft or pasted text
     POST /api/analyze/upload         review an uploaded PDF / DOCX / TXT / MD file
     POST /api/ask                    question about a contract (needs GROQ_API_KEY)

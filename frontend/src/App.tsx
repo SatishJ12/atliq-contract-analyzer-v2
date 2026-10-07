@@ -142,7 +142,7 @@ export default function App() {
     boot().then((res) => {
       if (!res) return;
       const { client, drafts } = res;
-      const first = drafts.find((d) => d.filename.includes("gulf_crown")) ?? drafts[0];
+      const first = drafts.find((d) => d.has_judge_sample) ?? drafts[0];
       // Rules only on load, so opening the page never spends the API key. The report shows its own mode.
       if (first) run(client, client.live ? "rules" : "demo", (m, sig) => client.analyzeDraft(first.filename, m, sig), { draft: first.filename });
     });
@@ -263,7 +263,7 @@ export default function App() {
                     ))}
                   </div>
                   {!client.live && (
-                    <p className="mt-2 px-1 text-xs text-muted-foreground">Real rule, register and document-set results for all 15 drafts. Drafts marked with a gavel include a sample LLM-as-Judge run.</p>
+                    <p className="mt-2 px-1 text-xs text-muted-foreground">Real rule, register and document-set results for all 13 drafts. Drafts marked with a gavel include a sample LLM-as-Judge run.</p>
                   )}
                   {client.live && !health.llm_available && (
                     <p className="mt-2 px-1 text-xs text-muted-foreground">Set GROQ_API_KEY on the backend to enable the AI review modes.</p>

@@ -7,7 +7,7 @@ import analyzer
 from backend import main
 from backend.judge import combine
 from backend.tests.test_review_fixes import AUTH, GULF_TEXT, LOOPMART, Fake, _f, fake  # noqa: F401  (fixture)
-from data_loader import INCOMING_DIR, read_text
+from data_loader import DEMO_UPLOADS_DIR, read_text
 from rules import profile_document
 
 client = TestClient(main.app)
@@ -37,7 +37,7 @@ def test_nda_prompt_carries_only_the_relevant_register_entries():
     ids = [e["id"] for e in analyzer.relevant_register(p, nda)]
     assert ids == ["REG-09", "REG-12"]
     assert len(analyzer.system_prompt(p, nda)) < len(analyzer.system_prompt()) - 4000
-    msa = read_text(next(INCOMING_DIR.glob("*gulf_crown*")))
+    msa = read_text(next(DEMO_UPLOADS_DIR.glob("*gulf_crown*")))
     assert len(analyzer.relevant_register(profile_document(msa), msa)) == len(analyzer.relevant_register())
 
 

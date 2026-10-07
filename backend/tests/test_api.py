@@ -17,14 +17,21 @@ def test_health_reports_rules_only_without_key():
     assert r["ok"] and r["modes"] == ["rules"] and not r["llm_available"]
 
 
-def test_drafts_lists_all_incoming():
+def test_drafts_lists_all_incoming_but_not_demo_uploads():
     drafts = client.get("/api/drafts").json()
-    assert len(drafts) == 15
-    assert any(d["label"] == "Gulf Crown Hotels MSA" for d in drafts)
+    assert len(drafts) == 13
+    assert not any("gulf_crown" in d["filename"] or "harrington_health_msa" in d["filename"] for d in drafts)
 
 
-def test_analyze_draft_returns_sections():
-    r = client.post("/api/analyze", json={"draft": "2026-09-18_gulf_crown_hotels_msa_draft.md", "mode": "judge"}).json()
+def test_demo_upload_is_not_a_named_draft():
+    r = client.post("/api/analyze", json={"draft": "2026-09-18_gulf_crown_hotels_msa_draft.md"})
+    assert r.status_code == 404
+
+
+def test_analyze_uploaded_demo_contract_returns_sections():
+    text = open("data/demo_uploads/2026-09-18_gulf_crown_hotels_msa_draft.md", encoding="utf-8").read()
+    r = client.post("/api/analyze/upload", files={"file": ("2026-09-18_gulf_crown_hotels_msa_draft.md", text.encode(), "text/markdown")},
+                    data={"mode": "judge"}).json()
     assert r["mode"] == "rules"  # downgraded: no key
     assert r["verdict_level"] == "blockers"
     sections = {f["section"] for f in r["findings"]}

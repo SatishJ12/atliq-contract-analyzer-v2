@@ -1,13 +1,5 @@
 [
  {
-  "filename": "2026-09-10_harrington_health_msa_draft.md",
-  "label": "Harrington Health MSA",
-  "deadline": "2026-10-01",
-  "high": 11,
-  "verdict_level": "blockers",
-  "has_judge_sample": false
- },
- {
   "filename": "2026-09-15_travelhub_services_agreement_draft.md",
   "label": "Travelhub Services Agreement",
   "deadline": null,
@@ -22,14 +14,6 @@
   "high": 6,
   "verdict_level": "blockers",
   "has_judge_sample": false
- },
- {
-  "filename": "2026-09-18_gulf_crown_hotels_msa_draft.md",
-  "label": "Gulf Crown Hotels MSA",
-  "deadline": "2026-10-10",
-  "high": 2,
-  "verdict_level": "blockers",
-  "has_judge_sample": true
  },
  {
   "filename": "2026-09-19_lakeshore_grocers_msa_draft.md",

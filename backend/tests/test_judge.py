@@ -5,9 +5,9 @@ from types import SimpleNamespace
 from backend.core import report_to_dict
 from backend.judge import EXTRACT_SCHEMA, JUDGE_SCHEMA, judge_review
 from analyzer import EXTRACT_MODEL, REASONING_MODEL_PREFIXES, REVIEW_MODEL, analyze
-from data_loader import INCOMING_DIR, read_text
+from data_loader import DEMO_UPLOADS_DIR, read_text
 
-GULF = next(INCOMING_DIR.glob("*gulf_crown*"))
+GULF = next(DEMO_UPLOADS_DIR.glob("*gulf_crown*"))
 REAL_QUOTE = "In the event of any inconsistency, the Arabic text shall prevail."
 WARRANTY = "it is not bound by any agreement or restriction which would prevent or restrict it from performing the Services for the Company."
 

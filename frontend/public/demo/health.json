@@ -4,7 +4,7 @@
  "modes": [
   "demo"
  ],
- "extractor_model": "claude-haiku-4-5",
- "judge_model": "claude-sonnet-4-6",
+ "extractor_model": "llama-3.1-8b-instant",
+ "judge_model": "qwen/qwen3-32b",
  "dataset_today": "2026-09-28"
 }

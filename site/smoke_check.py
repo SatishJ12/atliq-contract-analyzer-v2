@@ -2,7 +2,7 @@
 
     cd frontend && npm run build && cd .. && python site/smoke_check.py
 
-Fails if the Gulf Crown review (the default draft) does not render with the Al Noor
+Fails if the default draft (the first one with an LLM-as-Judge sample, Kriti Data Labs) does not render with the Al Noor
 conflict and the LLM-as-Judge sample, or if the page logs a JavaScript error.
 Writes smoke-desktop.png and smoke-mobile.png.
 """
@@ -69,7 +69,7 @@ async def main() -> int:
     if problems:
         print("Smoke test failed:\n- " + "\n- ".join(problems))
         return 1
-    print("Smoke test passed: offline demo rendered the Gulf Crown review with the Al Noor conflict and the judge sample.")
+    print("Smoke test passed: offline demo rendered the default review with the Al Noor conflict and the judge sample.")
     return 0
 
 
